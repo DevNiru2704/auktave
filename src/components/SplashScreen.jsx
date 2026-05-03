@@ -5,15 +5,24 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function SplashScreen() {
   const [show, setShow] = useState(true);
   const [progress, setProgress] = useState(0);
+
   useEffect(() => {
     const id = setInterval(() => {
       setProgress((p) => {
-        const next = p + Math.random() * 9 + 2;
-        if (next >= 100) { clearInterval(id); return 100; }
-        return next;
+        if (p >= 99) return p;
+        return Math.min(99, p + Math.random() * 6 + 2);
       });
     }, 80);
-    return () => clearInterval(id);
+
+    // Decouple splash completion from media/network readiness.
+    const completeAt = setTimeout(() => setProgress(100), 2200);
+    const hideAt = setTimeout(() => setShow(false), 2800);
+
+    return () => {
+      clearInterval(id);
+      clearTimeout(completeAt);
+      clearTimeout(hideAt);
+    };
   }, []);
 
   useEffect(() => {
@@ -23,6 +32,26 @@ export default function SplashScreen() {
     }
   }, [progress]);
 
+  useEffect(() => {
+    if (!show) return;
+
+    const prevHtmlOverflow = document.documentElement.style.overflow;
+    const prevBodyOverflow = document.body.style.overflow;
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.documentElement.style.overflow = prevHtmlOverflow;
+      document.body.style.overflow = prevBodyOverflow;
+    };
+  }, [show]);
+
+  useEffect(() => {
+    // Final fail-safe: splash should never block the homepage indefinitely.
+    const forceHide = setTimeout(() => setShow(false), 7000);
+    return () => clearTimeout(forceHide);
+  }, []);
+
   return (
     <AnimatePresence>
       {show && (
@@ -30,7 +59,7 @@ export default function SplashScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
-          className="fixed inset-0 z-[100] bg-ink flex flex-col items-center justify-center"
+          className="fixed inset-0 z-100 bg-ink flex flex-col items-center justify-center"
           data-testid="splash-screen"
         >
           <div className="absolute inset-0 scanlines opacity-30 pointer-events-none" />
@@ -43,7 +72,7 @@ export default function SplashScreen() {
             <p className="headline text-2xl sm:text-3xl text-ember mb-10">OF INNOVATION</p>
 
             <div className="w-72 sm:w-96 mx-auto">
-              <div className="h-[2px] bg-ember/20 relative overflow-hidden">
+              <div className="h-0.5 bg-ember/20 relative overflow-hidden">
                 <div
                   className="absolute inset-y-0 left-0 bg-signal shadow-signal transition-all duration-150"
                   style={{ width: `${progress}%` }}

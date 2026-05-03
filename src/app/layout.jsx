@@ -3,7 +3,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AudioController from "@/components/AudioController";
 import LenisProvider from "@/components/LenisProvider";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import Script from "next/script";
 
 export const metadata = {
@@ -35,7 +34,6 @@ export default function RootLayout({ children }) {
           <main className="relative">{children}</main>
           <Footer />
           <AudioController />
-          {/* <StickyMobileCTA /> */}
         </LenisProvider>
         {gaId && gaId !== "G-XXXXXXXXXX" && (
           <>

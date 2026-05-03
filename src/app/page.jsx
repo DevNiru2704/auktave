@@ -1,5 +1,4 @@
 "use client";
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Zap, Trophy, Users, Clock, Sparkles, Lock, ChevronDown } from "lucide-react";
@@ -10,8 +9,6 @@ import EventCard from "@/components/EventCard";
 // import PlayerScoreboard from "@/components/PlayerScoreboard"; // [scoreboard] disabled until approved
 import { events, stats } from "@/lib/data";
 
-const UpsideDownBackground = dynamic(() => import("@/components/UpsideDownBackground"), { ssr: false });
-
 export default function HomePage() {
   const hackathon = events.find((e) => e.slug === "hackathon");
   const others = events.filter((e) => e.slug !== "hackathon");
@@ -21,8 +18,20 @@ export default function HomePage() {
       <SplashScreen />
 
       {/* HERO */}
-      <section className="relative min-h-[100vh] pt-24 pb-16 overflow-hidden vines-bg" data-testid="hero-section">
-        <UpsideDownBackground />
+      <section className="relative min-h-screen pt-24 pb-16 overflow-hidden vines-bg" data-testid="hero-section">
+        {/* <div className="absolute inset-0 z-0 pointer-events-none">
+          <video
+            className="h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+          >
+            <source src="/videos/hero-background.mp4" type="video/mp4" />
+          </video>
+        </div> */}
         <div className="absolute inset-0 scanlines opacity-20 pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-5 lg:px-10 grid lg:grid-cols-12 gap-12 items-center min-h-[80vh]">

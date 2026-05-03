@@ -37,11 +37,11 @@ function Roots() {
       {lines.map((g, i) => (
         <mesh key={i} geometry={g}>
           <meshStandardMaterial
-            color={i % 5 === 0 ? "#ff1f3d" : "#1a0008"}
+            color={i % 5 === 0 ? "#ff495f" : "#26000d"}
             roughness={0.25}
             metalness={0.6}
-            emissive={i % 5 === 0 ? "#ff1f3d" : "#000000"}
-            emissiveIntensity={i % 5 === 0 ? 0.5 : 0}
+            emissive={i % 5 === 0 ? "#ff495f" : "#000000"}
+            emissiveIntensity={i % 5 === 0 ? 1.5 : 0}
           />
         </mesh>
       ))}
@@ -67,15 +67,15 @@ function Particles() {
   });
   return (
     <points ref={ref} geometry={geom}>
-      <pointsMaterial size={0.03} color="#ff3355" transparent opacity={0.7} />
+      <pointsMaterial size={0.06} color="#ff3355" transparent opacity={0.9} />
     </points>
   );
 }
 
 export default function UpsideDownBackground() {
   return (
-    <div className="absolute inset-0 -z-10" data-testid="upside-down-bg">
-      <div className="fog" />
+    <div className="absolute inset-0 z-0 pointer-events-none" data-testid="upside-down-bg">
+      <div className="fog" style={{ display: "none" }} data-disabled-by="copilot-testing" />
       <Canvas
         camera={{ position: [0, 0, 6], fov: 60 }}
         dpr={[1, 1.5]}

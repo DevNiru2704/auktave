@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   --bg: #050505;
@@ -12,6 +9,19 @@
   --ember: #ff1f3d;
   --ember-deep: #b91c1c;
   --bone: #f5f1e8;
+
+  /* RGB helpers for opacity variants */
+  --ember-rgb: 255,31,61;
+  --signal-rgb: 255,230,0;
+  --bone-rgb: 245,241,232;
+  --bg-rgb: 5,5,5;
+  --midnight-rgb: 10,10,12;
+  --glow: #ff3355;
+  --glow-rgb: 255,51,85;
+  --rust: #b91c1c;
+  --rust-rgb: 185,28,28;
+  --moss: #1a2e1a;
+  --moss-rgb: 26,46,26;
 }
 
 * { -webkit-font-smoothing: antialiased; }
@@ -279,3 +289,156 @@ label.upside {
 .leaflet-tile { filter: hue-rotate(180deg) invert(0.92) saturate(0.7); }
 .leaflet-control-attribution { background: rgba(0,0,0,0.6) !important; color: #aaa !important; }
 .leaflet-control-attribution a { color: #ffe600 !important; }
+
+/* Fallback utility classes for projects migrated from a Tailwind config
+  (provides minimal compatibility for classes like `text-ember`,
+  `border-ember/40`, `hover:text-ember`, and `group-hover:text-ember`). */
+
+.text-ember { color: var(--ember); }
+.text-signal { color: var(--signal); }
+.text-bone { color: var(--bone); }
+
+.text-ember\/40 { color: rgba(var(--ember-rgb), 0.4); }
+.text-ember\/60 { color: rgba(var(--ember-rgb), 0.6); }
+.text-ember\/80 { color: rgba(var(--ember-rgb), 0.8); }
+
+.text-bone\/50 { color: rgba(var(--bone-rgb), 0.5); }
+.text-bone\/60 { color: rgba(var(--bone-rgb), 0.6); }
+.text-bone\/70 { color: rgba(var(--bone-rgb), 0.7); }
+
+.border-ember { border-color: var(--ember); }
+.border-ember\/40 { border-color: rgba(var(--ember-rgb), 0.4); }
+
+.bg-ember { background-color: var(--ember); }
+.bg-signal { background-color: var(--signal); }
+
+/* Hover / group-hover literal classes (Tailwind-style classes remain in markup) */
+.hover\:text-ember:hover { color: var(--ember); }
+.hover\:text-signal:hover { color: var(--signal); }
+.group:hover .group-hover\:text-ember { color: var(--ember); }
+.group:hover .group-hover\:text-signal { color: var(--signal); }
+
+/* Simple utilities for button-like classes used in markup */
+.btn-signal { background: var(--signal); color: #050505; }
+.btn-ghost { color: var(--bone); }
+
+/* Missing utilities that Tailwind provided in older setup */
+.bg-ink { background: var(--bg); }
+.bg-midnight { background: var(--bg-soft); }
+.z-100 { z-index: 100; }
+
+/* background opacity helper matching `bg-ember/20` style used in code */
+.bg-ember\/20 { background: rgba(var(--ember-rgb), 0.2); }
+
+/* Shadows (simple fallbacks used across components) */
+.shadow-signal { box-shadow: 0 0 24px rgba(var(--signal-rgb), 0.55), 0 0 60px rgba(var(--signal-rgb), 0.25); }
+.shadow-ember { box-shadow: 0 0 24px rgba(var(--ember-rgb), 0.55), 0 0 60px rgba(var(--ember-rgb), 0.2); }
+.shadow-innerGlow { box-shadow: inset 0 0 30px rgba(var(--ember-rgb), 0.18); }
+
+/* Font family utilities mirroring Tailwind config */
+.font-display { font-family: 'Big Shoulders Display', Impact, sans-serif; }
+.font-body { font-family: 'Manrope', system-ui, sans-serif; }
+.font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+/* Background image utility from tailwind config */
+.bg-grain { background-image: radial-gradient(circle at 20% 30%, rgba(255, 31, 61, 0.06), transparent 50%), radial-gradient(circle at 80% 70%, rgba(255, 230, 0, 0.04), transparent 60%); }
+
+/* Keyframes + animation utilities (port of Tailwind keyframes/animation entries) */
+@keyframes glitch {
+  0%,100% { transform: translate(0); text-shadow: 1px 0 #ff1f3d, -1px 0 #ffe600; }
+  20% { transform: translate(-1px,1px); text-shadow: 2px 0 #ff1f3d, -2px 0 #ffe600; }
+  40% { transform: translate(1px,-1px); text-shadow: -2px 0 #ff1f3d, 2px 0 #ffe600; }
+  60% { transform: translate(-2px,1px); text-shadow: 1px 0 #ff1f3d, -1px 0 #ffe600; }
+  80% { transform: translate(2px,-1px); text-shadow: -1px 0 #ff1f3d, 1px 0 #ffe600; }
+}
+
+@keyframes flicker {
+  0%,19%,21%,23%,25%,54%,56%,100% { opacity: 1; }
+  20%,24%,55% { opacity: 0.4; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes crawl {
+  0%,100% { transform: translate(0,0) rotate(0); }
+  50% { transform: translate(2px,-2px) rotate(0.3deg); }
+}
+
+.animate-glitch { animation: glitch 2.4s infinite steps(2); }
+.animate-flicker { animation: flicker 4s infinite; }
+.animate-scanline { animation: scanline 8s linear infinite; }
+.animate-crawl { animation: crawl 6s ease-in-out infinite; }
+
+/* Additional opacity variants and helpers (compat with original Tailwind config) */
+
+/* bg-ink variants */
+.bg-ink\/70 { background: rgba(var(--bg-rgb), 0.7); }
+.bg-ink\/85 { background: rgba(var(--bg-rgb), 0.85); }
+.bg-ink\/90 { background: rgba(var(--bg-rgb), 0.9); }
+.bg-ink\/95 { background: rgba(var(--bg-rgb), 0.95); }
+
+/* bg-midnight variants */
+.bg-midnight\/30 { background: rgba(var(--midnight-rgb), 0.3); }
+.bg-midnight\/40 { background: rgba(var(--midnight-rgb), 0.4); }
+.bg-midnight\/50 { background: rgba(var(--midnight-rgb), 0.5); }
+.bg-midnight\/60 { background: rgba(var(--midnight-rgb), 0.6); }
+
+/* border-ember opacity steps */
+.border-ember\/10 { border-color: rgba(var(--ember-rgb), 0.1); }
+.border-ember\/15 { border-color: rgba(var(--ember-rgb), 0.15); }
+.border-ember\/20 { border-color: rgba(var(--ember-rgb), 0.2); }
+.border-ember\/30 { border-color: rgba(var(--ember-rgb), 0.3); }
+.border-ember\/40 { border-color: rgba(var(--ember-rgb), 0.4); }
+.border-ember\/50 { border-color: rgba(var(--ember-rgb), 0.5); }
+.border-ember\/60 { border-color: rgba(var(--ember-rgb), 0.6); }
+
+/* bg-ember and bg-ember opacity helpers */
+.bg-ember\/10 { background: rgba(var(--ember-rgb), 0.1); }
+.bg-ember\/20 { background: rgba(var(--ember-rgb), 0.2); }
+.bg-ember\/50 { background: rgba(var(--ember-rgb), 0.5); }
+
+/* text-bone variants */
+.text-bone\/50 { color: rgba(var(--bone-rgb), 0.5); }
+.text-bone\/60 { color: rgba(var(--bone-rgb), 0.6); }
+.text-bone\/70 { color: rgba(var(--bone-rgb), 0.7); }
+.text-bone\/80 { color: rgba(var(--bone-rgb), 0.8); }
+
+/* simple gradient helper used in Navbar */
+.bg-linear-to-b { background-image: linear-gradient(to bottom, rgba(var(--bg-rgb), 0.7), transparent); }
+.from-ink\/70 { /* alias for readability when used with bg-linear-to-b */ }
+.to-transparent { /* alias, no-op to mirror Tailwind usage */ }
+
+/* border width helpers (ensure border-b / border-t behave) */
+.border-b { border-bottom-width: 1px; border-bottom-style: solid; }
+.border-t { border-top-width: 1px; border-top-style: solid; }
+
+/* Deep ember and ink helpers */
+.border-ember-deep { border-color: var(--ember-deep); }
+.bg-ember-deep { background-color: var(--ember-deep); }
+.text-ink { color: var(--bg); }
+
+/* Gradient utilities (used with from-..., via-..., to-... classes) */
+.bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-from, transparent), var(--tw-gradient-via, var(--tw-gradient-from, transparent)), var(--tw-gradient-to, transparent)); }
+.from-ember { --tw-gradient-from: var(--ember); }
+.via-glow { --tw-gradient-via: var(--glow); }
+.to-signal { --tw-gradient-to: var(--signal); }
+
+/* File input ::file-selector-button helpers (Tailwind's file: prefix) */
+.file\:bg-ember::file-selector-button { background: var(--ember); }
+.file\:bg-midnight::file-selector-button { background: var(--bg-soft); }
+.file\:text-bone::file-selector-button { color: var(--bone); }
+.file\:border::file-selector-button { border: 1px solid currentColor; }
+.file\:border-ember\/30::file-selector-button { border-color: rgba(var(--ember-rgb), 0.3); }
+.file\:px-4::file-selector-button { padding-left: 1rem; padding-right: 1rem; }
+.file\:py-2::file-selector-button { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.file\:font-mono::file-selector-button { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+.file\:text-xs::file-selector-button { font-size: 0.75rem; }
+.file\:uppercase::file-selector-button { text-transform: uppercase; }
+.file\:tracking-wider::file-selector-button { letter-spacing: 0.05em; }
+.file\:mr-4 { margin-right: 1rem; }
+.hover\:file\:bg-ember-deep:hover::file-selector-button { background: var(--ember-deep); }
+
+
