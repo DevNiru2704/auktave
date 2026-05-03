@@ -39,7 +39,7 @@ export default function AboutPage() {
           </div>
           <div>
             <p className="eyebrow mb-3">/ Who should register</p>
-            <h2 className="headline text-4xl mb-4">Players, not spectators</h2>
+            <h2 className="headline text-4xl mb-4">Participants, not spectators</h2>
             <ul className="text-bone/70 space-y-3 list-none">
               <li className="flex gap-3"><span className="text-ember">/01</span> Engineering and tech students from any college, any year</li>
               <li className="flex gap-3"><span className="text-ember">/02</span> B.Tech final years with capstone projects looking for industry feedback</li>
@@ -74,8 +74,8 @@ export default function AboutPage() {
         </div>
 
         <div className="mt-16 flex flex-wrap gap-4">
-          <Link href="/events" className="btn-signal">Browse Games</Link>
-          <Link href="/register" className="btn-ghost">Enter the Game</Link>
+          <Link href="/events" className="btn-signal">Browse Events</Link>
+          <Link href="/register" className="btn-ghost">Register Now</Link>
         </div>
       </div>
     </div>

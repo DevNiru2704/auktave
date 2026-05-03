@@ -3,7 +3,7 @@ export const events = [
     slug: "hackathon",
     name: "AUKTAVE Hackathon",
     tagline: "48 hours. Zero sleep. One breakthrough.",
-    summary: "The flagship game. Build something the lab will not believe. Solo or teams of up to 4 dive into product, AI, hardware, and impact tracks for 48 straight hours.",
+    summary: "The flagship event. Build something the lab will not believe. Solo or teams of up to 4 dive into product, AI, hardware, and impact tracks for 48 straight hours.",
     duration: "48 Hours",
     teamSize: "1 - 4 Members",
     prizePool: "Rs. 1,50,000+",
@@ -200,7 +200,7 @@ export const faqs = [
 
 export const stats = [
   { value: "48", label: "Hours of Chaos" },
-  { value: "7", label: "Games to Play" },
-  { value: "1500+", label: "Players Expected" },
+  { value: "7", label: "Events to Explore" },
+  { value: "1500+", label: "Participants Expected" },
   { value: "Rs. 3L+", label: "Total Prize Pool" }
 ];

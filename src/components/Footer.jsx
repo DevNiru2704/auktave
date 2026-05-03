@@ -24,9 +24,9 @@ export default function Footer() {
           <ul className="space-y-2 text-bone/70">
             <li><Link href="/" className="hover:text-ember transition-colors">Home</Link></li>
             <li><Link href="/about" className="hover:text-ember transition-colors">About</Link></li>
-            <li><Link href="/events" className="hover:text-ember transition-colors">Events (Games)</Link></li>
+            <li><Link href="/events" className="hover:text-ember transition-colors">Events</Link></li>
             <li><Link href="/sponsorship" className="hover:text-ember transition-colors">Sponsorship</Link></li>
-            <li><Link href="/register" className="hover:text-ember transition-colors">Enter the Game</Link></li>
+            <li><Link href="/register" className="hover:text-ember transition-colors">Register Now</Link></li>
             <li><Link href="/help" className="hover:text-ember transition-colors">Help</Link></li>
           </ul>
         </div>

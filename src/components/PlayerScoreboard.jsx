@@ -12,7 +12,7 @@ const COUNTER_BASE = "https://abacus.jasoncameron.dev";
 export async function incrementScoreboard() {
   try {
     await fetch(`${COUNTER_BASE}/hit/${COUNTER_NS}/${COUNTER_KEY}`, { cache: "no-store" });
-  } catch {}
+  } catch { }
 }
 
 function useAnimatedNumber(target, duration = 1600) {
@@ -74,7 +74,7 @@ export default function PlayerScoreboard({ variant = "full" }) {
         <div className="space-y-3 font-mono text-xs">
           <div className="flex justify-between"><span className="text-bone/50">PORTAL</span><span className="text-signal">OPEN</span></div>
           <div className="flex justify-between items-baseline">
-            <span className="text-bone/50">PLAYERS</span>
+            <span className="text-bone/50">PARTICIPANTS</span>
             <span className="text-bone tabular-nums">
               <span className="headline text-2xl text-signal">{animated.toLocaleString("en-IN")}</span>
               <span className="text-bone/50 ml-1">/ {TARGET.toLocaleString("en-IN")}</span>
@@ -108,7 +108,7 @@ export default function PlayerScoreboard({ variant = "full" }) {
         <div className="lg:col-span-5">
           <p className="eyebrow mb-4 inline-flex items-center gap-2"><Activity size={12} className="text-ember animate-pulse" /> / Live Counter</p>
           <h2 className="headline text-5xl lg:text-7xl leading-[0.9] mb-5">
-            Players locked into the <span className="text-ember">grid</span>
+            Participants locked into the <span className="text-ember">grid</span>
           </h2>
           <p className="text-bone/70 leading-relaxed max-w-md">
             Live count from the AUKTAVE portal. Every successful registration increments the grid in real time. The first 1500 enter. After that, only static.
@@ -119,7 +119,7 @@ export default function PlayerScoreboard({ variant = "full" }) {
           <div className="card-upside p-7 lg:p-10" data-testid="scoreboard-card">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
               <div>
-                <p className="eyebrow mb-2"><Users size={11} className="inline mr-1" /> Total Players</p>
+                <p className="eyebrow mb-2"><Users size={11} className="inline mr-1" /> Total Participants</p>
                 <p className="headline text-7xl lg:text-8xl text-signal tabular-nums leading-none" data-testid="scoreboard-count">
                   {animated.toLocaleString("en-IN")}
                 </p>

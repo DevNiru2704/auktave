@@ -59,7 +59,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-3">
             <Link href="/register" className="hidden md:inline-block btn-signal text-xs lg:text-sm" data-testid="nav-register-btn">
-              Enter the Game
+              Register Now
             </Link>
             <button
               aria-label="Toggle menu"
@@ -88,7 +88,7 @@ export default function Navbar() {
               ))}
               <li>
                 <Link href="/register" className="block btn-signal mt-2 text-center" data-testid="mobile-register-btn">
-                  Enter the Game
+                  Register Now
                 </Link>
               </li>
             </ul>

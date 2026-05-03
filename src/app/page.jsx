@@ -70,10 +70,10 @@ export default function HomePage() {
               className="mt-10 flex flex-wrap gap-4"
             >
               <Link href="/register" className="btn-signal" data-testid="hero-register-cta">
-                Enter the Game
+                Register Now
               </Link>
               <Link href="/events" className="btn-ghost" data-testid="hero-events-cta">
-                Browse the Games
+                Browse Events
               </Link>
             </motion.div>
 
@@ -103,7 +103,7 @@ export default function HomePage() {
               <div className="space-y-3 font-mono text-xs">
                 <div className="flex justify-between"><span className="text-bone/50">PORTAL</span><span className="text-signal">OPEN</span></div>
                 <div className="flex justify-between"><span className="text-bone/50">SIGNAL</span><span className="text-ember">SCRAMBLED</span></div>
-                <div className="flex justify-between"><span className="text-bone/50">PLAYERS</span><span className="text-bone">1,247 / 1,500</span></div>
+                <div className="flex justify-between"><span className="text-bone/50">PARTICIPANTS</span><span className="text-bone">1,247 / 1,500</span></div>
                 <div className="flex justify-between"><span className="text-bone/50">PRIZE POOL</span><span className="text-signal">Rs. 3,00,000+</span></div>
                 <div className="flex justify-between"><span className="text-bone/50">IEEE LINK</span><span className="text-ember animate-flicker">CONNECTED</span></div>
               </div>
@@ -124,7 +124,7 @@ export default function HomePage() {
         <div className="marquee text-bone/40 font-display text-3xl">
           {Array.from({ length: 2 }).flatMap((_, i) => [
             <span key={`a${i}`} className="flex items-center gap-3"><Sparkles className="text-ember" size={20} /> 48 hours of building</span>,
-            <span key={`b${i}`} className="flex items-center gap-3"><Sparkles className="text-signal" size={20} /> 7 games / 1 portal</span>,
+            <span key={`b${i}`} className="flex items-center gap-3"><Sparkles className="text-signal" size={20} /> 7 events / 1 portal</span>,
             <span key={`c${i}`} className="flex items-center gap-3"><Sparkles className="text-ember" size={20} /> First edition - history is hiring</span>,
             <span key={`d${i}`} className="flex items-center gap-3"><Sparkles className="text-signal" size={20} /> IEEE certified session</span>,
             <span key={`e${i}`} className="flex items-center gap-3"><Sparkles className="text-ember" size={20} /> Rs. 3,00,000+ in prizes</span>
@@ -144,7 +144,7 @@ export default function HomePage() {
           </div>
           <div className="lg:col-span-7">
             <p className="text-bone/70 text-lg leading-relaxed mb-6">
-              AUKTAVE is the first edition TechFest of Amity University Kolkata, hosted by ASETK in partnership with the IEEE Student Chapter. Three days. 48 hours of hackathon. Seven games competing for the same trophy of bragging rights.
+              AUKTAVE is the first edition TechFest of Amity University Kolkata, hosted by ASETK in partnership with the IEEE Student Chapter. Three days. 48 hours of hackathon. Seven events competing for the same trophy of bragging rights.
             </p>
             <p className="text-bone/70 text-lg leading-relaxed mb-6">
               We borrowed a little tension from the upside down. We kept the engineering. The result is a TechFest that feels less like a conference and more like a controlled experiment that escaped the lab.
@@ -161,12 +161,12 @@ export default function HomePage() {
         <div className="absolute inset-0 vines-bg pointer-events-none" />
         <div className="relative max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-7">
-            <p className="eyebrow mb-4">/ Headline Game</p>
+            <p className="eyebrow mb-4">/ Headline Event</p>
             <h2 className="headline text-6xl lg:text-8xl leading-[0.9] mb-6">
               The <span className="text-ember">48 Hour</span><br />Hackathon
             </h2>
             <p className="text-bone/70 text-lg leading-relaxed max-w-2xl">
-              Two days, no escape. {hackathon?.summary} The hackathon is the spine of AUKTAVE 2K26 - but every game is a star.
+              Two days, no escape. {hackathon?.summary} The hackathon is the spine of AUKTAVE 2K26 - but every event is a star.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               {hackathon?.tracks.map((t) => (
@@ -175,7 +175,7 @@ export default function HomePage() {
             </div>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link href="/events/hackathon" className="btn-signal" data-testid="hackathon-details-cta">View Hackathon Details</Link>
-              <Link href="/register" className="btn-ghost">Enter the Game</Link>
+              <Link href="/register" className="btn-ghost">Register Now</Link>
             </div>
           </div>
           <div className="lg:col-span-5">
@@ -194,9 +194,9 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
               <p className="eyebrow mb-3">/ Chapter 02</p>
-              <GlitchText className="text-5xl lg:text-6xl">Pick Your Game</GlitchText>
+              <GlitchText className="text-5xl lg:text-6xl">Pick Your Event</GlitchText>
             </div>
-            <Link href="/events" className="btn-ghost self-start" data-testid="all-events-cta">All Games</Link>
+            <Link href="/events" className="btn-ghost self-start" data-testid="all-events-cta">All Events</Link>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[hackathon, ...others].slice(0, 6).map((e, i) => (
@@ -223,7 +223,7 @@ export default function HomePage() {
           <GlitchText className="text-5xl lg:text-6xl mb-12">Why Cross Over</GlitchText>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { icon: Trophy, title: "Real prize money", body: "Over Rs. 3,00,000 in cash, swag, and internship pipelines across all games." },
+              { icon: Trophy, title: "Real prize money", body: "Over Rs. 3,00,000 in cash, swag, and internship pipelines across all events." },
               { icon: Zap, title: "IEEE certified", body: "An IEEE Student Chapter session that adds an actual line to your CV." },
               { icon: Users, title: "Industry mentors", body: "Talk to founders, engineers, and academics from across India." },
               { icon: Sparkles, title: "First edition energy", body: "Be a part of the founding cohort. Edition one only happens once." },
@@ -259,10 +259,10 @@ export default function HomePage() {
             Are <span className="text-signal">you</span>?
           </h2>
           <p className="text-bone/70 text-lg max-w-xl mx-auto mb-10">
-            Players who registered last year said the wifi was strong and the coffee was stronger. There was no last year. This is edition one.
+            Participants who registered last year said the wifi was strong and the coffee was stronger. There was no last year. This is edition one.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/register" className="btn-signal text-base" data-testid="final-register-cta">Enter the Game</Link>
+            <Link href="/register" className="btn-signal text-base" data-testid="final-register-cta">Register Now</Link>
             <Link href="/sponsorship" className="btn-ghost text-base">Become a Sponsor</Link>
           </div>
         </div>

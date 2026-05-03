@@ -15,13 +15,13 @@ export default function EventDetailPage() {
     <div className="pt-32 pb-24 px-5 lg:px-10 vines-bg" data-testid={`event-detail-${event.slug}`}>
       <div className="max-w-6xl mx-auto">
         <Link href="/events" className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-bone/60 hover:text-ember mb-8" data-testid="back-to-events">
-          <ArrowLeft size={14} /> Back to Games
+          <ArrowLeft size={14} /> Back to Events
         </Link>
 
         <div className="grid lg:grid-cols-12 gap-10 mb-14">
           <div className="lg:col-span-8">
             {event.highlight && (
-              <span className="tag signal mb-5 inline-flex"><Zap size={12} /> Headline Game</span>
+              <span className="tag signal mb-5 inline-flex"><Zap size={12} /> Headline Event</span>
             )}
             <GlitchText as="h1" className="text-5xl lg:text-7xl mb-4">{event.name}</GlitchText>
             <p className="text-2xl text-bone/70 font-display max-w-2xl">{event.tagline}</p>
@@ -42,7 +42,7 @@ export default function EventDetailPage() {
             <Stat icon={Users} label="Team Size" value={event.teamSize} />
             <Stat icon={Trophy} label="Prize Pool" value={event.prizePool} accent />
             <Link href="/register" className="btn-signal w-full block text-center mt-4" data-testid="event-register-cta">
-              Register / Enter the Game
+              Register Now
             </Link>
             <a
               href="/brochures/event-rules.pdf"
@@ -57,7 +57,7 @@ export default function EventDetailPage() {
 
         {/* Rules */}
         <div className="card-upside p-8 lg:p-10 mb-10" data-testid="event-rules-section">
-          <p className="eyebrow mb-4">/ Rules of the Game</p>
+          <p className="eyebrow mb-4">/ Rules</p>
           <h2 className="headline text-3xl lg:text-4xl mb-6">Read before you cross over</h2>
           <ol className="space-y-4">
             {event.rules.map((r, i) => (
@@ -86,7 +86,7 @@ export default function EventDetailPage() {
 
         <div className="text-center mt-16">
           <h3 className="headline text-4xl mb-6">Ready to play?</h3>
-          <Link href="/register" className="btn-signal" data-testid="event-bottom-cta">Enter the Game</Link>
+          <Link href="/register" className="btn-signal" data-testid="event-bottom-cta">Register Now</Link>
         </div>
       </div>
     </div>

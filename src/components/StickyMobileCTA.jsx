@@ -8,7 +8,7 @@ export default function StickyMobileCTA() {
   return (
     <div className="md:hidden fixed bottom-3 left-3 right-3 z-40" data-testid="sticky-mobile-cta">
       <Link href="/register" className="btn-signal w-full block text-center text-sm" data-testid="mobile-cta-register">
-        Enter the Game
+        Register Now
       </Link>
     </div>
   );

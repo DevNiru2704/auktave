@@ -16,7 +16,7 @@ export default function NotFound() {
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
           <Link href="/" className="btn-signal" data-testid="404-home-cta">Return Home</Link>
-          <Link href="/events" className="btn-ghost">Browse Games</Link>
+          <Link href="/events" className="btn-ghost">Browse Events</Link>
         </div>
       </div>
     </div>

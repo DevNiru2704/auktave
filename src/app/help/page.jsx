@@ -102,7 +102,7 @@ export default function HelpPage() {
 
         {/* FAQ */}
         <div data-testid="faq-section">
-          <p className="eyebrow mb-4">/ Rules of the Game</p>
+          <p className="eyebrow mb-4">/ Rules</p>
           <GlitchText as="h2" className="text-5xl lg:text-6xl mb-10">FAQ / Field Manual</GlitchText>
           <div className="space-y-3">
             {faqs.map((f, i) => (
