@@ -7,8 +7,8 @@ import Script from "next/script";
 
 export const metadata = {
   title: "AUKTAVE 2K26 - Enter the Upside Down of Innovation",
-  description: "AUKTAVE 2K26, the first edition TechFest of Amity University Kolkata. 48 hours, 7 events, infinite parallel realities. Hackathon, Robotics, IEEE Session and more.",
-  keywords: ["AUKTAVE", "Amity University Kolkata", "TechFest 2026", "Hackathon", "IEEE", "Stranger Things"],
+  description: "AUKTAVE 2K26, the first edition TechFest of Amity University Kolkata. 48 hours, 7 events, infinite parallel realities. Hackathon, Robotics, IEEE SB AUK Session and more.",
+  keywords: ["AUKTAVE", "Amity University Kolkata", "TechFest 2026", "Hackathon", "IEEE SB AUK", "Stranger Things"],
   openGraph: {
     title: "AUKTAVE 2K26 - Enter the Upside Down of Innovation",
     description: "Not all experiments stay in the lab. 48 hours, 7 events, infinite parallel realities.",

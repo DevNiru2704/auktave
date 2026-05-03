@@ -18,7 +18,7 @@ export default function AboutPage() {
         <div className="grid lg:grid-cols-3 gap-5 mb-20">
           {[
             { icon: Building2, title: "Organized by ASETK", body: "Amity School of Engineering and Technology, Kolkata. Faculty supervision, student execution." },
-            { icon: Cpu, title: "Powered by IEEE", body: "The IEEE Student Chapter at Amity University Kolkata curates the technical sessions and adds the official IEEE stamp." },
+            { icon: Cpu, title: "Powered by IEEE SB AUK", body: "The IEEE SB AUK Student Chapter at Amity University Kolkata curates the technical sessions and adds the official IEEE SB AUK stamp." },
             { icon: Telescope, title: "Built for builders", body: "Hackers, researchers, founders, and people who like to break things to understand them." }
           ].map((it) => (
             <div key={it.title} className="card-upside p-7" data-testid={`about-card-${it.title.replace(/ /g, "-").toLowerCase()}`}>
@@ -64,7 +64,7 @@ export default function AboutPage() {
           <p className="eyebrow mb-3">/ The Host</p>
           <h2 className="headline text-4xl lg:text-5xl mb-5">Amity University Kolkata</h2>
           <p className="text-bone/70 leading-relaxed mb-4">
-            Amity University Kolkata is part of the Amity Education Group, ranked among the top private universities in India. The Kolkata campus, located in Major Arterial Road, New Town, hosts ASETK and a fast growing IEEE Student Chapter. AUKTAVE is the campus first homegrown TechFest at scale, designed to put the Kolkata campus on the national tech map.
+            Amity University Kolkata is part of the Amity Education Group, ranked among the top private universities in India. The Kolkata campus, located in Major Arterial Road, New Town, hosts ASETK and a fast growing IEEE SB AUK Student Chapter. AUKTAVE is the campus first homegrown TechFest at scale, designed to put the Kolkata campus on the national tech map.
           </p>
           <div className="flex flex-wrap gap-3 mt-5">
             <span className="tag"><Eye size={11} /> Founded 2014</span>

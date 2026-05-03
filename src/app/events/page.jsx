@@ -5,7 +5,8 @@ import { events } from "@/lib/data";
 
 export default function EventsPage() {
   const hackathon = events.find((e) => e.slug === "hackathon");
-  const others = events.filter((e) => e.slug !== "hackathon");
+  const headlineEvents = events.filter((e) => e.highlight);
+  const sideEvents = events.filter((e) => !e.highlight);
   return (
     <div className="pt-32 pb-24 px-5 lg:px-10 vines-bg" data-testid="events-page">
       <div className="max-w-7xl mx-auto">
@@ -16,16 +17,18 @@ export default function EventsPage() {
         </p>
 
         <div className="mb-14" data-testid="featured-hackathon">
-          <p className="eyebrow mb-4">/ Headline Event</p>
-          <div className="grid lg:grid-cols-3 gap-5">
-            <div className="lg:col-span-3"><EventCard event={hackathon} index={0} /></div>
+          <p className="eyebrow mb-4">/ Headline Events</p>
+          <div className="grid md:grid-cols-2 gap-5">
+            {headlineEvents.map((e, i) => (
+              <EventCard key={e.slug} event={e} index={i} />
+            ))}
           </div>
         </div>
 
         <p className="eyebrow mb-4">/ Side Events</p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {others.map((e, i) => (
-            <EventCard key={e.slug} event={e} index={i + 1} />
+          {sideEvents.map((e, i) => (
+            <EventCard key={e.slug} event={e} index={i} />
           ))}
         </div>
       </div>

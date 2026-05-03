@@ -15,7 +15,7 @@ export default function Footer() {
           </p>
           <div className="mt-6 flex gap-3">
             <span className="tag">Amity University Kolkata</span>
-            <span className="tag signal">IEEE Session</span>
+            <span className="tag signal">IEEE SB AUK Session</span>
           </div>
         </div>
 

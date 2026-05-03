@@ -15,7 +15,7 @@ export default function TermsPage() {
           <h3 className="headline text-2xl text-bone mt-8">Refunds</h3>
           <p>Registration fees are non refundable once your registration is confirmed. In the rare case of event cancellation by the organisers, refunds will be processed within 14 working days.</p>
           <h3 className="headline text-2xl text-bone mt-8">Intellectual Property</h3>
-          <p>All projects and submissions remain the intellectual property of the participants. Organisers and IEEE retain a non exclusive license to feature content for promotional purposes.</p>
+          <p>All projects and submissions remain the intellectual property of the participants. Organisers and IEEE SB AUK retain a non exclusive license to feature content for promotional purposes.</p>
           <h3 className="headline text-2xl text-bone mt-8">Liability</h3>
           <p>Participants attend at their own risk. Organisers are not liable for personal property loss, injury, or damage incurred during the event.</p>
           <h3 className="headline text-2xl text-bone mt-8">Changes</h3>

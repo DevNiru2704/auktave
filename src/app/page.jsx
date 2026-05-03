@@ -11,7 +11,8 @@ import { events, stats } from "@/lib/data";
 
 export default function HomePage() {
   const hackathon = events.find((e) => e.slug === "hackathon");
-  const others = events.filter((e) => e.slug !== "hackathon");
+  const headlineEvents = events.filter((e) => e.highlight);
+  const sideEvents = events.filter((e) => !e.highlight);
 
   return (
     <>
@@ -105,7 +106,7 @@ export default function HomePage() {
                 <div className="flex justify-between"><span className="text-bone/50">SIGNAL</span><span className="text-ember">SCRAMBLED</span></div>
                 <div className="flex justify-between"><span className="text-bone/50">PARTICIPANTS</span><span className="text-bone">1,247 / 1,500</span></div>
                 <div className="flex justify-between"><span className="text-bone/50">PRIZE POOL</span><span className="text-signal">Rs. 3,00,000+</span></div>
-                <div className="flex justify-between"><span className="text-bone/50">IEEE LINK</span><span className="text-ember animate-flicker">CONNECTED</span></div>
+                <div className="flex justify-between"><span className="text-bone/50">IEEE SB AUK LINK</span><span className="text-ember animate-flicker">CONNECTED</span></div>
               </div>
               <div className="mt-5 loading-bar" />
               <p className="font-mono text-[10px] mt-3 text-bone/40">Transmission stable. Scroll to descend.</p>
@@ -126,7 +127,7 @@ export default function HomePage() {
             <span key={`a${i}`} className="flex items-center gap-3"><Sparkles className="text-ember" size={20} /> 48 hours of building</span>,
             <span key={`b${i}`} className="flex items-center gap-3"><Sparkles className="text-signal" size={20} /> 7 events / 1 portal</span>,
             <span key={`c${i}`} className="flex items-center gap-3"><Sparkles className="text-ember" size={20} /> First edition - history is hiring</span>,
-            <span key={`d${i}`} className="flex items-center gap-3"><Sparkles className="text-signal" size={20} /> IEEE certified session</span>,
+            <span key={`d${i}`} className="flex items-center gap-3"><Sparkles className="text-signal" size={20} /> IEEE SB AUK certified session</span>,
             <span key={`e${i}`} className="flex items-center gap-3"><Sparkles className="text-ember" size={20} /> Rs. 3,00,000+ in prizes</span>
           ])}
         </div>
@@ -144,7 +145,7 @@ export default function HomePage() {
           </div>
           <div className="lg:col-span-7">
             <p className="text-bone/70 text-lg leading-relaxed mb-6">
-              AUKTAVE is the first edition TechFest of Amity University Kolkata, hosted by ASETK in partnership with the IEEE Student Chapter. Three days. 48 hours of hackathon. Seven events competing for the same trophy of bragging rights.
+              AUKTAVE is the first edition TechFest of Amity University Kolkata, hosted by ASETK in partnership with the IEEE SB AUK Student Chapter. Three days. 24 hours of hackathon. Seven events competing for the same trophy of bragging rights.
             </p>
             <p className="text-bone/70 text-lg leading-relaxed mb-6">
               We borrowed a little tension from the upside down. We kept the engineering. The result is a TechFest that feels less like a conference and more like a controlled experiment that escaped the lab.
@@ -156,37 +157,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* HACKATHON SPOTLIGHT */}
-      <section className="relative py-24 px-5 lg:px-10 border-y border-ember/15 bg-midnight/30" data-testid="hackathon-spotlight">
-        <div className="absolute inset-0 vines-bg pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-end">
-          <div className="lg:col-span-7">
-            <p className="eyebrow mb-4">/ Headline Event</p>
-            <h2 className="headline text-6xl lg:text-8xl leading-[0.9] mb-6">
-              The <span className="text-ember">48 Hour</span><br />Hackathon
-            </h2>
-            <p className="text-bone/70 text-lg leading-relaxed max-w-2xl">
-              Two days, no escape. {hackathon?.summary} The hackathon is the spine of AUKTAVE 2K26 - but every event is a star.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              {hackathon?.tracks.map((t) => (
-                <span key={t} className="tag" data-testid={`hackathon-track-${t.replace(/[ /]/g, "-").toLowerCase()}`}>{t}</span>
-              ))}
+      {/* HEADLINE EVENTS SPOTLIGHTS */}
+      {events.filter((e) => e.highlight).map((e) => (
+        <section key={e.slug} className="relative py-24 px-5 lg:px-10 border-y border-ember/15 bg-midnight/30" data-testid={`${e.slug}-spotlight`}>
+          <div className="absolute inset-0 vines-bg pointer-events-none" />
+          <div className="relative max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-end">
+            <div className="lg:col-span-7">
+              <p className="eyebrow mb-4">/ Headline Event</p>
+              <h2 className="headline text-6xl lg:text-8xl leading-[0.9] mb-6">
+                {e.name.includes("Hackathon") ? (
+                  <><span className="text-ember">24 Hour</span><br />Hackathon</>
+                ) : e.name}
+              </h2>
+              <p className="text-bone/70 text-lg leading-relaxed max-w-2xl">
+                {e.name.includes("Hackathon") ? `One day, no escape. ${e.summary} The hackathon is the spine of AUKTAVE 2K26 - but every event is a star.` : e.summary}
+              </p>
+              {e.tracks && e.tracks.length > 0 && (
+                <div className="mt-8 flex flex-wrap gap-3">
+                  {e.tracks.map((t) => (
+                    <span key={t} className="tag" data-testid={`track-${e.slug}-${t.replace(/[ /]/g, "-").toLowerCase()}`}>{t}</span>
+                  ))}
+                </div>
+              )}
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Link href={`/events/${e.slug}`} className="btn-signal" data-testid={`${e.slug}-details-cta`}>View {e.name} Details</Link>
+                <Link href="/register" className="btn-ghost">Register Now</Link>
+              </div>
             </div>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link href="/events/hackathon" className="btn-signal" data-testid="hackathon-details-cta">View Hackathon Details</Link>
-              <Link href="/register" className="btn-ghost">Register Now</Link>
+            <div className="lg:col-span-5">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="card-upside p-6 col-span-2"><Trophy className="text-signal mb-3" size={28} /><p className="headline text-4xl">{e.prizePool}</p><p className="text-bone/60 text-sm mt-1">Top prize for {e.name} winners</p></div>
+                <div className="card-upside p-5"><Users className="text-ember mb-3" size={22} /><p className="headline text-2xl">{e.teamSize}</p><p className="text-bone/60 text-xs mt-1">Per team</p></div>
+                <div className="card-upside p-5"><Clock className="text-ember mb-3" size={22} /><p className="headline text-2xl">{e.duration}</p><p className="text-bone/60 text-xs mt-1">Duration</p></div>
+              </div>
             </div>
           </div>
-          <div className="lg:col-span-5">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="card-upside p-6 col-span-2"><Trophy className="text-signal mb-3" size={28} /><p className="headline text-4xl">Rs. 1.5L+</p><p className="text-bone/60 text-sm mt-1">Top prize for Hackathon winners</p></div>
-              <div className="card-upside p-5"><Users className="text-ember mb-3" size={22} /><p className="headline text-2xl">1 - 4</p><p className="text-bone/60 text-xs mt-1">Per team</p></div>
-              <div className="card-upside p-5"><Clock className="text-ember mb-3" size={22} /><p className="headline text-2xl">48 hrs</p><p className="text-bone/60 text-xs mt-1">Of pure build</p></div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      ))}
 
       {/* EVENTS GRID */}
       <section className="py-24 px-5 lg:px-10" data-testid="events-section">
@@ -198,8 +205,15 @@ export default function HomePage() {
             </div>
             <Link href="/events" className="btn-ghost self-start" data-testid="all-events-cta">All Events</Link>
           </div>
+          <p className="eyebrow mb-4">/ Headline Events</p>
+          <div className="grid md:grid-cols-2 gap-5 mb-8">
+            {headlineEvents.map((e, i) => (
+              <EventCard key={e.slug} event={e} index={i} />
+            ))}
+          </div>
+          <p className="eyebrow mb-4">/ Side Events</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[hackathon, ...others].slice(0, 6).map((e, i) => (
+            {sideEvents.map((e, i) => (
               <EventCard key={e.slug} event={e} index={i} />
             ))}
           </div>
@@ -224,7 +238,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-5">
             {[
               { icon: Trophy, title: "Real prize money", body: "Over Rs. 3,00,000 in cash, swag, and internship pipelines across all events." },
-              { icon: Zap, title: "IEEE certified", body: "An IEEE Student Chapter session that adds an actual line to your CV." },
+              { icon: Zap, title: "IEEE SB AUK certified", body: "An IEEE SB AUK Student Chapter session that adds an actual line to your CV." },
               { icon: Users, title: "Industry mentors", body: "Talk to founders, engineers, and academics from across India." },
               { icon: Sparkles, title: "First edition energy", body: "Be a part of the founding cohort. Edition one only happens once." },
               { icon: Lock, title: "Curated tracks", body: "AI, robotics, hardware, sustainability. No filler tracks just to bulk up." },

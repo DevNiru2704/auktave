@@ -14,7 +14,7 @@ export default function PrivacyPage() {
           <h3 className="headline text-2xl text-bone mt-8">How we use it</h3>
           <p>To verify and confirm your registration, send event updates, share schedules, and contact you for prize related logistics.</p>
           <h3 className="headline text-2xl text-bone mt-8">Sharing</h3>
-          <p>We do not sell your data. We share with sponsors only when you opt in, and with our partner IEEE chapter for IEEE certified sessions.</p>
+          <p>We do not sell your data. We share with sponsors only when you opt in, and with our partner IEEE SB AUK chapter for IEEE SB AUK certified sessions.</p>
           <h3 className="headline text-2xl text-bone mt-8">Cookies</h3>
           <p>We use minimal local storage to remember your audio preferences and to dismiss the announcement banner. No tracking cookies beyond Google Analytics if enabled.</p>
           <h3 className="headline text-2xl text-bone mt-8">Your rights</h3>

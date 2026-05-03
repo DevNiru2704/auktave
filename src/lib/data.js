@@ -2,16 +2,16 @@ export const events = [
   {
     slug: "hackathon",
     name: "AUKTAVE Hackathon",
-    tagline: "48 hours. Zero sleep. One breakthrough.",
-    summary: "The flagship event. Build something the lab will not believe. Solo or teams of up to 4 dive into product, AI, hardware, and impact tracks for 48 straight hours.",
-    duration: "48 Hours",
+    tagline: "24 hours. Zero sleep. One breakthrough.",
+    summary: "The flagship event. Build something the lab will not believe. Solo or teams of up to 4 dive into product, AI, hardware, and impact tracks for 24 straight hours.",
+    duration: "24 Hours",
     teamSize: "1 - 4 Members",
     prizePool: "Rs. 1,50,000+",
     highlight: true,
     coordinator: { name: "Aritra Sen", role: "Hackathon Lead", phone: "+91 98300 00000", email: "hackathon@auktave.in" },
     rules: [
       "Teams of 1 to 4 members. Cross-college teams are allowed.",
-      "All code must be written within the 48 hour window. Pre-existing libraries and assets are fine if disclosed.",
+      "All code must be written within the 24 hour window. Pre-existing libraries and assets are fine if disclosed.",
       "Submissions require a working demo, GitHub link, and a 3 minute pitch video.",
       "Plagiarism, AI-only generation without modification, or using paid solutions disqualifies the entry.",
       "Teams must be present for the final pitch round. No remote submissions for finals.",
@@ -21,12 +21,13 @@ export const events = [
   },
   {
     slug: "robotics",
-    name: "Robotics Arena",
+    name: "Robotics Competition",
     tagline: "Engineering with consequences.",
     summary: "Line followers, combat bots, and autonomous navigation challenges. Bring your bot or build one in our hardware bay.",
     duration: "8 Hours",
     teamSize: "2 - 4 Members",
     prizePool: "Rs. 40,000",
+    highlight: true,
     coordinator: { name: "Riya Banerjee", role: "Robotics Lead", phone: "+91 98300 00001", email: "robotics@auktave.in" },
     rules: [
       "Robots must fit a 30 x 30 x 30 cm dimension and weigh under 3 kg.",
@@ -108,14 +109,14 @@ export const events = [
     slug: "ieee-session",
     name: "IEEE Special Session",
     tagline: "A signal from the standards bearers.",
-    summary: "An exclusive IEEE-curated session featuring keynotes, technical talks, and a research paper showcase. A trust mark for AUKTAVE 2K26.",
+    summary: "An exclusive IEEE SB AUK-curated session featuring keynotes, technical talks, and a research paper showcase. A trust mark for AUKTAVE 2K26.",
     duration: "2 Hours",
     teamSize: "Open to all",
-    prizePool: "Certificates + IEEE perks",
-    coordinator: { name: "IEEE AUK Chapter", role: "Society Liaison", phone: "+91 98300 00006", email: "ieee@auktave.in" },
+    prizePool: "Certificates + IEEE SB AUK perks",
+    coordinator: { name: "IEEE SB AUK Chapter", role: "Society Liaison", phone: "+91 98300 00006", email: "ieee-sbauk@auktave.in" },
     rules: [
       "Open seating, first come first served.",
-      "IEEE members get priority registration and special swag.",
+      "IEEE SB AUK members get priority registration and special swag.",
       "Recording in session is restricted unless stated.",
       "Q&A is strictly time-boxed and moderated.",
       "Attendance certificates issued post session."
@@ -172,7 +173,7 @@ export const sponsors = [
 
 export const day1 = [
   { time: "09:00", title: "Inauguration", note: "Vice Chancellor address + lamp lighting" },
-  { time: "10:30", title: "Hackathon Begins", note: "48 hour clock starts" },
+  { time: "10:30", title: "Hackathon Begins", note: "24 hour clock starts" },
   { time: "12:00", title: "Industry Keynote", note: "Headline talk on the future of computing" },
   { time: "14:00", title: "Research and Project Expo", note: "Floor opens to public" },
   { time: "17:00", title: "Tech Debate", note: "Open motion battles" },
@@ -181,7 +182,7 @@ export const day1 = [
 
 export const day2 = [
   { time: "09:00", title: "IEEE Special Session", note: "Standards, papers, and signal" },
-  { time: "11:00", title: "Robotics Arena", note: "Combat + line follow rounds" },
+  { time: "11:00", title: "Robotics Competition", note: "Combat + line follow rounds" },
   { time: "13:00", title: "B.Tech Final Year Presentations", note: "Capstone defense" },
   { time: "15:00", title: "AI Short Film Showcase", note: "Public screening + voting" },
   { time: "18:00", title: "Hackathon Final Pitches", note: "Top 10 to jury" },
@@ -194,7 +195,7 @@ export const faqs = [
   { q: "Can I participate in multiple events?", a: "Yes. We have built the schedule so most events do not overlap. Pick wisely if you are doing the Hackathon and a Day 2 event." },
   { q: "Do I need to bring my own laptop?", a: "Yes for the Hackathon, Expo, AI Film, and Presentations. Robotics and Debate do not require it." },
   { q: "Is accommodation provided?", a: "Hostel accommodation is available on request for outstation participants on a first come basis. Mention it in the registration." },
-  { q: "What about food?", a: "Meals and snacks are provided across the 48 hour window for all registered participants." },
+  { q: "What about food?", a: "Meals and snacks are provided across the 24 hour window for all registered participants." },
   { q: "How are winners decided?", a: "Independent jury per event. Decisions are final. Detailed rubrics are shared with finalists." }
 ];
 

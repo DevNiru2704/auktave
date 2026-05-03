@@ -12,7 +12,7 @@ export default function SponsorshipPage() {
         <p className="eyebrow mb-4">/ Become a Signal</p>
         <GlitchText as="h1" className="text-6xl lg:text-8xl mb-6">Sponsorship</GlitchText>
         <p className="text-bone/70 text-lg max-w-3xl leading-relaxed mb-12">
-          AUKTAVE 2K26 is the first edition TechFest at Amity University Kolkata - which means founding sponsor status is on the table for exactly one cohort. Plug your brand into 1500+ engineering students, 7 curated events, and a full IEEE certified session.
+          AUKTAVE 2K26 is the first edition TechFest at Amity University Kolkata - which means founding sponsor status is on the table for exactly one cohort. Plug your brand into 1500+ engineering students, 7 curated events, and a full IEEE SB AUK certified session.
         </p>
 
         <div className="flex flex-wrap gap-4 mb-16">
