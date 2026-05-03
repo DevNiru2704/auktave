@@ -29,7 +29,7 @@ export default function SponsorshipPage() {
           <p className="eyebrow mb-6">/ Current Backers</p>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {Array.from({ length: 12 }).map((_, i) => (
-              <div key={i} className="card-upside aspect-[3/2] flex items-center justify-center group">
+              <div key={i} className="card-upside aspect-3/2 flex items-center justify-center group">
                 <span className="font-mono text-xs text-bone/40 group-hover:text-ember transition-colors">LOGO_{String(i + 1).padStart(2, "0")}</span>
               </div>
             ))}

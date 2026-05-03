@@ -80,9 +80,9 @@ export default function PlayerScoreboard({ variant = "full" }) {
               <span className="text-bone/50 ml-1">/ {TARGET.toLocaleString("en-IN")}</span>
             </span>
           </div>
-          <div className="h-[3px] bg-ember/15 relative overflow-hidden">
+          <div className="h-0.75 bg-ember/15 relative overflow-hidden">
             <motion.div
-              className="absolute inset-y-0 left-0 bg-gradient-to-r from-ember to-signal shadow-signal"
+              className="absolute inset-y-0 left-0 bg-linear-to-r from-ember to-signal shadow-signal"
               initial={{ width: 0 }}
               animate={{ width: `${pct}%` }}
               transition={{ duration: 1.4, ease: [0.2, 0.8, 0.2, 1] }}
@@ -135,7 +135,7 @@ export default function PlayerScoreboard({ variant = "full" }) {
 
             <div className="h-3 bg-midnight border border-ember/20 relative overflow-hidden">
               <motion.div
-                className="absolute inset-y-0 left-0 bg-gradient-to-r from-ember via-glow to-signal"
+                className="absolute inset-y-0 left-0 bg-linear-to-r from-ember via-glow to-signal"
                 style={{ boxShadow: "0 0 24px rgba(255,230,0,0.4)" }}
                 initial={{ width: 0 }}
                 animate={{ width: `${pct}%` }}
