@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
@@ -32,14 +33,18 @@ export default function Navbar() {
       data-testid="main-navbar"
     >
       <AnnouncementBanner />
-      <div className={`transition-all duration-300 ${scrolled ? "bg-ink/85 backdrop-blur-md border-b border-ember/20" : "bg-linear-to-b from-ink/70 to-transparent"
+      <div className={`transition-all duration-300 ${scrolled ? "bg-ink/55 backdrop-blur-md border-b border-ember/20" : "bg-linear-to-b from-ink/40 to-transparent"
         }`}>
         <nav className="max-w-7xl mx-auto px-5 lg:px-10 h-16 lg:h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3" data-testid="navbar-logo">
-            <span className="block w-2 h-6 bg-signal shadow-signal animate-flicker" />
-            <span className="headline text-2xl lg:text-3xl tracking-tight">
-              AUK<span className="text-ember">TAVE</span>
-            </span>
+            <Image
+              src="/images/auktave_logo.png"
+              alt="AUKTAVE"
+              width={143}
+              height={35}
+              priority
+              className="h-7 lg:h-9 w-auto"
+            />
           </Link>
 
           <ul className="hidden lg:flex items-center gap-8">

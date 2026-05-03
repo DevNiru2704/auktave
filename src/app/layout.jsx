@@ -2,6 +2,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AudioController from "@/components/AudioController";
+import HomeSplashGate from "@/components/HomeSplashGate";
+import CustomCursor from "@/components/CustomCursor";
 import LenisProvider from "@/components/LenisProvider";
 import Script from "next/script";
 
@@ -30,6 +32,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="bg-ink text-bone grain vignette" data-testid="root-body">
         <LenisProvider>
+          <HomeSplashGate />
+          <CustomCursor />
           <Navbar />
           <main className="relative">{children}</main>
           <Footer />

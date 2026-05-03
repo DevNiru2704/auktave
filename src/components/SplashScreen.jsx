@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function SplashScreen() {
+export default function SplashScreen({ onDismiss }) {
   const [show, setShow] = useState(true);
   const [progress, setProgress] = useState(0);
 
@@ -31,6 +31,12 @@ export default function SplashScreen() {
       return () => clearTimeout(t);
     }
   }, [progress]);
+
+  useEffect(() => {
+    if (!show) {
+      onDismiss?.();
+    }
+  }, [show, onDismiss]);
 
   useEffect(() => {
     if (!show) return;

@@ -33,6 +33,48 @@ html, body {
   overflow-x: hidden;
 }
 
+@media (pointer: fine) {
+  body.custom-cursor-active,
+  body.custom-cursor-active a,
+  body.custom-cursor-active button,
+  body.custom-cursor-active [role='button'],
+  body.custom-cursor-active input,
+  body.custom-cursor-active textarea,
+  body.custom-cursor-active select,
+  body.custom-cursor-active summary {
+    cursor: none !important;
+  }
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  color: #ffe600;
+  filter: drop-shadow(0 0 6px rgba(255, 230, 0, 0.45)) drop-shadow(0 0 10px rgba(255, 31, 61, 0.2));
+}
+
+.custom-cursor-icon {
+  width: 22px;
+  height: 22px;
+  transform-origin: center;
+  transition: transform 180ms ease, color 180ms ease, opacity 180ms ease;
+}
+
+.custom-cursor-hovering {
+  color: #ff1f3d;
+}
+
+.custom-cursor-hovering .custom-cursor-icon {
+  transform: scale(1.18) rotate(-6deg);
+}
+
 html.lenis { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }

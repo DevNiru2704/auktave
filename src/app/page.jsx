@@ -1,23 +1,33 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Zap, Trophy, Users, Clock, Sparkles, Lock, ChevronDown } from "lucide-react";
-import SplashScreen from "@/components/SplashScreen";
 import GlitchText from "@/components/GlitchText";
 import Countdown from "@/components/Countdown";
 import EventCard from "@/components/EventCard";
 // import PlayerScoreboard from "@/components/PlayerScoreboard"; // [scoreboard] disabled until approved
-import { events, stats } from "@/lib/data";
+import { events, stats, sponsors } from "@/lib/data";
+
+function hashString(value) {
+  let hash = 0;
+
+  for (let i = 0; i < value.length; i += 1) {
+    hash = (hash * 31 + value.charCodeAt(i)) >>> 0;
+  }
+
+  return hash;
+}
 
 export default function HomePage() {
-  const hackathon = events.find((e) => e.slug === "hackathon");
-  const headlineEvents = events.filter((e) => e.highlight);
-  const sideEvents = events.filter((e) => !e.highlight);
+  const featuredSideEvents = [...events.filter((e) => !e.highlight)]
+    .map((event) => ({ event, rank: hashString(`auktave:${event.slug}`) }))
+    .sort((a, b) => a.rank - b.rank)
+    .slice(0, 3)
+    .map(({ event }) => event);
 
   return (
     <>
-      <SplashScreen />
-
       {/* HERO */}
       <section className="relative min-h-screen pt-24 pb-16 overflow-hidden vines-bg" data-testid="hero-section">
         <div className="absolute inset-0 z-0 pointer-events-none">
@@ -45,15 +55,21 @@ export default function HomePage() {
               </span>
             </motion.div>
 
-            <motion.h1
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.9 }}
-              className="headline text-[14vw] sm:text-[10vw] lg:text-[9rem] leading-[0.85]"
+              className="w-full max-w-2xl"
             >
-              <span className="glitch-text" data-text="AUK">AUK</span>
-              <span className="text-ember glitch-text" data-text="TAVE">TAVE</span>
-            </motion.h1>
+              <Image
+                src="/images/auktave_logo.png"
+                alt="AUKTAVE"
+                width={470}
+                height={100}
+                priority
+                className="w-full h-auto"
+              />
+            </motion.div>
 
             <motion.p
               initial={{ opacity: 0, y: 14 }}
@@ -157,6 +173,47 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* COUNTDOWN */}
+      <section className="py-24 px-5 lg:px-10 border-y border-ember/15 bg-midnight/40" data-testid="countdown-section">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="eyebrow mb-4">/ The Clock</p>
+          <GlitchText className="text-5xl lg:text-7xl mb-12">Time Bends, Then Breaks</GlitchText>
+          <Countdown />
+          <p className="text-bone/50 mt-8 max-w-md mx-auto">The portal opens May 22, 2026 at 09:00 IST. After that, it is too late to be early.</p>
+        </div>
+      </section>
+
+      {/* OUR SPONSORS */}
+      <section className="py-24 px-5 lg:px-10" data-testid="sponsors-section">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="eyebrow mb-4">/ Our Backers</p>
+            <GlitchText className="text-5xl lg:text-6xl mb-6">Sponsors & Partners</GlitchText>
+            <p className="text-bone/70 text-lg max-w-2xl mx-auto">Proud sponsors helping us power the first edition of AUKTAVE. Join the crew.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-12">
+            {Array.from({ length: 12 }).map((_, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.04 }}
+                className="card-upside aspect-3/2 flex items-center justify-center group"
+                data-testid={`sponsor-placeholder-${i}`}
+              >
+                <span className="font-mono text-xs text-bone/40 group-hover:text-ember transition-colors">LOGO_{String(i + 1).padStart(2, "0")}</span>
+              </motion.div>
+            ))}
+          </div>
+          <div className="text-center">
+            <Link href="/sponsorship" className="btn-signal" data-testid="sponsors-know-more">
+              Know More
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* HEADLINE EVENTS SPOTLIGHTS */}
       {events.filter((e) => e.highlight).map((e) => (
         <section key={e.slug} className="relative py-24 px-5 lg:px-10 border-y border-ember/15 bg-midnight/30" data-testid={`${e.slug}-spotlight`}>
@@ -205,28 +262,12 @@ export default function HomePage() {
             </div>
             <Link href="/events" className="btn-ghost self-start" data-testid="all-events-cta">All Events</Link>
           </div>
-          <p className="eyebrow mb-4">/ Headline Events</p>
-          <div className="grid md:grid-cols-2 gap-5 mb-8">
-            {headlineEvents.map((e, i) => (
-              <EventCard key={e.slug} event={e} index={i} />
-            ))}
-          </div>
           <p className="eyebrow mb-4">/ Side Events</p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {sideEvents.map((e, i) => (
+          <div className="grid md:grid-cols-3 gap-5">
+            {featuredSideEvents.map((e, i) => (
               <EventCard key={e.slug} event={e} index={i} />
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* PRIZES + COUNTDOWN */}
-      <section className="py-24 px-5 lg:px-10 border-y border-ember/15 bg-midnight/40" data-testid="countdown-section">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="eyebrow mb-4">/ The Clock</p>
-          <GlitchText className="text-5xl lg:text-7xl mb-12">Time Bends, Then Breaks</GlitchText>
-          <Countdown />
-          <p className="text-bone/50 mt-8 max-w-md mx-auto">The portal opens May 22, 2026 at 09:00 IST. After that, it is too late to be early.</p>
         </div>
       </section>
 
