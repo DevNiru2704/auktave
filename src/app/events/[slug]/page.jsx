@@ -66,6 +66,122 @@ export default function EventDetailPage() {
           </ol>
         </div>
 
+        {/* Extra Sections */}
+        {event.themes && (
+          <div className="card-upside p-8 lg:p-10 mb-10" data-testid="event-themes-section">
+            <p className="eyebrow mb-4">/ Official Themes</p>
+            <h2 className="headline text-3xl lg:text-4xl mb-6">Pick one pillar</h2>
+            <ol className="space-y-4">
+              {event.themes.map((t, i) => (
+                <li key={t.title} className="flex gap-5 text-bone/80 leading-relaxed">
+                  <span className="font-mono text-ember text-sm pt-1 w-10 shrink-0">/{String(i + 1).padStart(2, "0")}</span>
+                  <span className="flex-1">
+                    <span className="text-bone">{t.title}</span>
+                    {t.description ? <span className="text-bone/70"> — {t.description}</span> : null}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+
+        {event.requirements && (
+          <div className="card-upside p-8 lg:p-10 mb-10" data-testid="event-requirements-section">
+            <p className="eyebrow mb-4">/ Requirements</p>
+            <h2 className="headline text-3xl lg:text-4xl mb-6">What you must submit</h2>
+            <ul className="space-y-3 text-bone/80 leading-relaxed">
+              {event.requirements.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="text-ember">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {event.selectionProcess && (
+          <div className="card-upside p-8 lg:p-10 mb-10" data-testid="event-selection-section">
+            <p className="eyebrow mb-4">/ Selection & Awards</p>
+            <h2 className="headline text-3xl lg:text-4xl mb-6">How winners are chosen</h2>
+            <ul className="space-y-3 text-bone/80 leading-relaxed">
+              {event.selectionProcess.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="text-ember">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {event.prizes && (
+          <div className="card-upside p-8 lg:p-10 mb-10" data-testid="event-prizes-section">
+            <p className="eyebrow mb-4">/ Prize Pool</p>
+            <h2 className="headline text-3xl lg:text-4xl mb-6">What you can win</h2>
+            <ul className="space-y-3 text-bone/80 leading-relaxed">
+              {event.prizes.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="text-ember">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {event.toolkit && (
+          <div className="card-upside p-8 lg:p-10 mb-10" data-testid="event-toolkit-section">
+            <p className="eyebrow mb-4">/ Suggested AI Toolkit</p>
+            <h2 className="headline text-3xl lg:text-4xl mb-6">Optional tools</h2>
+            <ul className="space-y-3 text-bone/80 leading-relaxed">
+              {event.toolkit.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="text-ember">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {event.importantDates && (
+          <div className="card-upside p-8 lg:p-10 mb-10" data-testid="event-dates-section">
+            <p className="eyebrow mb-4">/ Important Dates</p>
+            <h2 className="headline text-3xl lg:text-4xl mb-6">Mark your calendar</h2>
+            <ul className="space-y-3 text-bone/80 leading-relaxed">
+              {event.importantDates.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="text-ember">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {event.sections && (
+          <div className="space-y-10" data-testid="event-sections">
+            {event.sections.map((section) => (
+              <div key={section.title} className="card-upside p-8 lg:p-10">
+                <p className="eyebrow mb-4">{section.eyebrow || "/ Details"}</p>
+                <h2 className="headline text-3xl lg:text-4xl mb-6">{section.title}</h2>
+                {section.description ? (
+                  <p className="text-bone/70 leading-relaxed mb-6">{section.description}</p>
+                ) : null}
+                <ul className="space-y-3 text-bone/80 leading-relaxed">
+                  {section.items.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span className="text-ember">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        )}
+
         {/* Coordinator */}
         <div className="card-upside p-8 lg:p-10" data-testid="event-coordinator">
           <p className="eyebrow mb-4">/ Field Coordinator</p>
