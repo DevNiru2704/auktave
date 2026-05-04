@@ -29,6 +29,14 @@ export default function HomePage() {
       .sort((a, b) => a.rank - b.rank)
       .map(({ event }) => event)
   ].filter(Boolean).slice(0, 3);
+  const sponsorTickerItems = Array.from({ length: 12 }).flatMap((_, i) => [
+    <div
+      key={`sponsor-logo-${i}`}
+      className="card-upside min-w-36 sm:min-w-40 aspect-3/2 flex items-center justify-center group px-6"
+    >
+      <span className="font-mono text-xs text-bone/40 group-hover:text-ember transition-colors">LOGO_{String(i + 1).padStart(2, "0")}</span>
+    </div>
+  ]);
 
   return (
     <>
@@ -142,7 +150,7 @@ export default function HomePage() {
 
       {/* TICKER */}
       <section className="border-y border-ember/20 bg-midnight/50 overflow-hidden py-5">
-        <div className="marquee text-bone/40 font-display text-3xl">
+        <div className="marquee marquee-fast text-bone/40 font-display text-3xl">
           {Array.from({ length: 2 }).flatMap((_, i) => [
             <span key={`a${i}`} className="flex items-center gap-3"><Sparkles className="text-ember" size={20} /> 48 hours of building</span>,
             <span key={`b${i}`} className="flex items-center gap-3"><Sparkles className="text-signal" size={20} /> 7 events / 1 portal</span>,
@@ -193,22 +201,14 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <p className="eyebrow mb-4">/ Our Backers</p>
             <GlitchText className="text-5xl lg:text-6xl mb-6">Sponsors & Partners</GlitchText>
-            <p className="text-bone/70 text-lg max-w-2xl mx-auto">Proud sponsors helping us power the first edition of AUKTAVE. Join the crew.</p>
+            <p className="text-bone/70 text-lg max-w-2xl mx-auto">Current sponsor slots are open, so we are showing placeholder logo boxes for now. Open the full sponsorship page for the detailed packages.</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-12">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.04 }}
-                className="card-upside aspect-3/2 flex items-center justify-center group"
-                data-testid={`sponsor-placeholder-${i}`}
-              >
-                <span className="font-mono text-xs text-bone/40 group-hover:text-ember transition-colors">LOGO_{String(i + 1).padStart(2, "0")}</span>
-              </motion.div>
-            ))}
+          <div className="relative overflow-hidden mb-12">
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-linear-to-r from-bg to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-linear-to-l from-bg to-transparent z-10" />
+            <div className="marquee py-2">
+              {sponsorTickerItems}
+            </div>
           </div>
           <div className="text-center">
             <Link href="/sponsorship" className="btn-signal" data-testid="sponsors-know-more">

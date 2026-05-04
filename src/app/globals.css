@@ -219,6 +219,19 @@ html.lenis { height: auto; }
   animation: marquee 40s linear infinite;
   white-space: nowrap;
 }
+.marquee-fast {
+  animation-duration: 22s;
+}
+@media (max-width: 1024px) {
+  .marquee-fast {
+    animation-duration: 16s;
+  }
+}
+@media (max-width: 640px) {
+  .marquee-fast {
+    animation-duration: 12s;
+  }
+}
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
