@@ -58,7 +58,7 @@ export default function RegisterPage() {
               Register Now
             </a>
             <p className="text-xs font-mono text-bone/40 mt-4 uppercase tracking-[0.18em]">
-              By submitting you agree to our terms. A confirmation email follows.
+              By submitting, you agree to our <a href="/terms" className="text-ember underline hover:text-ember/80 transition-colors">Terms and Condition</a> and <a href="/privacy" className="text-ember underline hover:text-ember/80 transition-colors">Privacy Policy</a>. A confirmation email follows.
             </p>
           </div>
         </div>
