@@ -10,6 +10,7 @@ export default function CustomCursor() {
     const targetRef = useRef({ x: 0, y: 0 });
     const [active, setActive] = useState(false);
     const [hovering, setHovering] = useState(false);
+    const [visible, setVisible] = useState(false);
 
     useEffect(() => {
         const mobileLike = window.matchMedia("(pointer: coarse), (hover: none), (max-width: 767px)").matches;
@@ -35,9 +36,17 @@ export default function CustomCursor() {
         const onPointerMove = (event) => {
             targetRef.current = { x: event.clientX, y: event.clientY };
             updateHoverState(event);
+            setVisible(true);
         };
 
-        const onPointerLeave = () => setHovering(false);
+        const onPointerEnter = () => setVisible(true);
+
+        const onPointerLeave = () => {
+            setHovering(false);
+            setVisible(false);
+        };
+
+        const onWindowBlur = () => setVisible(false);
 
         const animate = () => {
             positionRef.current.x += (targetRef.current.x - positionRef.current.x) * 0.16;
@@ -51,12 +60,16 @@ export default function CustomCursor() {
         };
 
         window.addEventListener("pointermove", onPointerMove);
+        window.addEventListener("pointerenter", onPointerEnter);
         window.addEventListener("pointerleave", onPointerLeave);
+        window.addEventListener("blur", onWindowBlur);
         requestRef.current = window.requestAnimationFrame(animate);
 
         return () => {
             window.removeEventListener("pointermove", onPointerMove);
+            window.removeEventListener("pointerenter", onPointerEnter);
             window.removeEventListener("pointerleave", onPointerLeave);
+            window.removeEventListener("blur", onWindowBlur);
             if (requestRef.current) {
                 window.cancelAnimationFrame(requestRef.current);
             }
@@ -69,7 +82,7 @@ export default function CustomCursor() {
     return (
         <div
             ref={cursorRef}
-            className={`custom-cursor ${hovering ? "custom-cursor-hovering" : ""}`}
+            className={`custom-cursor ${hovering ? "custom-cursor-hovering" : ""} ${visible ? "" : "custom-cursor-hidden"}`}
             aria-hidden="true"
         >
             <MousePointer2 className="custom-cursor-icon" size={22} strokeWidth={2.25} />

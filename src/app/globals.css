@@ -60,6 +60,10 @@ html, body {
   filter: drop-shadow(0 0 6px rgba(255, 230, 0, 0.45)) drop-shadow(0 0 10px rgba(255, 31, 61, 0.2));
 }
 
+.custom-cursor-hidden {
+  opacity: 0;
+}
+
 .custom-cursor-icon {
   width: 22px;
   height: 22px;
