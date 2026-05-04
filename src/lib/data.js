@@ -6,7 +6,7 @@ export const events = [
     summary: "A 24-hour in-campus AI hackathon where student teams build impactful solutions inside predefined AI domains. Pick one track at kickoff, build fast, and present a working prototype to the jury.",
     duration: "24 Hours",
     teamSize: "2 - 5 Members",
-    prizePool: "Rs. 1,50,000+",
+    prizePool: "Rs. 50,000+",
     highlight: true,
     coordinator: { name: "Aritra Sen", role: "Hackathon Lead", phone: "+91 98300 00000", email: "hackathon@auktave.in" },
     rules: [
