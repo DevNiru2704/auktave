@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useParams, notFound } from "next/navigation";
 import { events } from "@/lib/data";
 import GlitchText from "@/components/GlitchText";
-import { Clock, Users, Trophy, Phone, Mail, ArrowLeft } from "lucide-react";
+import { Clock, Users, Trophy, Phone, Mail, ArrowLeft, FileDown } from "lucide-react";
 
 export default function RoboticsSubEventPage() {
     const params = useParams();
@@ -39,6 +39,14 @@ export default function RoboticsSubEventPage() {
                         <Link href="/register" className="btn-signal w-full block text-center mt-4" data-testid="robotics-register-cta">
                             Register Now
                         </Link>
+                        <a
+                            href="/brochures/event-rules.pdf"
+                            download
+                            className="btn-ghost w-full flex items-center justify-center gap-2"
+                            data-testid="robotics-rules-download"
+                        >
+                            <FileDown size={16} /> Download Rules PDF
+                        </a>
                     </div>
                 </div>
 

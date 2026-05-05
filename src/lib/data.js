@@ -3,7 +3,7 @@ export const events = [
     slug: "hackathon",
     name: "24 Hour AI Hackathon",
     tagline: "24 hours. Track-based AI innovation.",
-    summary: "A 24-hour in-campus AI hackathon where student teams build impactful solutions inside predefined AI domains. Pick one track at kickoff, build fast, and present a working prototype to the jury.",
+    summary: "A 24-hour in-campus AI hackathon that brings together innovators, developers, and problem-solvers to build impactful AI solutions. The event is track-based, so teams innovate within predefined AI domains.",
     duration: "24 Hours",
     teamSize: "2 - 5 Members",
     prizePool: "Rs. 50,000+",
@@ -14,6 +14,7 @@ export const events = [
       "Teams must have 2 to 5 members and designate a Team Leader as the primary contact.",
       "Each participant can be part of only one team; multiple teams from the same college are allowed.",
       "Registration is valid only after all team members register before the deadline; false information may lead to disqualification.",
+      "No registrations are accepted after the deadline.",
       "This is a 24-hour offline hackathon. Teams choose one track at the start and build within the allotted time.",
       "All work must be completed during the hackathon; pre-built projects or prior codebases are not allowed.",
       "Open-source libraries and tools are allowed but must be properly credited.",
@@ -27,7 +28,8 @@ export const events = [
       "Professional conduct is required at all times; harassment or misconduct results in disqualification.",
       "Teams retain project ownership; organizers may showcase projects with proper credit.",
       "Participants must bring their own devices; basic facilities (power, internet, workspace) are provided.",
-      "Organizers may modify rules if needed and participants must follow the schedule strictly."
+      "Organizers may modify rules if needed and participants must follow the schedule strictly.",
+      "Judges' decisions are final and participation implies acceptance of all rules."
     ],
     tracks: ["AI for Healthcare", "AI for Education", "AI for Sustainability", "AI for FinTech", "Open Innovation in AI"],
     sections: [
@@ -204,14 +206,28 @@ export const events = [
           "Judges' decisions are final.",
           "Participation implies acceptance of all rules."
         ]
+      },
+      {
+        eyebrow: "/ FAQs",
+        title: "Frequently asked questions",
+        items: [
+          "Is there any registration fee? Yes, the registration fee is Rs. 500 per team.",
+          "Can we change our track after selecting it? Yes, teams can change their track even on the day of the event.",
+          "Will basic facilities like internet, power, and food be provided? Yes, internet access, charging points, and food will be provided throughout the event.",
+          "Are participants required to stay at the venue for the full duration? Yes, participants must remain at the venue for the entire duration of the hackathon.",
+          "Will certificates be provided to all team members? Yes, certificates will be issued to all registered team members.",
+          "What happens if a team cancels or does not show up? Will there be a refund? No refunds will be provided; refunds will only be issued if decided by the organizing team.",
+          "Will mentors or support be available during the hackathon? Yes, support will be available to guide participants during the event.",
+          "How will we receive detailed information? Detailed information will be shared with team leaders via email."
+        ]
       }
     ]
   },
   {
     slug: "robotics",
     name: "Robotics Competition",
-    tagline: "Four arenas. One robotics league.",
-    summary: "Pick your battlefield: Robo Soccer, Robo Sumo, Maze Solver, or Drone Obstacle Course. Register once, compete in one sub-event.",
+    tagline: "Three arenas. One robotics league.",
+    summary: "Pick your battlefield: Robo Soccer, Maze Solver, or Drone Obstacle Course. Register once, compete in one sub-event.",
     duration: "8 Hours",
     teamSize: "2 - 4 Members",
     prizePool: "Rs. 40,000",
@@ -223,7 +239,7 @@ export const events = [
         name: "Robo Soccer",
         tagline: "Timed goals, tight control, zero tolerance for faults.",
         summary: "A team-based robotics football event with strict bot specs and multi-stage gameplay: prelims, knockouts, and finals.",
-        duration: "2 - 3 Hours",
+        duration: "2.5 Hours",
         teamSize: "2 - 4 Members",
         prizePool: "Rs. 12,000",
         coordinator: { name: "Riya Banerjee", role: "Robotics Lead", phone: "+91 98300 00001", email: "robotics@auktave.in" },
@@ -293,49 +309,11 @@ export const events = [
         ]
       },
       {
-        slug: "robo-sumo",
-        name: "Robo Sumo",
-        tagline: "Push, flip, or outlast inside the ring.",
-        summary: "Two robots enter the sumo ring. The goal: push the opponent out or immobilize them within the time limit.",
-        duration: "2 Hours",
-        teamSize: "2 - 4 Members",
-        prizePool: "Rs. 10,000",
-        coordinator: { name: "Riya Banerjee", role: "Robotics Lead", phone: "+91 98300 00001", email: "robotics@auktave.in" },
-        rules: [
-          "Robots must fit within 25 x 25 cm and weigh under 3 kg.",
-          "Battery voltage must not exceed 14.8V.",
-          "Match duration is 3 minutes; best of three rounds.",
-          "A robot is out if any part crosses the ring boundary.",
-          "Weapons that damage the arena are prohibited.",
-          "A 2 minute repair window is allowed between rounds."
-        ],
-        sections: [
-          {
-            eyebrow: "/ Ring",
-            title: "Arena and match flow",
-            items: [
-              "Standard black ring with white boundary line.",
-              "Manual control only; no pre-programmed movement.",
-              "Judges may stop the match for safety or rule violations."
-            ]
-          },
-          {
-            eyebrow: "/ Victory",
-            title: "Winning conditions",
-            items: [
-              "Push opponent out of the ring.",
-              "Immobilize opponent for 10 seconds.",
-              "Highest aggression score if time expires."
-            ]
-          }
-        ]
-      },
-      {
         slug: "maze-solver",
         name: "Maze Solver",
         tagline: "Explore, learn, then sprint the shortest path.",
         summary: "Autonomous line-maze challenge with a Dry Run exploration phase and an Actual Run speed phase on the shortest path.",
-        duration: "2 Hours",
+        duration: "2.5 Hours",
         teamSize: "2 - 4 Members",
         prizePool: "Rs. 8,000",
         coordinator: { name: "Riya Banerjee", role: "Robotics Lead", phone: "+91 98300 00001", email: "robotics@auktave.in" },
@@ -465,36 +443,91 @@ export const events = [
         slug: "drone-obstacle-course",
         name: "Drone Obstacle Course",
         tagline: "Fly tight gates and sharp turns.",
-        summary: "Pilots guide drones through a timed obstacle course featuring gates, tunnels, and precision hover zones.",
-        duration: "2 Hours",
+        summary: "A timed obstacle course where each drone must clear every obstacle and follow checkpoint rules with strict penalties.",
+        duration: "2.5 Hours",
         teamSize: "1 - 3 Members",
         prizePool: "Rs. 10,000",
         coordinator: { name: "Riya Banerjee", role: "Robotics Lead", phone: "+91 98300 00001", email: "robotics@auktave.in" },
         rules: [
-          "Drone size limit: 7 inch propellers maximum.",
-          "FPV and line-of-sight are both allowed.",
-          "Battery swaps are allowed between runs only.",
-          "Missing a gate adds a 10 second penalty.",
-          "Crashes end the run; repair and retry if time remains.",
-          "Geo-fenced safety zone must be respected."
+          "Open to students from all recognized colleges and universities; register via the official portal.",
+          "Required documents: photocopy of valid Government ID and photocopy of valid College or University or Work ID.",
+          "An enrollment letter will be issued after registration and must be presented as a hard copy at the entry gate.",
+          "Registration fee is Rs. 400 per participant or team.",
+          "Participants must report at least 30 minutes prior to the event start time; late arrivals are not permitted.",
+          "Each participant will be assigned a Point of Contact on arrival.",
+          "The drone must pass through every obstacle; failure results in disqualification.",
+          "If any obstacle is missed, participants must restart from the last checkpoint and the timer pauses during restart.",
+          "If the drone veers off track, return to the last checkpoint and the timer pauses during return.",
+          "One repair break of 2 minutes is allowed for a crash or malfunction; failure to recover results in disqualification.",
+          "If a tie occurs, the participant with fewer penalties wins; equal penalties result in a rematch.",
+          "Participants will be allotted a sequence number used as the competition order.",
+          "Maintain professional and respectful behavior; offensive language or discrimination leads to disqualification.",
+          "Grievances must be filed with the member in charge of this competition.",
+          "Participants may be disqualified for late reporting, missing documents, code of conduct violations, or unfair means."
         ],
         sections: [
           {
-            eyebrow: "/ Course",
-            title: "Obstacle layout",
+            eyebrow: "/ Eligibility",
+            title: "Eligibility and registration",
             items: [
-              "Sequence of 6 to 8 gates with variable heights.",
-              "Includes a tunnel section and a precision hover box.",
-              "Course direction is announced before each heat."
+              "Open to students from all recognized colleges and universities.",
+              "Register via the official portal.",
+              "Required documents: photocopy of valid Government ID and photocopy of valid College or University or Work ID.",
+              "Enrollment letter must be presented as a hard copy at the entry gate.",
+              "Registration fee is Rs. 400 per participant or team."
             ]
           },
           {
-            eyebrow: "/ Scoring",
-            title: "Timing and penalties",
+            eyebrow: "/ Entry",
+            title: "Reporting and entry",
             items: [
-              "Fastest adjusted time wins.",
-              "Penalties apply for missed gates and boundary hits.",
-              "Judges may declare unsafe flights as DNF."
+              "Report at least 30 minutes before the start time.",
+              "Late arrivals are not permitted.",
+              "Each participant will be assigned a Point of Contact for assistance."
+            ]
+          },
+          {
+            eyebrow: "/ Format",
+            title: "Competition format",
+            items: [
+              "The drone must pass through every obstacle; failure results in disqualification.",
+              "If an obstacle is missed, restart from the last checkpoint and the timer pauses during restart.",
+              "If the drone veers off track, return to the last checkpoint and the timer pauses during return.",
+              "One repair break of 2 minutes is allowed for a crash or malfunction; failure to recover results in disqualification.",
+              "If a tie occurs, fewer penalties wins; equal penalties result in a rematch."
+            ]
+          },
+          {
+            eyebrow: "/ Structure",
+            title: "Competition structure",
+            items: [
+              "Participants are allotted a sequence number used as the competition order."
+            ]
+          },
+          {
+            eyebrow: "/ Conduct",
+            title: "Code of conduct",
+            items: [
+              "Maintain professional and respectful behavior at all times.",
+              "Offensive language, personal attacks, or discrimination lead to immediate disqualification.",
+              "Grievances must be filed with the member in charge of this competition."
+            ]
+          },
+          {
+            eyebrow: "/ Prize Pool",
+            title: "Awards",
+            items: [
+              "Total prize pool: Rs. 10,000 for winning teams."
+            ]
+          },
+          {
+            eyebrow: "/ Disqualification",
+            title: "Disqualification conditions",
+            items: [
+              "Late reporting.",
+              "Failure to produce required documents.",
+              "Violation of code of conduct.",
+              "Use of unfair means or external assistance."
             ]
           }
         ]
@@ -506,7 +539,7 @@ export const events = [
     name: "Research and Project Expo",
     tagline: "Show your experiment to the world.",
     summary: "Showcase your research, capstone, or prototype to industry mentors and investors at the AUKTAVE Expo Floor.",
-    duration: "Day 1 + Day 2",
+    duration: "2 Hours",
     teamSize: "1 - 5 Members",
     prizePool: "Rs. 25,000",
     coordinator: { name: "Soumya Dutta", role: "Expo Lead", phone: "+91 98300 00002", email: "expo@auktave.in" },
@@ -523,7 +556,7 @@ export const events = [
     name: "AUKTAVE Tech Debate",
     tagline: "Argue. Reason. Persuade.",
     summary: "A knockout-style, technology-focused debate tournament (AI ethics, cybersecurity, emerging tech) with on-the-spot motions and strict timekeeping.",
-    duration: "2 Hours",
+    duration: "1 Hour",
     teamSize: "1 Member",
     prizePool: "Hoodies, Swag Kits, Certificates",
     coordinator: { name: "Vikram Roy", role: "Debate Lead", phone: "+91 98300 00003", email: "debate@auktave.in" },
@@ -669,7 +702,7 @@ export const events = [
     name: "AI Short Film Showcase",
     tagline: "Prompt-to-premiere, but human-led.",
     summary: "Create a 1 to 3 minute short film where AI assists the visual, audio, or narrative process. A jury selects the Top 10 for a grand auditorium screening and live judging.",
-    duration: "4 Hours",
+    duration: "1 Hour",
     teamSize: "1 - 3 Members",
     prizePool: "Rs. 10,000",
     coordinator: { name: "Ananya Ghosh", role: "Film Lead", phone: "+91 98300 00004", email: "film@auktave.in" },
@@ -738,7 +771,7 @@ export const events = [
     name: "B.Tech Final Year Presentations",
     tagline: "Defend your thesis. Win the floor.",
     summary: "Final year B.Tech students present capstone projects to a panel of academics and industry pros.",
-    duration: "6 Hours",
+    duration: "1.5 Hours",
     teamSize: "1 - 4 Members",
     prizePool: "Rs. 30,000",
     coordinator: { name: "Prof. K. Mukherjee", role: "Academic Lead", phone: "+91 98300 00005", email: "presentations@auktave.in" },
@@ -755,7 +788,7 @@ export const events = [
     name: "IEEE Special Session",
     tagline: "A signal from the standards bearers.",
     summary: "An exclusive IEEE SB AUK-curated session featuring keynotes, technical talks, and a research paper showcase. A trust mark for AUKTAVE 2K26.",
-    duration: "2 Hours",
+    duration: "1 Hour",
     teamSize: "Open to all",
     prizePool: "Certificates + IEEE SB AUK perks",
     coordinator: { name: "IEEE SB AUK Chapter", role: "Society Liaison", phone: "+91 98300 00006", email: "ieee-sbauk@auktave.in" },

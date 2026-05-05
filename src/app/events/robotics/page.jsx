@@ -2,7 +2,7 @@
 import Link from "next/link";
 import GlitchText from "@/components/GlitchText";
 import { events } from "@/lib/data";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 
 export default function RoboticsPage() {
     const robotics = events.find((e) => e.slug === "robotics");
@@ -11,6 +11,13 @@ export default function RoboticsPage() {
     return (
         <div className="pt-32 pb-24 px-5 lg:px-10 vines-bg" data-testid="robotics-page">
             <div className="max-w-7xl mx-auto">
+                <Link
+                    href="/events"
+                    className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-bone/60 hover:text-ember mb-8"
+                    data-testid="back-to-events"
+                >
+                    <ArrowLeft size={14} /> Back to Events
+                </Link>
                 <p className="eyebrow mb-4">/ Robotics</p>
                 <GlitchText as="h1" className="text-6xl lg:text-8xl mb-6">
                     {robotics.name}

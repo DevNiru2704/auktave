@@ -169,14 +169,32 @@ export default function EventDetailPage() {
                 {section.description ? (
                   <p className="text-bone/70 leading-relaxed mb-6">{section.description}</p>
                 ) : null}
-                <ul className="space-y-3 text-bone/80 leading-relaxed">
-                  {section.items.map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span className="text-ember">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                {(() => {
+                  const title = section.title.toLowerCase();
+                  const eyebrow = (section.eyebrow || "").toLowerCase();
+                  const isFaqSection = title.includes("faq") || title.includes("frequently asked") || eyebrow.includes("faq");
+                  return (
+                    <ul className="space-y-3 text-bone/80 leading-relaxed">
+                      {section.items.map((item) => {
+                        const [question, ...rest] = isFaqSection ? item.split("?") : [item];
+                        const answer = isFaqSection ? rest.join("?").trim() : "";
+                        return (
+                          <li key={item} className="flex gap-3">
+                            <span className="text-ember">•</span>
+                            {isFaqSection && answer ? (
+                              <span className="flex-1">
+                                <span className="text-bone block">{question.trim()}?</span>
+                                <span className="text-bone/70 block mt-1">{answer}</span>
+                              </span>
+                            ) : (
+                              <span>{item}</span>
+                            )}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  );
+                })()}
               </div>
             ))}
           </div>
