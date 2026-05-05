@@ -210,19 +210,295 @@ export const events = [
   {
     slug: "robotics",
     name: "Robotics Competition",
-    tagline: "Engineering with consequences.",
-    summary: "Line followers, combat bots, and autonomous navigation challenges. Bring your bot or build one in our hardware bay.",
+    tagline: "Four arenas. One robotics league.",
+    summary: "Pick your battlefield: Robo Soccer, Robo Sumo, Maze Solver, or Drone Obstacle Course. Register once, compete in one sub-event.",
     duration: "8 Hours",
     teamSize: "2 - 4 Members",
     prizePool: "Rs. 40,000",
     highlight: true,
     coordinator: { name: "Riya Banerjee", role: "Robotics Lead", phone: "+91 98300 00001", email: "robotics@auktave.in" },
-    rules: [
-      "Robots must fit a 30 x 30 x 30 cm dimension and weigh under 3 kg.",
-      "Wireless control via Bluetooth or RF only. No tethered power.",
-      "Three rounds: line follow, obstacle clear, free style.",
-      "Damaging the arena results in disqualification.",
-      "Repair time of 5 minutes is allowed between rounds."
+    subEvents: [
+      {
+        slug: "robo-soccer",
+        name: "Robo Soccer",
+        tagline: "Timed goals, tight control, zero tolerance for faults.",
+        summary: "A team-based robotics football event with strict bot specs and multi-stage gameplay: prelims, knockouts, and finals.",
+        duration: "2 - 3 Hours",
+        teamSize: "2 - 4 Members",
+        prizePool: "Rs. 12,000",
+        coordinator: { name: "Riya Banerjee", role: "Robotics Lead", phone: "+91 98300 00001", email: "robotics@auktave.in" },
+        rules: [
+          "This is a team event with 2 to 4 members per team.",
+          "A team may comprise members from different colleges.",
+          "No person shall be a member of multiple teams.",
+          "Teams must showcase and get their bots measured as per specification before the match.",
+          "No bots can be shared by two teams.",
+          "Robots constructed using LEGO kits or its spare parts or any other readymade mechanism are not allowed.",
+          "The bot can be wired or wireless.",
+          "Use of pneumatics, hydraulics, lethal weapons like projectiles, acids, sharp cutters, strong electromagnets, tesla coil, fire, and EMP are strictly prohibited.",
+          "Bots are not allowed to pick or hold the ball; if found faulty it may lead to disqualification.",
+          "Intentional damage to the arena may lead to disqualification of the bot.",
+          "The right spirit of participation is expected from every participant; disciplinary violations can lead to disqualification.",
+          "The decision of the coordinators will be deemed final.",
+          "Dimension of the bot should not exceed 30 cm x 30 cm (L x B).",
+          "Weight of the bot must be below 3 kg with no tolerance.",
+          "Maximum allowed voltage is 18V.",
+          "Power of the bot should be fixed throughout the play; variable power is prohibited.",
+          "For wired bots, pulling wires to alter the movement of the robots will not be tolerated and may lead to disqualification.",
+          "The robot may have a ball-hitting mechanism, but the robot must comply with the dimension constraints throughout its performance.",
+          "Touching the robot during the competition is strictly prohibited.",
+          "Loose weights on the bot are not allowed.",
+          "The length of wire attached with wired robots should be at least 5 m.",
+          "Unnecessary attack on the opponent bot is not allowed."
+        ],
+        sections: [
+          {
+            eyebrow: "/ Event Details",
+            title: "Prelims",
+            items: [
+              "The bot has to score a goal by passing through obstacles in the arena.",
+              "For every goal scored, +50 points will be credited.",
+              "For every obstacle touch, -10 points will be deducted.",
+              "A total of 3 minutes will be given to the robot in the arena.",
+              "Once the timer starts, it will stop after 3 minutes; no hand touch is allowed.",
+              "Until the bot topples, the bot will be replaced.",
+              "Technical time-out of 1 minute will be given.",
+              "According to the scores, the top 8 or 16 teams will qualify for the next round."
+            ]
+          },
+          {
+            eyebrow: "/ Event Details",
+            title: "Knockout",
+            items: [
+              "1v1 play between bots, chosen through a lottery system.",
+              "The ball will be placed at the center of the arena; bots will be placed in the extreme opposite corners of the arena.",
+              "A total of 6 minutes of gameplay with 3 minutes per half.",
+              "A total of 2 minutes of repair timeout will be given to every team.",
+              "In case of a tie, a golden goal wins.",
+              "In case of deadlock between bots for 10 seconds, the position will be reset to original."
+            ]
+          },
+          {
+            eyebrow: "/ Event Details",
+            title: "Final",
+            items: [
+              "1v1 play between two bots from the knockouts.",
+              "The ball will be placed at the center of the arena; bots will be placed in the extreme opposite corners of the arena.",
+              "A total of 8 minutes of gameplay with 4 minutes per half.",
+              "A total of 2 minutes of repair timeout will be given to every team.",
+              "In case of a tie, a golden goal wins.",
+              "In case of deadlock between bots for 10 seconds, the position will be reset to original."
+            ]
+          }
+        ]
+      },
+      {
+        slug: "robo-sumo",
+        name: "Robo Sumo",
+        tagline: "Push, flip, or outlast inside the ring.",
+        summary: "Two robots enter the sumo ring. The goal: push the opponent out or immobilize them within the time limit.",
+        duration: "2 Hours",
+        teamSize: "2 - 4 Members",
+        prizePool: "Rs. 10,000",
+        coordinator: { name: "Riya Banerjee", role: "Robotics Lead", phone: "+91 98300 00001", email: "robotics@auktave.in" },
+        rules: [
+          "Robots must fit within 25 x 25 cm and weigh under 3 kg.",
+          "Battery voltage must not exceed 14.8V.",
+          "Match duration is 3 minutes; best of three rounds.",
+          "A robot is out if any part crosses the ring boundary.",
+          "Weapons that damage the arena are prohibited.",
+          "A 2 minute repair window is allowed between rounds."
+        ],
+        sections: [
+          {
+            eyebrow: "/ Ring",
+            title: "Arena and match flow",
+            items: [
+              "Standard black ring with white boundary line.",
+              "Manual control only; no pre-programmed movement.",
+              "Judges may stop the match for safety or rule violations."
+            ]
+          },
+          {
+            eyebrow: "/ Victory",
+            title: "Winning conditions",
+            items: [
+              "Push opponent out of the ring.",
+              "Immobilize opponent for 10 seconds.",
+              "Highest aggression score if time expires."
+            ]
+          }
+        ]
+      },
+      {
+        slug: "maze-solver",
+        name: "Maze Solver",
+        tagline: "Explore, learn, then sprint the shortest path.",
+        summary: "Autonomous line-maze challenge with a Dry Run exploration phase and an Actual Run speed phase on the shortest path.",
+        duration: "2 Hours",
+        teamSize: "2 - 4 Members",
+        prizePool: "Rs. 8,000",
+        coordinator: { name: "Riya Banerjee", role: "Robotics Lead", phone: "+91 98300 00001", email: "robotics@auktave.in" },
+        rules: [
+          "Design and program an autonomous robot to navigate a maze defined by a continuous black line on a flat 3 m x 3 m arena.",
+          "Line width is 30 mm and line angle will be 90 degrees between adjacent black lines.",
+          "The robot must analyse the maze during a Dry Run, then complete it via the shortest path in the fastest time during the Actual Run.",
+          "Competition has two phases: Dry Run (Exploration Phase) and Actual Run (Speed Phase).",
+          "Dry Run: Robot explores the maze from Start Zone to End Zone, crossing checkpoints and storing path data.",
+          "Dry Run completion is mandatory to qualify for the Actual Run.",
+          "Dry Run restart limit: maximum 3 restarts allowed (from last crossed checkpoint).",
+          "Actual Run: Robot traverses the maze using the shortest path.",
+          "Actual Run timer runs from organiser's signal until the red LED glows at the End Zone.",
+          "Actual Run restart limit: maximum 3 restarts allowed (from Start Zone).",
+          "Max dimensions: 220 mm x 220 mm x 220 mm (L x B x H).",
+          "Onboard battery is mandatory; max voltage is 12V anywhere in the system.",
+          "Mandatory red LED that clearly glows upon detecting the End Zone.",
+          "Single switch start mechanism only.",
+          "Valid institute ID card required for all team members.",
+          "Spare bot permitted but must pass bot verification independently.",
+          "Teams must report to the venue at least 30 minutes before their scheduled slot.",
+          "Calibration window: 2 minutes before each run.",
+          "Dry Run time limit: to be announced on the day of competition.",
+          "Actual Run time limit: to be announced on the day of competition.",
+          "Dispute window: must be raised in writing within 15 minutes of incident.",
+          "Register the team and bot at the event venue upon arrival.",
+          "Bot must pass verification and safety inspection before competing.",
+          "Spare bot (if any) must also pass bot verification independently.",
+          "All team members must carry valid institute ID cards at all times.",
+          "Organisers reserve the right to modify rules; any changes will be communicated before the event.",
+          "The maze layout is designed and controlled entirely by the organisers; participants will not have access to the maze map before the Dry Run.",
+          "The Judging Panel's ruling is final and binding in all matters.",
+          "Algorithm alteration after calibration begins is a disqualification.",
+          "Use of camera-based vision, image processing, or AI-based systems is disallowed.",
+          "Damage to arena surface, tape, or walls is disallowed.",
+          "Exceeding restart limit in either run results in disqualification for that run.",
+          "Use of onboard Wi-Fi or Bluetooth during runs is disallowed.",
+          "Robot transmitting or receiving data during a match is disallowed.",
+          "Manual control of robot at any time during runs is disallowed.",
+          "Robot splitting into multiple units during a run is disallowed.",
+          "Use of fully assembled competition-ready kits (e.g., LEGO) is disallowed.",
+          "Penalties (non-disqualifying): manual intervention/touching the robot (-10 points per occurrence).",
+          "Penalties (non-disqualifying): false start (robot moves before organiser's signal) (-10 points)."
+        ],
+        sections: [
+          {
+            eyebrow: "/ Scoring",
+            title: "Score formula",
+            items: [
+              "TOTAL SCORE = (A + B + S + C) - P.",
+              "A = Checkpoint score (Dry Run) — 25 points per checkpoint (max 4 checkpoints).",
+              "B = Dry Run completion bonus — 30 points.",
+              "S = Shortest Path bonus (Actual Run) — 30 points.",
+              "C = Time bonus — Maximum Actual Run time minus time taken (in seconds).",
+              "P = Total penalties deducted."
+            ]
+          },
+          {
+            eyebrow: "/ Deliverables",
+            title: "What teams must bring",
+            items: [
+              "Fully built autonomous robot meeting all specifications.",
+              "Onboard battery with max voltage of 12V.",
+              "Mandatory red LED to indicate End Zone detection.",
+              "Single switch start mechanism.",
+              "Valid institute ID card for all team members.",
+              "Spare bot allowed if it passes verification independently."
+            ]
+          },
+          {
+            eyebrow: "/ Schedule",
+            title: "Timing and deadlines",
+            items: [
+              "Calibration window: 2 minutes before each run.",
+              "Dry Run time limit: to be announced on the day of competition.",
+              "Actual Run time limit: to be announced on the day of competition.",
+              "Arrival requirement: at least 30 minutes before scheduled slot.",
+              "Dispute window: must be raised in writing within 15 minutes of incident."
+            ]
+          },
+          {
+            eyebrow: "/ Submission",
+            title: "On-site registration",
+            items: [
+              "Register the team and bot at the event venue upon arrival.",
+              "Bot must pass verification and safety inspection before competing.",
+              "Spare bot (if any) must also pass bot verification independently.",
+              "All team members must carry valid institute ID cards at all times."
+            ]
+          },
+          {
+            eyebrow: "/ Permissions",
+            title: "Copyright and authority",
+            items: [
+              "Organisers reserve the right to modify rules; any changes will be communicated before the event.",
+              "The maze layout is designed and controlled entirely by the organisers; participants will not have access to the maze map before the Dry Run.",
+              "The Judging Panel's ruling is final and binding in all matters."
+            ]
+          },
+          {
+            eyebrow: "/ Disqualification",
+            title: "Disqualification criteria",
+            items: [
+              "Algorithm alteration after calibration begins.",
+              "Use of camera-based vision, image processing, or AI-based systems.",
+              "Damage to arena surface, tape, or walls.",
+              "Exceeding restart limit in either run (disqualified for that run).",
+              "Use of onboard Wi-Fi or Bluetooth during runs.",
+              "Robot transmitting or receiving data during a match.",
+              "Manual control of robot at any time during runs.",
+              "Robot splitting into multiple units during a run.",
+              "Use of fully assembled competition-ready kits (e.g., LEGO)."
+            ]
+          },
+          {
+            eyebrow: "/ Penalties",
+            title: "Non-disqualifying penalties",
+            items: [
+              "Manual intervention/touching the robot: -10 points per occurrence.",
+              "False start (robot moves before organiser's signal): -10 points.",
+              "The Judging Panel's decision is final and binding."
+            ]
+          }
+        ]
+      },
+      {
+        slug: "drone-obstacle-course",
+        name: "Drone Obstacle Course",
+        tagline: "Fly tight gates and sharp turns.",
+        summary: "Pilots guide drones through a timed obstacle course featuring gates, tunnels, and precision hover zones.",
+        duration: "2 Hours",
+        teamSize: "1 - 3 Members",
+        prizePool: "Rs. 10,000",
+        coordinator: { name: "Riya Banerjee", role: "Robotics Lead", phone: "+91 98300 00001", email: "robotics@auktave.in" },
+        rules: [
+          "Drone size limit: 7 inch propellers maximum.",
+          "FPV and line-of-sight are both allowed.",
+          "Battery swaps are allowed between runs only.",
+          "Missing a gate adds a 10 second penalty.",
+          "Crashes end the run; repair and retry if time remains.",
+          "Geo-fenced safety zone must be respected."
+        ],
+        sections: [
+          {
+            eyebrow: "/ Course",
+            title: "Obstacle layout",
+            items: [
+              "Sequence of 6 to 8 gates with variable heights.",
+              "Includes a tunnel section and a precision hover box.",
+              "Course direction is announced before each heat."
+            ]
+          },
+          {
+            eyebrow: "/ Scoring",
+            title: "Timing and penalties",
+            items: [
+              "Fastest adjusted time wins.",
+              "Penalties apply for missed gates and boundary hits.",
+              "Judges may declare unsafe flights as DNF."
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -244,20 +520,149 @@ export const events = [
   },
   {
     slug: "tech-debate",
-    name: "Tech Debate",
-    tagline: "Argue like a developer reviewing PRs.",
-    summary: "Heated, structured, technical. Debate motions on AI ethics, open source, and the future of computing.",
-    duration: "3 Hours",
+    name: "AUKTAVE Tech Debate",
+    tagline: "Argue. Reason. Persuade.",
+    summary: "A knockout-style, technology-focused debate tournament (AI ethics, cybersecurity, emerging tech) with on-the-spot motions and strict timekeeping.",
+    duration: "2 Hours",
     teamSize: "1 Member",
-    prizePool: "Rs. 15,000",
+    prizePool: "Hoodies, Swag Kits, Certificates",
     coordinator: { name: "Vikram Roy", role: "Debate Lead", phone: "+91 98300 00003", email: "debate@auktave.in" },
     rules: [
-      "Solo participation. Two sides: for and against.",
-      "Each speaker gets 3 minutes opening, 2 minutes rebuttal, 1 minute close.",
-      "Motions revealed 30 minutes before each round.",
-      "No personal attacks. Substantive, fact-based arguments only.",
-      "Audience question round in the finals."
-    ]
+      "Open to students from all recognized colleges and universities; register via the official portal.",
+      "Required documents at entry: photocopy of valid Government ID and photocopy of valid College/University ID.",
+      "Upon successful registration participants receive an Enrollment Letter to present at the gate.",
+      "No registration fee.",
+      "Participants must report to the venue at least 30 minutes prior to start; late arrivals will not be permitted.",
+      "Each participant is assigned a Point of Contact (POC) on arrival.",
+      "Knockout elimination format: winners advance until a final winner is determined.",
+      "Strict timekeeping with warnings; penalties may apply for exceeding limits.",
+      "Electronic devices are prohibited during debates; pen and paper allowed during preparation.",
+      "Judges’ decisions are final and binding."
+    ],
+    sections: [
+      {
+        eyebrow: "/ Eligibility & Registration",
+        title: "Who can participate and how to register",
+        items: [
+          "Open to students from all recognized colleges and universities.",
+          "Complete registration through the official portal before the event.",
+          "Bring photocopy of a valid Government ID and photocopy of a valid College/University ID.",
+          "After registration, participants will receive an Enrollment Letter to present at the entry gate.",
+          "No registration fee is required."
+        ]
+      },
+      {
+        eyebrow: "/ Reporting & Entry",
+        title: "Arrival and check-in",
+        items: [
+          "Report to the venue at least 30 minutes prior to the event start time.",
+          "Late arrivals will not be permitted under any circumstances.",
+          "Each participant will be assigned a Point of Contact (POC) for assistance upon arrival."
+        ]
+      },
+      {
+        eyebrow: "/ Competition Format",
+        title: "Tournament structure",
+        items: [
+          "Knockout (elimination) format.",
+          "Each round is a one-on-one debate between two participants.",
+          "Winners advance to the next round until a final winner is determined."
+        ]
+      },
+      {
+        eyebrow: "/ Debate Structure",
+        title: "Per-match timings and flow",
+        items: [
+          "Topic announcement & preparation time: 2 minutes.",
+          "Opening statement: 2 minutes per participant.",
+          "Rebuttal round: 2 minutes per participant.",
+          "Cross-questioning: 2 minutes (participants question each other).",
+          "Closing statement: 1 minute per participant."
+        ]
+      },
+      {
+        eyebrow: "/ Topics",
+        title: "Motion selection and sides",
+        items: [
+          "Topics will be technology-focused (AI ethics, cybersecurity, emerging technologies).",
+          "Motions will be revealed on the spot to ensure fairness.",
+          "Sides (For/Against) will be assigned randomly."
+        ]
+      },
+      {
+        eyebrow: "/ Judging Criteria",
+        title: "How debates are scored",
+        items: [
+          "Content & Knowledge — 30%.",
+          "Clarity & Structure of Arguments — 20%.",
+          "Rebuttal Strength — 20%.",
+          "Confidence & Delivery — 15%.",
+          "Critical Thinking & Responsiveness — 15%.",
+          "Judges’ decisions will be final and binding."
+        ]
+      },
+      {
+        eyebrow: "/ Code of Conduct",
+        title: "Behavioural expectations",
+        items: [
+          "Maintain professional and respectful behaviour at all times.",
+          "Use of offensive language, personal attacks, or discrimination will result in immediate disqualification.",
+          "Arguments must remain topic-focused and evidence-based."
+        ]
+      },
+      {
+        eyebrow: "/ Use of Aids",
+        title: "Permitted and prohibited aids",
+        items: [
+          "Electronic devices (phones, smartwatches, etc.) are strictly prohibited during the debate.",
+          "Participants may use pen and paper for note-taking during preparation time."
+        ]
+      },
+      {
+        eyebrow: "/ Timekeeping",
+        title: "Strict timing rules",
+        items: [
+          "Strict adherence to time limits is mandatory.",
+          "A 30-second warning will be given before time ends.",
+          "Exceeding time limits may result in penalties."
+        ]
+      },
+      {
+        eyebrow: "/ Prize Pool",
+        title: "Awards and prizes",
+        items: [
+          "Winners will receive hoodies, swag kits, and certificates of achievement.",
+          "Prizes are provided as goodies; no registration fee for participants."
+        ]
+      },
+      {
+        eyebrow: "/ Event Duration & Flow",
+        title: "Schedule and availability",
+        items: [
+          "Total event duration: 2 hours.",
+          "Rounds will be conducted in quick succession.",
+          "Participants must remain available throughout the event until elimination."
+        ]
+      },
+      {
+        eyebrow: "/ Tie-Breaker",
+        title: "Rapid-fire tie-break rule",
+        items: [
+          "If a tie occurs, a rapid-fire question round will be conducted: 1 minute per participant.",
+          "Judges will determine the winner based on this round."
+        ]
+      },
+      {
+        eyebrow: "/ Disqualification",
+        title: "Disqualification conditions",
+        items: [
+          "Late reporting.",
+          "Failure to produce required documents.",
+          "Violation of the code of conduct.",
+          "Use of unfair means or external assistance."
+        ]
+      }
+    ],
   },
   {
     slug: "ai-film",
