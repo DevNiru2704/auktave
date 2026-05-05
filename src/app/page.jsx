@@ -96,20 +96,12 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1, duration: 0.7 }}
-              className="mt-10 flex flex-row flex-nowrap items-center gap-2 sm:gap-4"
+              className="mt-10 flex flex-nowrap gap-2 sm:gap-4"
             >
-              <Link
-                href="/register"
-                className="btn-signal inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full px-4 py-2 text-[11px] sm:px-6 sm:py-3 sm:text-sm"
-                data-testid="hero-register-cta"
-              >
+              <Link href="/register" className="btn-signal shrink-0 px-3 py-2 text-[10px] sm:px-7 sm:py-3.5 sm:text-sm" data-testid="hero-register-cta">
                 Register Now
               </Link>
-              <Link
-                href="/events"
-                className="btn-ghost inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full px-4 py-2 text-[11px] sm:px-6 sm:py-3 sm:text-sm"
-                data-testid="hero-events-cta"
-              >
+              <Link href="/events" className="btn-ghost shrink-0 px-3 py-2 text-[10px] sm:px-6 sm:py-3.25 sm:text-sm" data-testid="hero-events-cta">
                 Browse Events
               </Link>
             </motion.div>
