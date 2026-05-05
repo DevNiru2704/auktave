@@ -760,11 +760,16 @@ export const events = [
     prizePool: "Certificates + IEEE SB AUK perks",
     coordinator: { name: "IEEE SB AUK Chapter", role: "Society Liaison", phone: "+91 98300 00006", email: "ieee-sbauk@auktave.in" },
     rules: [
-      "Open seating, first come first served.",
-      "IEEE SB AUK members get priority registration and special swag.",
-      "Recording in session is restricted unless stated.",
-      "Q&A is strictly time-boxed and moderated.",
-      "Attendance certificates issued post session."
+      "Speakers must submit a 150–300 word abstract at least 48 hours before the session.",
+      "Talk length: 20 minutes presentation + 10 minutes Q&A (unless otherwise stated).",
+      "Slides must be uploaded in PDF format at least 1 hour before the session to the organisers' portal.",
+      "Presentations should be technical and educational; promotional or sales content is not permitted.",
+      "Demonstrations that use AI tools must clearly list the tools and datasets used; attribution is required.",
+      "Recording of sessions is allowed only with explicit permission from both the speaker and IEEE SB AUK; organisers may record for archival purposes.",
+      "Q&A is moderated and strictly time-boxed to maintain schedule flow.",
+      "Speakers should arrive 30 minutes prior for AV checks; organisers provide standard AV kit and technical support.",
+      "Respectful, evidence-based discourse is required; offensive language or personal attacks may lead to removal from the session.",
+      "Attendance certificates are issued post-session to registered attendees and IEEE SB AUK members as applicable."
     ]
   }
 ];
