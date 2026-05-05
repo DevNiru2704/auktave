@@ -49,7 +49,7 @@ export default function HomePage() {
       {/* HERO */}
       <section className="relative min-h-screen pt-24 pb-16 overflow-hidden vines-bg" data-testid="hero-section">
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <video
+          {/* <video
             className="h-full w-full object-cover"
             autoPlay
             muted
@@ -59,7 +59,7 @@ export default function HomePage() {
             aria-hidden="true"
           >
             <source src="/videos/hero-background.mp4" type="video/mp4" />
-          </video>
+          </video> */}
           <div className="absolute inset-0 bg-black/12 backdrop-blur-[5px] saturate-110" aria-hidden="true" />
         </div>
         <div className="absolute inset-0 scanlines opacity-20 pointer-events-none" />
@@ -93,7 +93,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.7 }}
-              className={`text-xl sm:text-2xl lg:text-3xl mt-6 max-w-2xl mx-auto sm:mx-0 text-center sm:text-left text-bone/80 tracking-tight ${bebasNeue.className}`}
+              className={`text-[24px] sm:text-2xl lg:text-3xl mt-6 max-w-2xl mx-auto sm:mx-0 text-center sm:text-left text-bone/80 tracking-tight ${bebasNeue.className}`}
             >
               Not All Experiments Stay in the Lab.
             </motion.p>
