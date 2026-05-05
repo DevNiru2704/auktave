@@ -111,8 +111,8 @@ export default function HelpPage() {
 
         {/* FAQ */}
         <div data-testid="faq-section">
-          <p className="eyebrow mb-4">/ Rules</p>
-          <GlitchText as="h2" className="text-5xl lg:text-6xl mb-10">FAQ / Field Manual</GlitchText>
+          <p className="eyebrow mb-4">/ FAQ</p>
+          <GlitchText as="h2" className="text-5xl lg:text-6xl mb-10">Field Manual</GlitchText>
           <div className="space-y-3">
             {faqs.map((f, i) => (
               <div key={i} className="card-upside" data-testid={`faq-item-${i}`}>
@@ -120,9 +120,17 @@ export default function HelpPage() {
                   <span className="font-display font-bold text-lg lg:text-xl">{f.q}</span>
                   <ChevronDown size={20} className={`shrink-0 text-ember transition-transform ${openFaq === i ? "rotate-180" : ""}`} />
                 </button>
-                {openFaq === i && (
-                  <div className="px-5 lg:px-6 pb-6 text-bone/70 leading-relaxed border-t border-ember/15 pt-4">{f.a}</div>
-                )}
+                <div
+                  className="px-5 lg:px-6 text-bone/70 leading-relaxed border-t border-ember/15 overflow-hidden transition-all duration-300"
+                  style={{
+                    maxHeight: openFaq === i ? "200px" : "0px",
+                    opacity: openFaq === i ? 1 : 0,
+                    paddingTop: openFaq === i ? "16px" : "0px",
+                    paddingBottom: openFaq === i ? "24px" : "0px"
+                  }}
+                >
+                  {f.a}
+                </div>
               </div>
             ))}
           </div>
