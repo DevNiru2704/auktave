@@ -87,7 +87,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.7 }}
-              className="text-xl sm:text-2xl lg:text-3xl mt-6 max-w-2xl text-bone/80 font-display tracking-tight"
+              className="text-xl sm:text-2xl lg:text-3xl mt-6 max-w-2xl mx-auto sm:mx-0 text-center sm:text-left text-bone/80 font-display tracking-tight"
             >
               Not All Experiments Stay in the Lab.
             </motion.p>
@@ -96,7 +96,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1, duration: 0.7 }}
-              className="mt-10 flex flex-nowrap gap-2 sm:gap-4"
+              className="mt-10 flex w-full justify-center sm:justify-start flex-nowrap gap-2 sm:gap-4"
             >
               <Link href="/register" className="btn-signal shrink-0 px-3 py-2 text-[10px] sm:px-7 sm:py-3.5 sm:text-sm" data-testid="hero-register-cta">
                 Register Now
