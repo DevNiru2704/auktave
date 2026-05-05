@@ -32,11 +32,7 @@ export default function SplashScreen({ onDismiss }) {
     }
   }, [progress]);
 
-  useEffect(() => {
-    if (!show) {
-      onDismiss?.();
-    }
-  }, [show, onDismiss]);
+  // Call onDismiss only after exit animation completes (handled by AnimatePresence)
 
   useEffect(() => {
     if (!show) return;
@@ -59,12 +55,12 @@ export default function SplashScreen({ onDismiss }) {
   }, []);
 
   return (
-    <AnimatePresence>
+    <AnimatePresence onExitComplete={() => onDismiss?.()}>
       {show && (
         <motion.div
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.98, y: -8 }}
+          transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
           className="fixed inset-0 z-100 bg-ink flex flex-col items-center justify-center"
           data-testid="splash-screen"
         >
