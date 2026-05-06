@@ -1,10 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLenis } from "./LenisProvider";
 
 export default function SplashScreen({ onDismiss }) {
   const [show, setShow] = useState(true);
   const [progress, setProgress] = useState(0);
+  const lenis = useLenis();
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -32,21 +34,19 @@ export default function SplashScreen({ onDismiss }) {
     }
   }, [progress]);
 
-  // Call onDismiss only after exit animation completes (handled by AnimatePresence)
-
   useEffect(() => {
-    if (!show) return;
+    if (!lenis) return;
 
-    const prevHtmlOverflow = document.documentElement.style.overflow;
-    const prevBodyOverflow = document.body.style.overflow;
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.documentElement.style.overflow = prevHtmlOverflow;
-      document.body.style.overflow = prevBodyOverflow;
-    };
-  }, [show]);
+    if (show) {
+      lenis.stop();
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+    } else {
+      lenis.start();
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    }
+  }, [show, lenis]);
 
   useEffect(() => {
     // Final fail-safe: splash should never block the homepage indefinitely.

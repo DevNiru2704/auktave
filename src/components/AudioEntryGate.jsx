@@ -2,11 +2,13 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useLenis } from "./LenisProvider";
 
 const CHOICE_KEY = "auktave-audio-choice";
 
 export default function AudioEntryGate({ onSelect }) {
     const [show, setShow] = useState(false);
+    const lenis = useLenis();
 
     useEffect(() => {
         const choice = sessionStorage.getItem(CHOICE_KEY);
@@ -16,6 +18,20 @@ export default function AudioEntryGate({ onSelect }) {
         }
         setShow(true);
     }, [onSelect]);
+
+    useEffect(() => {
+        if (!lenis) return;
+
+        if (show) {
+            lenis.stop();
+            document.documentElement.style.overflow = "hidden";
+            document.body.style.overflow = "hidden";
+        } else {
+            lenis.start();
+            document.documentElement.style.overflow = "";
+            document.body.style.overflow = "";
+        }
+    }, [show, lenis]);
 
     const handleSelect = (choice) => {
         sessionStorage.setItem(CHOICE_KEY, choice);

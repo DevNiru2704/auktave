@@ -63,7 +63,7 @@ export default function EventDetailPage() {
               </Link>
             )}
             <a
-              href="/brochures/event-rules.pdf"
+              href={event.slug === "hackathon" ? "/brochures/ai_hackathon_rulebook.pdf" : "/brochures/event-rules.pdf"}
               download
               className="btn-ghost w-full flex items-center justify-center gap-2"
               data-testid="event-rules-download"
