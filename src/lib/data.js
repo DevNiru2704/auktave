@@ -1,7 +1,7 @@
 export const events = [
   {
     slug: "hackathon",
-    name: "24 Hour AIl Hackathon",
+    name: "24 Hour AI Hackathon",
     tagline: "24 hours. Track-based AI innovation.",
     summary: "A 24-hour in-campus AI hackathon that brings together innovators, developers, and problem-solvers to build impactful AI solutions. The event is track-based, so teams innovate within predefined AI domains.",
     duration: "24 Hours",
