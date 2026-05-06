@@ -6,10 +6,25 @@ import GlitchText from "@/components/GlitchText";
 import { Clock, Users, Trophy, Phone, Mail, FileDown, ArrowLeft, Zap } from "lucide-react";
 import { notFound } from "next/navigation";
 
+type StatProps = {
+  icon: React.ComponentType<{ className?: string; size?: number }>;
+  label: string;
+  value: string;
+  accent?: boolean;
+};
+
+type EventSection = {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  items: string[];
+};
+
 export default function EventDetailPage() {
   const params = useParams();
   const event = events.find((e) => e.slug === params.slug);
   if (!event) return notFound();
+  const rules = event.rules ?? [];
 
   return (
     <div className="pt-32 pb-24 px-5 lg:px-10 vines-bg" data-testid={`event-detail-${event.slug}`}>
@@ -51,7 +66,7 @@ export default function EventDetailPage() {
               <a
                 href="https://www.hackcatalyst.tech/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noreferrer noopener"
                 className="btn-signal w-full block text-center mt-4"
                 data-testid="event-register-cta"
               >
@@ -78,7 +93,7 @@ export default function EventDetailPage() {
           <p className="eyebrow mb-4">/ Rules</p>
           <h2 className="headline text-3xl lg:text-4xl mb-6">Read before you cross over</h2>
           <ol className="space-y-4">
-            {event.rules.map((r, i) => (
+            {rules.map((r, i) => (
               <li key={i} className="flex gap-5 text-bone/80 leading-relaxed">
                 <span className="font-mono text-ember text-sm pt-1 w-10 shrink-0">/{String(i + 1).padStart(2, "0")}</span>
                 <span className="flex-1">{r}</span>
@@ -183,7 +198,7 @@ export default function EventDetailPage() {
 
         {event.sections && (
           <div className="space-y-10" data-testid="event-sections">
-            {event.sections.map((section) => (
+            {event.sections.map((section: EventSection) => (
               <div key={section.title} className="card-upside p-8 lg:p-10">
                 <p className="eyebrow mb-4">{section.eyebrow || "/ Details"}</p>
                 <h2 className="headline text-3xl lg:text-4xl mb-6">{section.title}</h2>
@@ -242,7 +257,7 @@ export default function EventDetailPage() {
             <a
               href="https://www.hackcatalyst.tech/"
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
               className="btn-signal"
               data-testid="event-bottom-cta"
             >
@@ -257,7 +272,7 @@ export default function EventDetailPage() {
   );
 }
 
-function Stat({ icon: Icon, label, value, accent }) {
+function Stat({ icon: Icon, label, value, accent = false }: StatProps) {
   return (
     <div className="card-upside p-5">
       <div className="flex items-start gap-3">

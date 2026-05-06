@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import type { FormEvent, ComponentType } from "react";
 import dynamic from "next/dynamic";
 import GlitchText from "@/components/GlitchText";
 import { events, faqs } from "@/lib/data";
@@ -13,7 +14,7 @@ export default function HelpPage() {
   const [errorMsg, setErrorMsg] = useState("");
   const [openFaq, setOpenFaq] = useState(0);
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
     const form = new FormData(e.currentTarget);
@@ -22,7 +23,7 @@ export default function HelpPage() {
     try {
       const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: form });
       const data = await res.json();
-      if (data.success) { setStatus("success"); e.target.reset(); }
+      if (data.success) { setStatus("success"); e.currentTarget.reset(); }
       else { setStatus("error"); setErrorMsg(data.message || "Failed."); }
     } catch (err) {
       setStatus("error");
@@ -53,30 +54,38 @@ export default function HelpPage() {
               <form onSubmit={handleSubmit} className="card-upside p-7 lg:p-9 space-y-5" data-testid="help-form">
                 <div className="grid md:grid-cols-2 gap-5">
                   <div>
-                    <label className="upside">Name *</label>
-                    <input name="name" required className="upside" data-testid="help-name" />
+                    <label htmlFor="help-name" className="upside">Name *</label>
+                    <input id="help-name" name="name" required className="upside" data-testid="help-name" />
                   </div>
                   <div>
-                    <label className="upside">Email *</label>
-                    <input name="email" type="email" required className="upside" data-testid="help-email" />
+                    <label htmlFor="help-email" className="upside">Email *</label>
+                    <input id="help-email" name="email" type="email" required className="upside" data-testid="help-email" />
                   </div>
                 </div>
                 <div>
-                  <label className="upside">Phone *</label>
-                  <input name="phone" required className="upside" data-testid="help-phone" />
+                  <label htmlFor="help-phone" className="upside">Phone *</label>
+                  <input id="help-phone" name="phone" required className="upside" data-testid="help-phone" />
                 </div>
                 <div>
-                  <label className="upside">Event</label>
-                  <select name="event" className="upside" data-testid="help-event">
+                  <label htmlFor="help-event" className="upside">Event</label>
+                  <select id="help-event" name="event" className="upside" data-testid="help-event">
                     <option value="">General Query</option>
                     {events.map((e) => <option key={e.slug} value={e.name}>{e.name}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="upside">Message *</label>
-                  <textarea name="message" required rows={5} className="upside" data-testid="help-message" />
+                  <label htmlFor="help-message" className="upside">Message *</label>
+                  <textarea id="help-message" name="message" required rows={5} className="upside" data-testid="help-message" />
                 </div>
-                <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
+                <input
+                  type="checkbox"
+                  name="botcheck"
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-label="Leave this field blank"
+                  title="Leave this field blank"
+                />
                 {status === "error" && (
                   <div className="border border-ember/50 bg-ember/10 p-3 flex items-start gap-2 text-sm">
                     <AlertTriangle size={16} className="text-ember mt-0.5" /> <span>{errorMsg}</span>
@@ -121,13 +130,7 @@ export default function HelpPage() {
                   <ChevronDown size={20} className={`shrink-0 text-ember transition-transform ${openFaq === i ? "rotate-180" : ""}`} />
                 </button>
                 <div
-                  className="px-5 lg:px-6 text-bone/70 leading-relaxed border-t border-ember/15 overflow-hidden transition-all duration-300"
-                  style={{
-                    maxHeight: openFaq === i ? "200px" : "0px",
-                    opacity: openFaq === i ? 1 : 0,
-                    paddingTop: openFaq === i ? "16px" : "0px",
-                    paddingBottom: openFaq === i ? "24px" : "0px"
-                  }}
+                  className={`px-5 lg:px-6 text-bone/70 leading-relaxed border-t border-ember/15 overflow-hidden transition-all duration-300 ${openFaq === i ? "max-h-52 opacity-100 pt-4 pb-6" : "max-h-0 opacity-0 pt-0 pb-0"}`}
                 >
                   {f.a}
                 </div>
@@ -140,7 +143,14 @@ export default function HelpPage() {
   );
 }
 
-function InfoCard({ icon: Icon, label, value, href }) {
+type InfoCardProps = {
+  icon: ComponentType<{ size?: number }>;
+  label: string;
+  value: string;
+  href?: string;
+};
+
+function InfoCard({ icon: Icon, label, value, href }: InfoCardProps) {
   const Wrapper = href ? "a" : "div";
   return (
     <Wrapper href={href} className="card-upside p-5 flex gap-4 items-start group">

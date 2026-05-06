@@ -7,6 +7,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 export default function RoboticsPage() {
     const robotics = events.find((e) => e.slug === "robotics");
     if (!robotics) return null;
+    const subEvents = robotics.subEvents ?? [];
 
     return (
         <div className="pt-32 pb-24 px-5 lg:px-10 vines-bg" data-testid="robotics-page">
@@ -25,7 +26,7 @@ export default function RoboticsPage() {
                 <p className="text-bone/70 text-lg max-w-2xl mb-10">{robotics.summary}</p>
 
                 <div className="grid md:grid-cols-2 gap-5" data-testid="robotics-sub-events">
-                    {robotics.subEvents.map((subEvent, index) => (
+                    {subEvents.map((subEvent, index) => (
                         <Link
                             key={subEvent.slug}
                             href={`/events/robotics/${subEvent.slug}`}

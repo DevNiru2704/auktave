@@ -3,6 +3,8 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
+type LatLngTuple = [number, number];
+
 // Fix marker icons for Leaflet in Next.js
 const customIcon = L.divIcon({
   html: `<div style="width:18px;height:18px;background:#ffe600;box-shadow:0 0 12px #ff1f3d, 0 0 24px #ff1f3d;border:2px solid #ff1f3d;transform:rotate(45deg);"></div>`,
@@ -12,7 +14,7 @@ const customIcon = L.divIcon({
 });
 
 export default function MapView() {
-  const position = [22.596922372979076, 88.4875113527537]; // Amity University Kolkata - Major Arterial Road, New Town
+  const position: LatLngTuple = [22.596922372979076, 88.4875113527537]; // Amity University Kolkata - Major Arterial Road, New Town
   const coordsText = "22.596922372979076, 88.4875113527537";
   return (
     <MapContainer

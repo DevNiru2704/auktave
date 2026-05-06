@@ -3,7 +3,11 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLenis } from "./LenisProvider";
 
-export default function SplashScreen({ onDismiss }) {
+type SplashScreenProps = {
+  onDismiss?: () => void;
+};
+
+export default function SplashScreen({ onDismiss }: SplashScreenProps) {
   const [show, setShow] = useState(true);
   const [progress, setProgress] = useState(0);
   const lenis = useLenis();
@@ -75,9 +79,11 @@ export default function SplashScreen({ onDismiss }) {
 
             <div className="w-72 sm:w-96 mx-auto">
               <div className="h-0.5 bg-ember/20 relative overflow-hidden">
-                <div
+                <motion.div
                   className="absolute inset-y-0 left-0 bg-signal shadow-signal transition-all duration-150"
-                  style={{ width: `${progress}%` }}
+                  initial={{ width: 0 }}
+                  animate={{ width: `${progress}%` }}
+                  transition={{ duration: 0.15 }}
                 />
               </div>
               <div className="flex justify-between font-mono text-[10px] mt-3 tracking-[0.2em] text-bone/50">

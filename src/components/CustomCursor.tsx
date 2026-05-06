@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { MousePointer2 } from "lucide-react";
 
 export default function CustomCursor() {
-    const cursorRef = useRef(null);
-    const requestRef = useRef(null);
+    const cursorRef = useRef<HTMLDivElement | null>(null);
+    const requestRef = useRef<number | null>(null);
     const positionRef = useRef({ x: 0, y: 0 });
     const targetRef = useRef({ x: 0, y: 0 });
     const [active, setActive] = useState(false);
@@ -27,13 +27,13 @@ export default function CustomCursor() {
         positionRef.current = { x: centerX, y: centerY };
         targetRef.current = { x: centerX, y: centerY };
 
-        const updateHoverState = (event) => {
+        const updateHoverState = (event: PointerEvent) => {
             const target = event.target;
             const interactive = target instanceof Element && !!target.closest("a, button, [role='button'], input, textarea, select, summary");
             setHovering(interactive);
         };
 
-        const onPointerMove = (event) => {
+        const onPointerMove = (event: PointerEvent) => {
             targetRef.current = { x: event.clientX, y: event.clientY };
             updateHoverState(event);
             setVisible(true);

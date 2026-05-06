@@ -107,7 +107,7 @@ export default function PrivacyPage() {
           <h3 className="headline text-2xl text-bone mt-8">12. Contact Us</h3>
           <p>If you have questions about this Privacy Policy or data handling practices, contact us at:</p>
           <p><strong>Email:</strong> <a href="mailto:info.auktave@gmail.com">info.auktave@gmail.com</a></p>
-          <p><strong>Website:</strong> <a href="https://auktave.in" target="_blank" rel="noreferrer">auktave.in</a></p>
+          <p><strong>Website:</strong> <a href="https://auktave.in" target="_blank" rel="noreferrer noopener">auktave.in</a></p>
         </div>
       </div>
     </div>

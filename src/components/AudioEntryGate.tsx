@@ -6,13 +6,19 @@ import { useLenis } from "./LenisProvider";
 
 const CHOICE_KEY = "auktave-audio-choice";
 
-export default function AudioEntryGate({ onSelect }) {
+type AudioChoice = "on" | "off";
+
+type AudioEntryGateProps = {
+    onSelect?: (choice: AudioChoice) => void;
+};
+
+export default function AudioEntryGate({ onSelect }: AudioEntryGateProps) {
     const [show, setShow] = useState(false);
     const lenis = useLenis();
 
     useEffect(() => {
         const choice = sessionStorage.getItem(CHOICE_KEY);
-        if (choice) {
+        if (choice === "on" || choice === "off") {
             onSelect?.(choice);
             return;
         }
@@ -33,7 +39,7 @@ export default function AudioEntryGate({ onSelect }) {
         }
     }, [show, lenis]);
 
-    const handleSelect = (choice) => {
+    const handleSelect = (choice: AudioChoice) => {
         sessionStorage.setItem(CHOICE_KEY, choice);
         if (choice === "on") {
             sessionStorage.setItem("auktave-audio-playing", "1");

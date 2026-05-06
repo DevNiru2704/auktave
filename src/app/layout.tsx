@@ -6,6 +6,7 @@ import HomeSplashGate from "@/components/HomeSplashGate";
 import CustomCursor from "@/components/CustomCursor";
 import LenisProvider from "@/components/LenisProvider";
 import Script from "next/script";
+import type { ReactNode } from "react";
 
 export const metadata = {
   title: "AUKTAVE 2K26 - Enter the Upside Down of Innovation",
@@ -26,7 +27,7 @@ export const metadata = {
 
 export const viewport = { themeColor: "#050505" };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
   return (
     <html lang="en">

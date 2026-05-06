@@ -4,7 +4,7 @@ import { useRef, useMemo } from "react";
 import * as THREE from "three";
 
 function Roots() {
-  const group = useRef();
+  const group = useRef<THREE.Group | null>(null);
   const lines = useMemo(() => {
     const arr = [];
     for (let i = 0; i < 28; i++) {
@@ -50,7 +50,7 @@ function Roots() {
 }
 
 function Particles() {
-  const ref = useRef();
+  const ref = useRef<THREE.Points | null>(null);
   const geom = useMemo(() => {
     const g = new THREE.BufferGeometry();
     const positions = new Float32Array(400 * 3);
@@ -75,7 +75,7 @@ function Particles() {
 export default function UpsideDownBackground() {
   return (
     <div className="absolute inset-0 z-0 pointer-events-none" data-testid="upside-down-bg">
-      <div className="fog" style={{ display: "none" }} data-disabled-by="copilot-testing" />
+      <div className="fog hidden" data-disabled-by="copilot-testing" />
       <Canvas
         camera={{ position: [0, 0, 6], fov: 60 }}
         dpr={[1, 1.5]}

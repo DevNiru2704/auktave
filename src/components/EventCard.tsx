@@ -2,8 +2,16 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Zap } from "lucide-react";
+import { events } from "@/lib/data";
 
-export default function EventCard({ event, index = 0 }) {
+type EventItem = (typeof events)[number];
+
+type EventCardProps = {
+  event: EventItem;
+  index?: number;
+};
+
+export default function EventCard({ event, index = 0 }: EventCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}

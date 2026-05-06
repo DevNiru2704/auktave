@@ -5,6 +5,13 @@ import { events } from "@/lib/data";
 import GlitchText from "@/components/GlitchText";
 import { Clock, Users, Trophy, Phone, Mail, ArrowLeft, FileDown } from "lucide-react";
 
+type StatProps = {
+    icon: React.ComponentType<{ className?: string; size?: number }>;
+    label: string;
+    value: string;
+    accent?: boolean;
+};
+
 export default function RoboticsSubEventPage() {
     const params = useParams();
     const robotics = events.find((e) => e.slug === "robotics");
@@ -119,7 +126,7 @@ export default function RoboticsSubEventPage() {
     );
 }
 
-function Stat({ icon: Icon, label, value, accent }) {
+function Stat({ icon: Icon, label, value, accent = false }: StatProps) {
     return (
         <div className="card-upside p-5">
             <div className="flex items-start gap-3">

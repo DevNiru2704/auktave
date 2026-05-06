@@ -15,16 +15,16 @@ export async function incrementScoreboard() {
   } catch { }
 }
 
-function useAnimatedNumber(target, duration = 1600) {
+function useAnimatedNumber(target: number, duration: number = 1600): [React.RefObject<HTMLDivElement | null>, number] {
   const [value, setValue] = useState(0);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
 
   useEffect(() => {
     if (!inView) return;
-    let start = null;
-    let frame;
-    const tick = (ts) => {
+    let start: number | null = null;
+    let frame: number;
+    const tick = (ts: number) => {
       if (start === null) start = ts;
       const progress = Math.min(1, (ts - start) / duration);
       const eased = 1 - Math.pow(1 - progress, 3);
@@ -135,17 +135,16 @@ export default function PlayerScoreboard({ variant = "full" }) {
 
             <div className="h-3 bg-midnight border border-ember/20 relative overflow-hidden">
               <motion.div
-                className="absolute inset-y-0 left-0 bg-linear-to-r from-ember via-glow to-signal"
-                style={{ boxShadow: "0 0 24px rgba(255,230,0,0.4)" }}
+                className="absolute inset-y-0 left-0 bg-linear-to-r from-ember via-glow to-signal shadow-[0_0_24px_rgba(255,230,0,0.4)]"
                 initial={{ width: 0 }}
                 animate={{ width: `${pct}%` }}
                 transition={{ duration: 1.6, ease: [0.2, 0.8, 0.2, 1] }}
                 data-testid="scoreboard-bar"
               />
               {/* Markers */}
-              {[25, 50, 75].map((m) => (
-                <div key={m} className="absolute top-0 bottom-0 w-px bg-ink/60" style={{ left: `${m}%` }} />
-              ))}
+              <div className="absolute top-0 bottom-0 left-1/4 w-px bg-ink/60" />
+              <div className="absolute top-0 bottom-0 left-1/2 w-px bg-ink/60" />
+              <div className="absolute top-0 bottom-0 left-3/4 w-px bg-ink/60" />
             </div>
 
             <div className="grid grid-cols-3 gap-3 mt-6 pt-6 border-t border-ember/10">
@@ -160,7 +159,7 @@ export default function PlayerScoreboard({ variant = "full" }) {
   );
 }
 
-function Stat({ label, value, accent }) {
+function Stat({ label, value, accent }: { label: string; value: string; accent?: boolean }) {
   return (
     <div>
       <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone/40">{label}</p>

@@ -4,11 +4,13 @@ import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 
 const FALLBACK_AUDIO = "/audio/upside-down-fallback.mp3";
 
+type AudioChoiceEvent = CustomEvent<string>;
+
 export default function AudioController() {
   const audioUrl = process.env.NEXT_PUBLIC_AUDIO_URL && process.env.NEXT_PUBLIC_AUDIO_URL.trim() !== ""
     ? process.env.NEXT_PUBLIC_AUDIO_URL
     : FALLBACK_AUDIO;
-  const ref = useRef(null);
+  const ref = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(true);
   const [volume, setVolume] = useState(0.25);
@@ -31,8 +33,8 @@ export default function AudioController() {
   }, []);
 
   useEffect(() => {
-    const handleChoice = (event) => {
-      const choice = event?.detail || sessionStorage.getItem("auktave-audio-choice");
+    const handleChoice = (event: Event) => {
+      const choice = (event as AudioChoiceEvent | undefined)?.detail || sessionStorage.getItem("auktave-audio-choice");
       if (choice === "on") {
         setMuted(false);
         setPlaying(true);

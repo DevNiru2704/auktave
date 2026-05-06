@@ -81,27 +81,39 @@ export default function Navbar() {
             <Link href="/register" className="hidden md:inline-block btn-signal text-xs lg:text-sm" data-testid="nav-register-btn">
               Register Now
             </Link>
-            <button
-              aria-label="Toggle menu"
-              aria-expanded={open}
-              aria-controls="mobile-menu"
-              onClick={() => setOpen((s) => !s)}
-              className="lg:hidden p-2 text-bone"
-              data-testid="mobile-menu-toggle"
-            >
-              <span className="sr-only">Toggle menu</span>
-              <span className="flex h-6 w-6 flex-col items-center justify-center gap-1.5">
-                <span
-                  className={`block h-0.5 w-6 bg-bone transition-transform duration-300 ease-out ${open ? "translate-y-2 rotate-45" : "translate-y-0"}`}
-                />
-                <span
-                  className={`block h-0.5 w-6 bg-bone transition-all duration-300 ease-out ${open ? "opacity-0" : "opacity-100"}`}
-                />
-                <span
-                  className={`block h-0.5 w-6 bg-bone transition-transform duration-300 ease-out ${open ? "-translate-y-2 -rotate-45" : "translate-y-0"}`}
-                />
-              </span>
-            </button>
+            {open ? (
+              <button
+                aria-label="Toggle menu"
+                aria-expanded="true"
+                aria-controls="mobile-menu"
+                onClick={() => setOpen((s) => !s)}
+                className="lg:hidden p-2 text-bone"
+                data-testid="mobile-menu-toggle"
+              >
+                <span className="sr-only">Toggle menu</span>
+                <span className="flex h-6 w-6 flex-col items-center justify-center gap-1.5">
+                  <span className="block h-0.5 w-6 bg-bone transition-transform duration-300 ease-out translate-y-2 rotate-45" />
+                  <span className="block h-0.5 w-6 bg-bone transition-all duration-300 ease-out opacity-0" />
+                  <span className="block h-0.5 w-6 bg-bone transition-transform duration-300 ease-out -translate-y-2 -rotate-45" />
+                </span>
+              </button>
+            ) : (
+              <button
+                aria-label="Toggle menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu"
+                onClick={() => setOpen((s) => !s)}
+                className="lg:hidden p-2 text-bone"
+                data-testid="mobile-menu-toggle"
+              >
+                <span className="sr-only">Toggle menu</span>
+                <span className="flex h-6 w-6 flex-col items-center justify-center gap-1.5">
+                  <span className="block h-0.5 w-6 bg-bone transition-transform duration-300 ease-out translate-y-0" />
+                  <span className="block h-0.5 w-6 bg-bone transition-all duration-300 ease-out opacity-100" />
+                  <span className="block h-0.5 w-6 bg-bone transition-transform duration-300 ease-out translate-y-0" />
+                </span>
+              </button>
+            )}
           </div>
         </nav>
 

@@ -5,6 +5,20 @@ import GlitchText from "@/components/GlitchText";
 import { day1, day2 } from "@/lib/data";
 import { Building2, Cpu, Eye, GraduationCap, Telescope } from "lucide-react";
 
+type ScheduleEntry = {
+  title: string;
+  time: string;
+  venue?: string;
+  note: string;
+};
+
+type ScheduleColumnProps = {
+  day: string;
+  date: string;
+  entries: ScheduleEntry[];
+  accent: "ember" | "signal";
+};
+
 export default function AboutPage() {
   return (
     <div className="pt-32 pb-24 px-5 lg:px-10 vines-bg" data-testid="about-page">
@@ -75,7 +89,7 @@ export default function AboutPage() {
             Visit the official Amity University Kolkata website for campus details and updates.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href="https://kolkata.amity.edu" target="_blank" rel="noreferrer" className="btn-signal">
+            <a href="https://kolkata.amity.edu" target="_blank" rel="noreferrer noopener" className="btn-signal">
               Visit Official Website
             </a>
           </div>
@@ -90,7 +104,7 @@ export default function AboutPage() {
   );
 }
 
-function ScheduleColumn({ day, date, entries, accent }) {
+function ScheduleColumn({ day, date, entries, accent }: ScheduleColumnProps) {
   const accentClass = accent === "ember" ? "text-ember" : "text-signal";
   return (
     <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="card-upside p-7" data-testid={`schedule-${day.replace(/ /g, "-").toLowerCase()}`}>

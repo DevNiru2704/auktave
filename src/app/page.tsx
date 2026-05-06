@@ -10,12 +10,14 @@ import EventCard from "@/components/EventCard";
 // import PlayerScoreboard from "@/components/PlayerScoreboard"; // [scoreboard] disabled until approved
 import { events, stats, sponsors } from "@/lib/data";
 
+type EventItem = (typeof events)[number];
+
 const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
   weight: "400",
 });
 
-function hashString(value) {
+function hashString(value: string) {
   let hash = 0;
 
   for (let i = 0; i < value.length; i += 1) {
@@ -27,14 +29,15 @@ function hashString(value) {
 
 export default function HomePage() {
   const sideEvents = events.filter((e) => !e.highlight);
-  const featuredSideEvents = [
+  const featuredSideEvents: Array<EventItem | undefined> = [
     sideEvents.find((event) => event.slug === "research-expo"),
     ...sideEvents
       .filter((event) => event.slug !== "research-expo" && event.slug !== "ieee-session")
       .map((event) => ({ event, rank: hashString(`auktave:${event.slug}`) }))
       .sort((a, b) => a.rank - b.rank)
       .map(({ event }) => event)
-  ].filter(Boolean).slice(0, 3);
+  ];
+  const visibleFeaturedSideEvents = featuredSideEvents.filter((event): event is EventItem => Boolean(event)).slice(0, 3);
   const sponsorTickerItems = Array.from({ length: 12 }).flatMap((_, i) => [
     <div
       key={`sponsor-logo-${i}`}
@@ -275,7 +278,7 @@ export default function HomePage() {
           </div>
           <p className="eyebrow mb-4">/ Side Events</p>
           <div className="grid md:grid-cols-3 gap-5">
-            {featuredSideEvents.map((e, i) => (
+            {visibleFeaturedSideEvents.map((e, i) => (
               <EventCard key={e.slug} event={e} index={i} />
             ))}
           </div>

@@ -3,6 +3,11 @@ import { useEffect, useState } from "react";
 
 export default function Countdown({ target = "2026-05-21T09:00:00+05:30" }) {
   const [time, setTime] = useState({ d: 0, h: 0, m: 0, s: 0 });
+  type CellProps = {
+    value: number;
+    label: string;
+  };
+
   useEffect(() => {
     const tick = () => {
       const now = new Date();
@@ -20,7 +25,7 @@ export default function Countdown({ target = "2026-05-21T09:00:00+05:30" }) {
     return () => clearInterval(id);
   }, [target]);
 
-  const Cell = ({ value, label }) => (
+  const Cell = ({ value, label }: CellProps) => (
     <div className="flex flex-col items-center" data-testid={`countdown-${label.toLowerCase()}`}>
       <div className="card-upside w-full px-4 py-6 sm:px-6 sm:py-8 text-center">
         <span className="headline text-5xl sm:text-6xl text-signal block leading-none">
