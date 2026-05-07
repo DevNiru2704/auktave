@@ -34,10 +34,10 @@ export default function EventDetailPage() {
       : [];
   const posterBySlug = {
     hackathon: {
-      src: "/images/hackathon_poster.jpeg",
+      src: "/images/hackathon_poster.png",
       alt: "24 Hour AI Hackathon poster",
-      width: 1056,
-      height: 1489,
+      width: 1024,
+      height: 1536,
     },
     "ai-film": {
       src: "/images/ai_short_film_poster.jpeg",
@@ -58,6 +58,12 @@ export default function EventDetailPage() {
         <div className="grid lg:grid-cols-12 gap-10 mb-14">
           <div className={poster ? "lg:col-span-7" : "lg:col-span-8"}>
             <GlitchText as="h1" className="text-5xl lg:text-7xl mb-4">{event.name}</GlitchText>
+            {event.slug === "hackathon" ? (
+              <div className="inline-flex items-center gap-2 mb-4 rounded-full border border-ember/30 bg-ember/10 px-4 py-2 text-xs font-mono uppercase tracking-[0.22em] text-ember shadow-[0_0_24px_rgba(255,92,71,0.18)]">
+                <span className="h-2 w-2 rounded-full bg-ember animate-pulse" />
+                CATALYST 2K26
+              </div>
+            ) : null}
             <p className="text-2xl text-bone/70 font-display max-w-2xl">{event.tagline}</p>
             <p className="mt-6 text-bone/70 leading-relaxed text-lg max-w-2xl">{event.summary}</p>
 
@@ -96,7 +102,7 @@ export default function EventDetailPage() {
           <div className="lg:col-span-4 space-y-4">
             <Stat icon={Clock} label="Duration" value={event.duration} />
             <Stat icon={Users} label="Team Size" value={event.teamSize} />
-            <Stat icon={Trophy} label="Prize Pool" value={event.prizePool} accent />
+            <Stat icon={Trophy} label="Prize Pool Worth" value={event.prizePool} accent />
             {isAmityExclusive ? (
               <div className="card-upside p-5 text-center border border-ember/20 bg-midnight/40" data-testid="event-exclusive-note">
                 <p className="eyebrow mb-2">/ Registration</p>
@@ -201,7 +207,7 @@ export default function EventDetailPage() {
 
         {event.prizes && (
           <div className="card-upside p-8 lg:p-10 mb-10" data-testid="event-prizes-section">
-            <p className="eyebrow mb-4">/ Prize Pool</p>
+            <p className="eyebrow mb-4">/ Prize Pool Worth</p>
             <h2 className="headline text-3xl lg:text-4xl mb-6">What you can win</h2>
             <ul className="space-y-3 text-bone/80 leading-relaxed">
               {event.prizes.map((item) => (

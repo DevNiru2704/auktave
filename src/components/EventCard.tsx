@@ -27,6 +27,12 @@ export default function EventCard({ event, index = 0 }: EventCardProps) {
           </span>
           <ArrowUpRight size={18} className="text-bone/40 group-hover:text-signal group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
         </div>
+        {event.slug === "hackathon" ? (
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-ember/30 bg-ember/10 px-3 py-1.5 text-[10px] font-mono uppercase tracking-[0.24em] text-ember shadow-[0_0_18px_rgba(255,92,71,0.16)]">
+            <span className="h-2 w-2 rounded-full bg-ember animate-pulse" />
+            CATALYST 2K26
+          </div>
+        ) : null}
         <h3 className="headline text-3xl mb-2 group-hover:text-signal transition-colors">
           {event.name}
         </h3>

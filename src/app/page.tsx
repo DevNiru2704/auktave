@@ -232,6 +232,12 @@ export default function HomePage() {
           <div className="absolute inset-0 vines-bg pointer-events-none" />
           <div className="relative max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-end">
             <div className="lg:col-span-7">
+              {e.slug === "hackathon" ? (
+                <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-ember/30 bg-ember/10 px-4 py-2 text-xs font-mono uppercase tracking-[0.22em] text-ember shadow-[0_0_24px_rgba(255,92,71,0.16)]">
+                  <span className="h-2 w-2 rounded-full bg-ember animate-pulse" />
+                  CATALYST 2K26
+                </div>
+              ) : null}
               <p className="eyebrow mb-4">/ Flagship Event</p>
               <h2 className="headline text-6xl lg:text-8xl leading-[0.9] mb-6">
                 {e.name.includes("Hackathon") ? (

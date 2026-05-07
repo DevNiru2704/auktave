@@ -33,7 +33,7 @@ export default function RoboticsPage() {
                                 <p className="headline text-2xl mt-1 text-bone">{robotics.duration}</p>
                             </div>
                             <div className="card-upside p-5">
-                                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone/50">Prize Pool</p>
+                                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone/50">Prize Pool Worth</p>
                                 <p className="headline text-2xl mt-1 text-signal">{robotics.prizePool}</p>
                             </div>
                         </div>

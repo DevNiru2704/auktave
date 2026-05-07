@@ -42,7 +42,7 @@ export default function RoboticsSubEventPage() {
                     <div className="lg:col-span-4 space-y-4">
                         <Stat icon={Clock} label="Duration" value={subEvent.duration} />
                         <Stat icon={Users} label="Team Size" value={subEvent.teamSize} />
-                        <Stat icon={Trophy} label="Prize Pool" value={subEvent.prizePool} accent />
+                        <Stat icon={Trophy} label="Prize Pool Worth" value={subEvent.prizePool} accent />
                         <Link href="/register" className="btn-signal w-full block text-center mt-4" data-testid="robotics-register-cta">
                             Register Now
                         </Link>

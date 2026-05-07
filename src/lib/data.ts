@@ -3,12 +3,12 @@ export const events = [
     slug: "hackathon",
     name: "24 Hour AI Hackathon",
     tagline: "24 hours. Track-based AI innovation.",
-    summary: "A 24-hour in-campus AI hackathon that brings together innovators, developers, and problem-solvers to build impactful AI solutions. The event is track-based, so teams innovate within predefined AI domains.",
+    summary: "CATALYST 2K26 is a 24-hour in-campus AI hackathon that brings together innovators, developers, and problem-solvers to build impactful AI solutions. The event is track-based, so teams innovate within predefined AI domains.",
     duration: "24 Hours",
-    teamSize: "3 - 5 Members",
+    teamSize: "2 - 5 Members",
     prizePool: "Rs. 50,000+",
     highlight: true,
-    coordinator: { name: "Aritra Sen", role: "Hackathon Lead", phone: "+91 98300 00000", email: "info.auktave@gmail.com" },
+    coordinator: { name: "Sriparna Das", role: "Hackathon Lead", phone: "+91 8961086320", email: "info.auktave@gmail.com" },
     rules: [
       "Open to all students currently enrolled in a college or university; valid college ID required.",
       "Teams must have 2 to 5 members and designate a Team Leader as the primary contact.",
@@ -31,7 +31,7 @@ export const events = [
       "Organizers may modify rules if needed and participants must follow the schedule strictly.",
       "Judges' decisions are final and participation implies acceptance of all rules."
     ],
-    tracks: ["AI for Healthcare", "AI for Education", "AI for Sustainability", "AI for FinTech", "Open Innovation in AI"],
+    tracks: ["AI for Healthcare", "AI for Education", "AI for Sustainability", "AI for FinTech"],
     sections: [
       {
         eyebrow: "/ Overview",
@@ -87,8 +87,7 @@ export const events = [
           "AI for Healthcare: diagnosis, prediction, medical assistance, healthcare accessibility.",
           "AI for Education: smart learning systems, personalized education, teaching automation.",
           "AI for Sustainability: climate solutions, energy optimization, waste management, environmental monitoring.",
-          "AI for FinTech: fraud detection, smart finance tools, trading systems, financial inclusion.",
-          "Open Innovation in AI: any innovative AI-based solution beyond defined tracks."
+          "AI for FinTech: fraud detection, smart finance tools, trading systems, financial inclusion."
         ]
       },
       {
@@ -230,7 +229,7 @@ export const events = [
     summary: "Pick your battlefield: Robo Soccer, Maze Solver, or Drone Obstacle Course. Register once, compete in one sub-event.",
     duration: "2.5 Hours",
     teamSize: "Varies by sub-event",
-    prizePool: "Rs. 26,000",
+    prizePool: "Rs. 30,000",
     highlight: true,
     coordinator: { name: "Riya Banerjee", role: "Robotics Lead", phone: "+91 98300 00001", email: "info.auktave@gmail.com" },
     subEvents: [
@@ -453,6 +452,7 @@ export const events = [
           "Required documents: photocopy of valid Government ID and photocopy of valid College or University or Work ID.",
           "An enrollment letter will be issued after registration and must be presented as a hard copy at the entry gate.",
           "Registration fee is Rs. 400 per participant or team.",
+          "Allowed drone categories: 3-inch, 5-inch, 330mm, 450mm, and 550mm frame classes.",
           "Participants must report at least 30 minutes prior to the event start time; late arrivals are not permitted.",
           "Each participant will be assigned a Point of Contact on arrival.",
           "The drone must pass through every obstacle; failure results in disqualification.",
@@ -555,7 +555,7 @@ export const events = [
     duration: "1 Hour",
     teamSize: "1 Member",
     prizePool: "Hoodies, Swag Kits, Certificates",
-    coordinator: { name: "Vikram Roy", role: "Debate Lead", phone: "+91 98300 00003", email: "info.auktave@gmail.com" },
+    coordinator: { name: "Mizan-ur Rahman Mondal", role: "Field Coordinator", phone: "+91 8240253854", email: "info.auktave@gmail.com" },
     rules: [
       "Open to students from all recognized colleges and universities; register via the official portal.",
       "Required documents at entry: photocopy of valid Government ID and photocopy of valid College/University ID.",
@@ -657,7 +657,7 @@ export const events = [
         ]
       },
       {
-        eyebrow: "/ Prize Pool",
+        eyebrow: "/ Prize Pool Worth",
         title: "Awards and prizes",
         items: [
           "Winners will receive hoodies, swag kits, and certificates of achievement.",
@@ -701,7 +701,7 @@ export const events = [
     duration: "1 Hour",
     teamSize: "1 - 3 Members",
     prizePool: "Rs. 10,000",
-    coordinator: { name: "Ananya Ghosh", role: "Film Lead", phone: "+91 98300 00004", email: "info.auktave@gmail.com" },
+    coordinator: { name: "Sowhardya Biswas", role: "Field Coordinator", phone: "+91 9903404844", email: "info.auktave@gmail.com" },
     rules: [
       "Duration: 1 to 3 minutes including credits. Format: MP4 or MOV, 1080p minimum.",
       "Teams of 1 to 3 members.",
@@ -770,7 +770,7 @@ export const events = [
     duration: "1.5 Hours",
     teamSize: "1 - 4 Members",
     prizePool: "Rs. 30,000",
-    coordinator: { name: "Prof. K. Mukherjee", role: "Academic Lead", phone: "+91 98300 00005", email: "info.auktave@gmail.com" },
+    coordinator: { name: "Humza Ahmad", role: "Field Coordinator", phone: "+91 8240253854", email: "info.auktave@gmail.com" },
     rules: [
       "Open to final year B.Tech students from any college.",
       "Each team gets 8 minutes presentation + 4 minutes Q&A.",
@@ -787,7 +787,7 @@ export const events = [
     duration: "1 Hour",
     teamSize: "Open to all",
     prizePool: "Certificates",
-    coordinator: { name: "IEEE SB AUK Chapter", role: "Society Liaison", phone: "+91 98300 00006", email: "info.auktave@gmail.com" },
+    coordinator: { name: "Humza Ahmad", role: "Field Coordinator", phone: "+91 8240253854", email: "info.auktave@gmail.com" },
     rules: [
       "Speakers must submit a 150–300 word abstract at least 48 hours before the session.",
       "Talk length: 20 minutes presentation + 10 minutes Q&A (unless otherwise stated).",
@@ -882,5 +882,5 @@ export const stats = [
   { value: "48", label: "Hours of Chaos" },
   { value: "7", label: "Events to Explore" },
   { value: "500+", label: "Participants Expected" },
-  { value: "Rs. 1.5L+", label: "Total Prize Pool" }
+  { value: "Rs. 1.5L+", label: "Total Prize Pool Worth" }
 ];
