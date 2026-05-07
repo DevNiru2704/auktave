@@ -5,7 +5,7 @@ export const events = [
     tagline: "24 hours. Track-based AI innovation.",
     summary: "A 24-hour in-campus AI hackathon that brings together innovators, developers, and problem-solvers to build impactful AI solutions. The event is track-based, so teams innovate within predefined AI domains.",
     duration: "24 Hours",
-    teamSize: "2 - 5 Members",
+    teamSize: "3 - 5 Members",
     prizePool: "Rs. 50,000+",
     highlight: true,
     coordinator: { name: "Aritra Sen", role: "Hackathon Lead", phone: "+91 98300 00000", email: "info.auktave@gmail.com" },
@@ -535,7 +535,10 @@ export const events = [
     duration: "2 Hours",
     teamSize: "1 - 5 Members",
     prizePool: "Rs. 25,000",
-    coordinator: { name: "Soumya Dutta", role: "Expo Lead", phone: "+91 98300 00002", email: "info.auktave@gmail.com" },
+    fieldCoordinators: [
+      { name: "Md Saad", role: "Field Coordinator", phone: "+91 98300 00002", email: "info.auktave@gmail.com" },
+      { name: "Khushi Mehta", role: "Field Coordinator", phone: "+91 79808 44018", email: "info.auktave@gmail.com" }
+    ],
     rules: [
       "One booth per project. Posters, demos, and printed material allowed.",
       "Each team gets a 5 minute walkthrough slot with judges.",

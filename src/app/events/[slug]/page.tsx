@@ -27,6 +27,11 @@ export default function EventDetailPage() {
   if (!event) return notFound();
   const rules = event.rules ?? [];
   const isAmityExclusive = event.slug === "btech-presentations";
+  const fieldCoordinators = "fieldCoordinators" in event && Array.isArray(event.fieldCoordinators)
+    ? event.fieldCoordinators
+    : event.coordinator
+      ? [event.coordinator]
+      : [];
   const posterBySlug = {
     hackathon: {
       src: "/images/hackathon_poster.jpeg",
@@ -282,15 +287,19 @@ export default function EventDetailPage() {
         {/* Coordinator */}
         <div className="card-upside p-8 lg:p-10" data-testid="event-coordinator">
           <p className="eyebrow mb-4">/ Field Coordinator</p>
-          <div className="grid sm:grid-cols-2 gap-6 items-center">
-            <div>
-              <h3 className="headline text-3xl">{event.coordinator.name}</h3>
-              <p className="text-ember font-mono text-xs uppercase tracking-[0.2em] mt-1">{event.coordinator.role}</p>
-            </div>
-            <div className="space-y-3 font-mono text-sm">
-              <a href={`tel:${event.coordinator.phone}`} className="flex items-center gap-3 text-bone/70 hover:text-signal transition-colors"><Phone size={14} /> {event.coordinator.phone}</a>
-              <a href={`mailto:${event.coordinator.email}`} className="flex items-center gap-3 text-bone/70 hover:text-signal transition-colors break-all"><Mail size={14} /> {event.coordinator.email}</a>
-            </div>
+          <div className="space-y-6">
+            {fieldCoordinators.map((coordinator) => (
+              <div key={`${coordinator.name}-${coordinator.phone}`} className="grid sm:grid-cols-2 gap-6 items-center">
+                <div>
+                  <h3 className="headline text-3xl">{coordinator.name}</h3>
+                  <p className="text-ember font-mono text-xs uppercase tracking-[0.2em] mt-1">{coordinator.role}</p>
+                </div>
+                <div className="space-y-3 font-mono text-sm">
+                  <a href={`tel:${coordinator.phone}`} className="flex items-center gap-3 text-bone/70 hover:text-signal transition-colors"><Phone size={14} /> {coordinator.phone}</a>
+                  <a href={`mailto:${coordinator.email}`} className="flex items-center gap-3 text-bone/70 hover:text-signal transition-colors break-all"><Mail size={14} /> {coordinator.email}</a>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

@@ -37,6 +37,45 @@ export default function RoboticsPage() {
                                 <p className="headline text-2xl mt-1 text-signal">{robotics.prizePool}</p>
                             </div>
                         </div>
+
+                        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 items-stretch" data-testid="robotics-sub-events">
+                            {subEvents.map((subEvent, index) => (
+                                <Link
+                                    key={subEvent.slug}
+                                    href={`/events/robotics/${subEvent.slug}`}
+                                    className="card-upside p-4 sm:p-5 h-full min-h-45 group flex flex-col"
+                                    data-testid={`robotics-sub-event-${subEvent.slug}`}
+                                >
+                                    <div className="flex items-center justify-between mb-4">
+                                        <span className="tag text-[9px] tracking-[0.28em]">Sub Event / {String(index + 1).padStart(2, "0")}</span>
+                                        <ArrowUpRight
+                                            size={16}
+                                            className="text-bone/40 group-hover:text-signal group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"
+                                        />
+                                    </div>
+                                    <h3 className="headline text-2xl sm:text-[2rem] leading-none mb-2 group-hover:text-signal transition-colors">
+                                        {subEvent.name}
+                                    </h3>
+                                    <p className="text-bone/60 text-sm sm:text-[15px] leading-relaxed mb-4 line-clamp-2 flex-1">
+                                        {subEvent.tagline}
+                                    </p>
+                                    <div className="grid grid-cols-3 gap-2 pt-4 border-t border-ember/10 mt-auto">
+                                        <div>
+                                            <p className="text-[9px] font-mono text-bone/40 uppercase tracking-[0.18em]">Duration</p>
+                                            <p className="text-xs sm:text-sm text-bone mt-1">{subEvent.duration}</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-[9px] font-mono text-bone/40 uppercase tracking-[0.18em]">Team</p>
+                                            <p className="text-xs sm:text-sm text-bone mt-1">{subEvent.teamSize}</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-[9px] font-mono text-bone/40 uppercase tracking-[0.18em]">Prize</p>
+                                            <p className="text-xs sm:text-sm text-signal mt-1">{subEvent.prizePool}</p>
+                                        </div>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
                     </div>
 
                     <div className="lg:col-span-5">
@@ -51,42 +90,6 @@ export default function RoboticsPage() {
                     </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-5" data-testid="robotics-sub-events">
-                    {subEvents.map((subEvent, index) => (
-                        <Link
-                            key={subEvent.slug}
-                            href={`/events/robotics/${subEvent.slug}`}
-                            className="block card-upside p-7 h-full group"
-                            data-testid={`robotics-sub-event-${subEvent.slug}`}
-                        >
-                            <div className="flex items-center justify-between mb-6">
-                                <span className="tag">Sub Event / {String(index + 1).padStart(2, "0")}</span>
-                                <ArrowUpRight
-                                    size={18}
-                                    className="text-bone/40 group-hover:text-signal group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"
-                                />
-                            </div>
-                            <h3 className="headline text-3xl mb-2 group-hover:text-signal transition-colors">
-                                {subEvent.name}
-                            </h3>
-                            <p className="text-bone/60 mb-5 leading-relaxed">{subEvent.tagline}</p>
-                            <div className="grid grid-cols-3 gap-3 pt-5 border-t border-ember/10">
-                                <div>
-                                    <p className="text-[10px] font-mono text-bone/40 uppercase tracking-[0.18em]">Duration</p>
-                                    <p className="text-sm text-bone mt-1">{subEvent.duration}</p>
-                                </div>
-                                <div>
-                                    <p className="text-[10px] font-mono text-bone/40 uppercase tracking-[0.18em]">Team</p>
-                                    <p className="text-sm text-bone mt-1">{subEvent.teamSize}</p>
-                                </div>
-                                <div>
-                                    <p className="text-[10px] font-mono text-bone/40 uppercase tracking-[0.18em]">Prize</p>
-                                    <p className="text-sm text-signal mt-1">{subEvent.prizePool}</p>
-                                </div>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
             </div>
         </div>
     );
