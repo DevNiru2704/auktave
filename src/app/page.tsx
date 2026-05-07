@@ -131,7 +131,7 @@ export default function HomePage() {
             </motion.div>
           </div>
 
-          <div className="lg:col-span-4 space-y-4">
+          <div className="lg:col-span-4">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -145,24 +145,6 @@ export default function HomePage() {
                 priority
                 className="max-w-md mx-auto lg:max-w-none"
               />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.15, duration: 0.8 }}
-              className="card-upside p-6 transform rotate-1"
-            >
-              <p className="eyebrow mb-3">Live Feed / Hawkins</p>
-              <div className="space-y-3 font-mono text-xs">
-                <div className="flex justify-between"><span className="text-bone/50">PORTAL</span><span className="text-signal">OPEN</span></div>
-                <div className="flex justify-between"><span className="text-bone/50">SIGNAL</span><span className="text-ember">SCRAMBLED</span></div>
-                <div className="flex justify-between"><span className="text-bone/50">PARTICIPANTS</span><span className="text-bone">1,247 / 1,500</span></div>
-                <div className="flex justify-between"><span className="text-bone/50">PRIZE POOL</span><span className="text-signal">Rs. 3,00,000+</span></div>
-                <div className="flex justify-between"><span className="text-bone/50">IEEE SB AUK LINK</span><span className="text-ember animate-flicker">CONNECTED</span></div>
-              </div>
-              <div className="mt-5 loading-bar" />
-              <p className="font-mono text-[10px] mt-3 text-bone/40">Transmission stable. Scroll to descend.</p>
             </motion.div>
           </div>
         </div>
@@ -181,7 +163,7 @@ export default function HomePage() {
             <span key={`b${i}`} className="flex items-center gap-3"><Sparkles className="text-signal" size={20} /> 7 events / 1 portal</span>,
             <span key={`c${i}`} className="flex items-center gap-3"><Sparkles className="text-ember" size={20} /> First edition - history is hiring</span>,
             <span key={`d${i}`} className="flex items-center gap-3"><Sparkles className="text-signal" size={20} /> IEEE SB AUK certified session</span>,
-            <span key={`e${i}`} className="flex items-center gap-3"><Sparkles className="text-ember" size={20} /> Rs. 3,00,000+ in prizes</span>
+            <span key={`e${i}`} className="flex items-center gap-3"><Sparkles className="text-ember" size={20} /> Rs. 1.5L+ in prizes</span>
           ])}
         </div>
       </section>
@@ -308,7 +290,7 @@ export default function HomePage() {
           <GlitchText className="text-5xl lg:text-6xl mb-12">Why Cross Over</GlitchText>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { icon: Trophy, title: "Real prize money", body: "Over Rs. 3,00,000 in cash, swag, and internship pipelines across all events." },
+              { icon: Trophy, title: "Real prize money", body: "Over Rs. 1.5L+ in cash, swag, and internship pipelines across all events." },
               { icon: Zap, title: "IEEE SB AUK certified", body: "An IEEE SB AUK Student Chapter session that adds an actual line to your CV." },
               { icon: Users, title: "Industry mentors", body: "Talk to founders, engineers, and academics from across India." },
               { icon: Sparkles, title: "First edition energy", body: "Be a part of the founding cohort. Edition one only happens once." },

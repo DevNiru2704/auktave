@@ -6,7 +6,7 @@ import { Users, Activity } from "lucide-react";
 const COUNTER_NS = "auktave-2k26";
 const COUNTER_KEY = "players";
 const BASELINE = 1187;
-const TARGET = 1500;
+const TARGET = 500;
 const COUNTER_BASE = "https://abacus.jasoncameron.dev";
 
 export async function incrementScoreboard() {
@@ -89,7 +89,7 @@ export default function PlayerScoreboard({ variant = "full" }) {
             />
           </div>
           <div className="flex justify-between"><span className="text-bone/50">SIGNAL</span><span className="text-ember">SCRAMBLED</span></div>
-          <div className="flex justify-between"><span className="text-bone/50">PRIZE POOL</span><span className="text-signal">Rs. 3,00,000+</span></div>
+          <div className="flex justify-between"><span className="text-bone/50">PRIZE POOL</span><span className="text-signal">Rs. 1.5L+</span></div>
           <div className="flex justify-between"><span className="text-bone/50">IEEE SB AUK LINK</span><span className="text-ember animate-flicker">CONNECTED</span></div>
         </div>
         <div className="mt-4 loading-bar" />
@@ -111,7 +111,7 @@ export default function PlayerScoreboard({ variant = "full" }) {
             Participants locked into the <span className="text-ember">grid</span>
           </h2>
           <p className="text-bone/70 leading-relaxed max-w-md">
-            Live count from the AUKTAVE portal. Every successful registration increments the grid in real time. The first 1500 enter. After that, only static.
+            Live count from the AUKTAVE portal. Every successful registration increments the grid in real time. The first 500 enter. After that, only static.
           </p>
         </div>
 

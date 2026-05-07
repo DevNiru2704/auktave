@@ -878,6 +878,6 @@ export const faqs = [
 export const stats = [
   { value: "48", label: "Hours of Chaos" },
   { value: "7", label: "Events to Explore" },
-  { value: "1500+", label: "Participants Expected" },
-  { value: "Rs. 3L+", label: "Total Prize Pool" }
+  { value: "500+", label: "Participants Expected" },
+  { value: "Rs. 1.5L+", label: "Total Prize Pool" }
 ];
