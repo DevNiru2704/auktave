@@ -52,7 +52,7 @@ export default function RoboticsSubEventPage() {
                             className="btn-ghost w-full flex items-center justify-center gap-2"
                             data-testid="robotics-rules-download"
                         >
-                            <FileDown size={16} /> Download Rules PDF
+                            <FileDown size={16} /> Download Rulebook
                         </a>
                     </div>
                 </div>

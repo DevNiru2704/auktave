@@ -768,8 +768,6 @@ export const events = [
     tagline: "Defend your thesis. Win the floor.",
     summary: "Final year B.Tech students present capstone projects to a panel of academics and industry pros.",
     duration: "1.5 Hours",
-    teamSize: "1 - 4 Members",
-    prizePool: "Rs. 30,000",
     coordinator: { name: "Humza Ahmad", role: "Field Coordinator", phone: "+91 8240253854", email: "info.auktave@gmail.com" },
     rules: [
       "Open to final year B.Tech students from any college.",

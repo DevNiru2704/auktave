@@ -37,20 +37,29 @@ export default function EventCard({ event, index = 0 }: EventCardProps) {
           {event.name}
         </h3>
         <p className="text-bone/60 mb-5 leading-relaxed">{event.tagline}</p>
-        <div className="grid grid-cols-3 gap-3 pt-5 border-t border-ember/10">
-          <div>
-            <p className="text-[10px] font-mono text-bone/40 uppercase tracking-[0.18em]">Duration</p>
-            <p className="text-sm text-bone mt-1">{event.duration}</p>
+        {event.slug === "btech-presentations" ? (
+          <div className="pt-5 border-t border-ember/10">
+            <div className="text-center py-4">
+              <p className="text-[10px] font-mono text-bone/40 uppercase tracking-[0.18em]">Note</p>
+              <p className="text-sm text-bone mt-1">Exclusive to Amity University students</p>
+            </div>
           </div>
-          <div>
-            <p className="text-[10px] font-mono text-bone/40 uppercase tracking-[0.18em]">Team</p>
-            <p className="text-sm text-bone mt-1">{event.teamSize}</p>
+        ) : (
+          <div className="grid grid-cols-3 gap-3 pt-5 border-t border-ember/10">
+            <div>
+              <p className="text-[10px] font-mono text-bone/40 uppercase tracking-[0.18em]">Duration</p>
+              <p className="text-sm text-bone mt-1">{event.duration}</p>
+            </div>
+            <div>
+              <p className="text-[10px] font-mono text-bone/40 uppercase tracking-[0.18em]">Team</p>
+              <p className="text-sm text-bone mt-1">{event.teamSize}</p>
+            </div>
+            <div>
+              <p className="text-[10px] font-mono text-bone/40 uppercase tracking-[0.18em]">Prize</p>
+              <p className="text-sm text-signal mt-1">{event.prizePool}</p>
+            </div>
           </div>
-          <div>
-            <p className="text-[10px] font-mono text-bone/40 uppercase tracking-[0.18em]">Prize</p>
-            <p className="text-sm text-signal mt-1">{event.prizePool}</p>
-          </div>
-        </div>
+        )}
       </Link>
     </motion.div>
   );

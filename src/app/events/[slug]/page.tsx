@@ -101,8 +101,12 @@ export default function EventDetailPage() {
 
           <div className="lg:col-span-4 space-y-4">
             <Stat icon={Clock} label="Duration" value={event.duration} />
-            <Stat icon={Users} label="Team Size" value={event.teamSize} />
-            <Stat icon={Trophy} label="Prize Pool Worth" value={event.prizePool} accent />
+            {!isAmityExclusive && (
+              <>
+                <Stat icon={Users} label="Team Size" value={event.teamSize ?? ""} />
+                <Stat icon={Trophy} label="Prize Pool Worth" value={event.prizePool ?? ""} accent />
+              </>
+            )}
             {isAmityExclusive ? (
               <div className="card-upside p-5 text-center border border-ember/20 bg-midnight/40" data-testid="event-exclusive-note">
                 <p className="eyebrow mb-2">/ Registration</p>
@@ -125,20 +129,22 @@ export default function EventDetailPage() {
                 Register Now
               </Link>
             )}
-            <a
-              href={
-                event.slug === "hackathon"
-                  ? "/brochures/ai_hackathon_rulebook.pdf"
-                  : event.slug === "ai-film"
-                    ? "/brochures/AI Short Film Rulebook _20260506_223233_0000.pdf"
-                    : "/brochures/event-rules.pdf"
-              }
-              download
-              className="btn-ghost w-full flex items-center justify-center gap-2"
-              data-testid="event-rules-download"
-            >
-              <FileDown size={16} /> Download Rules PDF
-            </a>
+            {event.slug === "ieee-session" ? null : (
+              <a
+                href={
+                  event.slug === "hackathon"
+                    ? "/brochures/ai_hackathon_rulebook.pdf"
+                    : event.slug === "ai-film"
+                      ? "/brochures/AI Short Film Rulebook _20260506_223233_0000.pdf"
+                      : "/brochures/event-rules.pdf"
+                }
+                download
+                className="btn-ghost w-full flex items-center justify-center gap-2"
+                data-testid="event-rules-download"
+              >
+                <FileDown size={16} /> Download Rulebook
+              </a>
+            )}
           </div>
         </div>
 
