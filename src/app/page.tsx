@@ -31,6 +31,7 @@ function hashString(value: string) {
 
 export default function HomePage() {
   const tickerTrackRef = useRef<HTMLDivElement | null>(null);
+  const sponsorTickerTrackRef = useRef<HTMLDivElement | null>(null);
   const tickerRepeats = 6;
   const tickerItems = [
     <span key="a" className="flex items-center gap-3"><Sparkles className="text-ember" size={20} /> 48 hours of building</span>,
@@ -57,6 +58,41 @@ export default function HomePage() {
       <span className="font-mono text-xs text-bone/40 group-hover:text-ember transition-colors">LOGO_{String(i + 1).padStart(2, "0")}</span>
     </div>
   ]);
+
+  useEffect(() => {
+    const track = sponsorTickerTrackRef.current;
+    if (!track) return;
+
+    const repeatCount = 2;
+    let distance = Math.max(track.scrollWidth / repeatCount, 1);
+    const updateDistance = () => {
+      distance = Math.max(track.scrollWidth / repeatCount, 1);
+    };
+
+    const observer = typeof ResizeObserver !== "undefined"
+      ? new ResizeObserver(updateDistance)
+      : null;
+
+    observer?.observe(track);
+    updateDistance();
+
+    let frameId = 0;
+    const speed = 24;
+
+    const animate = (time: number) => {
+      const offset = distance > 0 ? (time * speed / 1000) % distance : 0;
+      track.style.transform = `matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,${-offset},0,0,1)`;
+      frameId = requestAnimationFrame(animate);
+    };
+
+    frameId = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      observer?.disconnect();
+      track.style.transform = "";
+    };
+  }, []);
 
   useEffect(() => {
     const track = tickerTrackRef.current;
@@ -255,7 +291,7 @@ export default function HomePage() {
             <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-linear-to-r from-bg to-transparent z-10" />
             <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-linear-to-l from-bg to-transparent z-10" />
             <div className="marquee py-2">
-              <div className="marquee-inner marquee-sponsor">
+              <div ref={sponsorTickerTrackRef} className="ticker-track gap-4">
                 {sponsorTickerItems}
                 {sponsorTickerItems}
               </div>
