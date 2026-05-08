@@ -8,6 +8,8 @@ import LenisProvider from "@/components/LenisProvider";
 import Script from "next/script";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { events, faqs, sponsors, stats } from "@/lib/data";
+import { getSocialProfiles } from "@/lib/seo";
 
 const baseUrl = "https://auktave.in";
 
@@ -72,7 +74,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     name: "AUKTAVE 2K26",
     url: baseUrl,
     email: "info.auktave@gmail.com",
-    sameAs: ["https://www.instagram.com/auktave_2k26/"]
+    sameAs: getSocialProfiles()
   };
   const websiteLd = {
     "@context": "https://schema.org",
@@ -84,6 +86,63 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       target: `${baseUrl}/events?query={search_term_string}`,
       "query-input": "required name=search_term_string"
     }
+  };
+  const eventHighlightsLd = events.map((event) => ({
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: event.name,
+    description: event.summary,
+    url: `${baseUrl}/events/${event.slug}`,
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    location: {
+      "@type": "Place",
+      name: "Amity University Kolkata",
+      address: "Amity University Kolkata, Major Arterial Road, Action Area II, New Town, Kolkata 700135"
+    },
+    organizer: {
+      "@type": "Organization",
+      name: "AUKTAVE 2K26",
+      url: baseUrl
+    }
+  }));
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a
+      }
+    }))
+  };
+  const statsLd = {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: "AUKTAVE 2K26 event overview",
+    description: "A high level summary of the AUKTAVE 2K26 TechFest including event scale and participation figures.",
+    hasPart: stats.map((item) => ({
+      "@type": "PropertyValue",
+      name: item.label,
+      value: item.value
+    }))
+  };
+  const sponsorLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "AUKTAVE 2K26 sponsorship tiers",
+    itemListElement: sponsors.map((sponsor, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Offer",
+        name: sponsor.tier,
+        price: sponsor.price,
+        priceCurrency: "INR"
+      }
+    }))
   };
 
   return (
@@ -102,6 +161,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </Script>
         <Script id="ld-website" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify(websiteLd)}
+        </Script>
+        <Script id="ld-events" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify(eventHighlightsLd)}
+        </Script>
+        <Script id="ld-faq" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify(faqLd)}
+        </Script>
+        <Script id="ld-stats" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify(statsLd)}
+        </Script>
+        <Script id="ld-sponsors" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify(sponsorLd)}
         </Script>
         {gaId && gaId !== "G-XXXXXXXXXX" && (
           <>

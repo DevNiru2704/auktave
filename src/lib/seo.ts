@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 const SITE_URL = "https://auktave.in";
 const OG_IMAGE = "/images/auktave_logo.png";
+const INSTAGRAM_URL = "https://www.instagram.com/auktave_2026/";
 
 type PageSeoOptions = {
     title: string;
@@ -19,6 +20,10 @@ export function getSiteUrl() {
 export function toAbsoluteUrl(path: string) {
     const normalized = path.startsWith("/") ? path : `/${path}`;
     return `${SITE_URL}${normalized}`;
+}
+
+export function getSocialProfiles() {
+    return [INSTAGRAM_URL];
 }
 
 export function buildPageMetadata({
