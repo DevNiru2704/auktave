@@ -111,6 +111,15 @@ export default function HelpPage() {
               </div>
             </div>
             <InfoCard icon={MapPin} label="Address" value="Amity University Kolkata, Major Arterial Road, Action Area II, New Town, Kolkata 700135" />
+            <a
+              href="https://maps.app.goo.gl/y9iFFKyNg3noRbJW7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.18em] text-bone/60 hover:text-signal transition-colors px-1"
+            >
+              Open in Google Maps
+              <span className="text-ember">↗</span>
+            </a>
             <div className="card-upside relative z-0 h-72 overflow-hidden" data-testid="help-map">
               <MapView />
             </div>
