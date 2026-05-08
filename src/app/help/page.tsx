@@ -111,7 +111,7 @@ export default function HelpPage() {
               </div>
             </div>
             <InfoCard icon={MapPin} label="Address" value="Amity University Kolkata, Major Arterial Road, Action Area II, New Town, Kolkata 700135" />
-            <div className="card-upside h-72 overflow-hidden" data-testid="help-map">
+            <div className="card-upside relative z-0 h-72 overflow-hidden" data-testid="help-map">
               <MapView />
             </div>
           </div>

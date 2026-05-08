@@ -46,7 +46,7 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50"
+      className="fixed top-0 left-0 right-0 z-[1000]"
       data-testid="main-navbar"
     >
       <AnnouncementBanner />
