@@ -5,7 +5,7 @@ import GlitchText from "@/components/GlitchText";
 const committee = [
     { name: "Humza Ahmad", role: "Core Coordination" },
     { name: "Sriparna Das", role: "Core Coordination & Hackathon Lead" },
-    { name: "Nirmalya Mandal", role: "Web & IT head" },
+    { name: "Nirmalya Mandal", role: "Web & IT Lead" },
     { name: "Md. Ariyan Mondal", role: "Design & Media Lead" },
     { name: "Jeya Maity", role: "Social Media Lead" },
     { name: "Ankur Ghosh", role: "Security & Discipline Lead" },
