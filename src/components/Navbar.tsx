@@ -120,7 +120,7 @@ export default function Navbar() {
 
         <div
           id="mobile-menu"
-          className={`lg:hidden bg-ink/95 border-t border-ember/20 overflow-hidden transition-all duration-300 ease-out ${open ? "max-h-96 opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-2 pointer-events-none"}`}
+          className={`lg:hidden bg-ink/95 border-t border-ember/20 overflow-hidden transition-all duration-300 ease-out ${open ? "max-h-[80dvh] overflow-y-auto opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-2 pointer-events-none"}`}
           data-testid="mobile-menu"
         >
           <ul className={`px-5 py-6 flex flex-col gap-4 transition-all duration-300 ease-out ${open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}`}>
