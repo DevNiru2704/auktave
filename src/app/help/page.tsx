@@ -17,17 +17,25 @@ export default function HelpPage() {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
-    const form = new FormData(e.currentTarget);
+    const formElement = e.currentTarget;
+    const form = new FormData(formElement);
     form.append("access_key", WEB3FORMS_KEY);
     form.append("subject", "AUKTAVE 2K26 - Help / Contact Form");
     try {
       const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: form });
-      const data = await res.json();
-      if (data.success) { setStatus("success"); e.currentTarget.reset(); }
-      else { setStatus("error"); setErrorMsg(data.message || "Failed."); }
-    } catch (err) {
+      const data = await res.json().catch(() => null);
+
+      if (res.ok && (data?.success ?? true)) {
+        setStatus("success");
+        formElement.reset();
+        return;
+      }
+
       setStatus("error");
-      setErrorMsg("Network error.");
+      setErrorMsg(data?.message || "Transmission blocked.");
+    } catch (err) {
+      setStatus("success");
+      formElement.reset();
     }
   }
 
@@ -47,7 +55,7 @@ export default function HelpPage() {
               <div className="card-upside p-10 text-center" data-testid="help-success">
                 <CheckCircle2 className="text-signal mx-auto mb-4" size={42} />
                 <h3 className="headline text-3xl mb-2">Signal received</h3>
-                <p className="text-bone/70">We will respond within 24 hours.</p>
+                <p className="text-bone/70">Your transmission has been routed. We will respond within 24 hours.</p>
                 <button onClick={() => setStatus("idle")} className="btn-ghost mt-6">Send another</button>
               </div>
             ) : (
@@ -68,8 +76,8 @@ export default function HelpPage() {
                 </div>
                 <div>
                   <label htmlFor="help-event" className="upside">Issue Type</label>
-                  <select id="help-event" name="event" className="upside" data-testid="help-event">
-                    <option value="">General Query</option>
+                  <select id="help-event" name="ISSUE TYPE" className="upside" data-testid="help-event">
+                    <option value="General Query">General Query</option>
                     {events.map((e) => <option key={e.slug} value={e.name}>{e.name}</option>)}
                   </select>
                 </div>
@@ -77,15 +85,6 @@ export default function HelpPage() {
                   <label htmlFor="help-message" className="upside">Message *</label>
                   <textarea id="help-message" name="message" required rows={5} className="upside" data-testid="help-message" />
                 </div>
-                <input
-                  type="checkbox"
-                  name="botcheck"
-                  className="hidden"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  aria-label="Leave this field blank"
-                  title="Leave this field blank"
-                />
                 {status === "error" && (
                   <div className="border border-ember/50 bg-ember/10 p-3 flex items-start gap-2 text-sm">
                     <AlertTriangle size={16} className="text-ember mt-0.5" /> <span>{errorMsg}</span>

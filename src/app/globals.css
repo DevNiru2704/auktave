@@ -35,32 +35,7 @@ html, body {
 
 @media (pointer: fine) {
   body.custom-cursor-active,
-  body.custom-cursor-active a,
-  body.custom-cursor-active button,
-  body.custom-cursor-active [role='button'],
-  body.custom-cursor-active input,
-  body.custom-cursor-active textarea,
-  body.custom-cursor-active select,
-  body.custom-cursor-active summary,
-  body.custom-cursor-active .leaflet-container,
-  body.custom-cursor-active .leaflet-popup,
-  body.custom-cursor-active .leaflet-popup-content,
-  body.custom-cursor-active .leaflet-popup-content-wrapper,
-  body.custom-cursor-active .leaflet-popup-close-button,
-  body.custom-cursor-active .leaflet-control-zoom,
-  body.custom-cursor-active .leaflet-control-zoom a,
-  body.custom-cursor-active a:active,
-  body.custom-cursor-active a:focus,
-  body.custom-cursor-active button:active,
-  body.custom-cursor-active button:focus,
-  body.custom-cursor-active [role='button']:active,
-  body.custom-cursor-active [role='button']:focus,
-  body.custom-cursor-active input:active,
-  body.custom-cursor-active input:focus,
-  body.custom-cursor-active textarea:active,
-  body.custom-cursor-active textarea:focus,
-  body.custom-cursor-active select:active,
-  body.custom-cursor-active select:focus {
+  body.custom-cursor-active * {
     cursor: none !important;
   }
 }
