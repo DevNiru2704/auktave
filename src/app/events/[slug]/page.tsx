@@ -136,7 +136,9 @@ export default function EventDetailPage() {
                     ? "/brochures/ai_hackathon_rulebook.pdf"
                     : event.slug === "ai-film"
                       ? "/brochures/AI Short Film Rulebook _20260506_223233_0000.pdf"
-                      : "/brochures/event-rules.pdf"
+                      : event.slug === "tech-debate"
+                        ? "/brochures/Tech Debate Rulebook _20260508_120243_0000.pdf"
+                        : "/brochures/event-rules.pdf"
                 }
                 download
                 className="btn-ghost w-full flex items-center justify-center gap-2"
