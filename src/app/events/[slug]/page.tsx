@@ -142,7 +142,7 @@ export default function EventDetailPage() {
                   This event is exclusive to Amity University students and is not open through the public registration form.
                 </p>
               </div>
-                ) : event.slug === "ieee-session" ? null : event.slug === "hackathon" ? (
+            ) : event.slug === "ieee-session" ? null : event.slug === "hackathon" ? (
               <a
                 href="https://www.hackcatalyst.tech/"
                 target="_blank"
