@@ -55,7 +55,7 @@ export default function EventCard({ event, index = 0 }: EventCardProps) {
               <p className="text-sm text-bone mt-1">{event.teamSize}</p>
             </div>
             <div>
-              <p className="text-[10px] font-mono text-bone/40 uppercase tracking-[0.18em]">Prize</p>
+              <p className="text-[10px] font-mono text-bone/40 uppercase tracking-[0.18em]">Prize Pool Worth</p>
               <p className="text-sm text-signal mt-1">{event.prizePool}</p>
             </div>
           </div>
