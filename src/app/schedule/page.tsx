@@ -97,10 +97,10 @@ function ScheduleColumn({ day, date, entries, accent }: ScheduleColumnProps) {
             </div>
             <ul className="space-y-5">
                 {entries.map((e, i) => (
-                    <li key={e.title} className="flex gap-5 group">
-                        <span className={`font-mono text-xs ${accentClass} pt-1 w-44 md:w-52 shrink-0 uppercase tracking-[0.08em]`}>{e.time}</span>
-                        <span className="w-px bg-bone/10 group-hover:bg-ember/40 transition-colors" />
-                        <div className="flex-1">
+                    <li key={e.title} className="flex flex-col sm:flex-row gap-5 group items-start">
+                        <span className={`font-mono text-xs ${accentClass} pt-1 w-full sm:w-44 md:w-52 flex-none uppercase tracking-[0.08em]`}>{e.time}</span>
+                        <span className="hidden sm:block w-px bg-bone/10 group-hover:bg-ember/40 transition-colors" />
+                        <div className="flex-1 min-w-0">
                             <p className="font-display text-lg font-bold">{e.title}</p>
                             {e.venue && <p className="text-bone/60 text-[10px] font-mono uppercase tracking-[0.16em] mt-1">Venue - {e.venue}</p>}
                             <p className="text-bone/50 text-[11px] mt-2 uppercase tracking-[0.08em] leading-relaxed">{e.note}</p>
