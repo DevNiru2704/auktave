@@ -39,9 +39,9 @@ export default function SponsorshipPage() {
           <a href="/brochures/sponsorship-brochure.pdf" download className="btn-signal flex items-center gap-2" data-testid="download-brochure">
             <FileDown size={16} /> Download Sponsorship Brochure
           </a>
-          <a href="/brochures/sponsorship-proposal.pdf" download className="btn-ghost flex items-center gap-2" data-testid="download-proposal">
+          {/* <a href="/brochures/sponsorship-proposal.pdf" download className="btn-ghost flex items-center gap-2" data-testid="download-proposal">
             <FileDown size={16} /> Download Sponsorship Proposal
-          </a>
+          </a> */}
         </div>
 
         {/* Logos placeholder grid */}

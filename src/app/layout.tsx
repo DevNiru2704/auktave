@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: homeOgTitle,
-    description: "Not all experiments stay in the lab. Step into the upside down of innovation at Amity University Kolkata.",
+    description: "The Ultimate Tech Resonance. Step into the upside down of innovation at Amity University Kolkata.",
     type: "website",
     locale: "en_IN",
     siteName: "AUKTAVE 2K26",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: homeOgTitle,
-    description: "Not all experiments stay in the lab.",
+    description: "The Ultimate Tech Resonance",
     images: [homeOgImage]
   },
   icons: {

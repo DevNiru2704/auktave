@@ -38,7 +38,7 @@ export async function GET(request: Request) {
 
                     <div tw="flex flex-col gap-2">
                         <div tw="flex text-[28px] text-stone-100/90">
-                            Not all experiments stay in the lab.
+                            The Ultimate Tech Resonance
                         </div>
                         <div tw="flex items-center gap-3.5 text-[21px] tracking-[0.08em] uppercase text-red-400/95">
                             <span>AUKTAVE 2K26</span>
