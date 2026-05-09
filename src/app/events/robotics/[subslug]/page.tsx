@@ -31,7 +31,7 @@ export default function RoboticsSubEventPage() {
         startDate: "2026-05-22T11:00:00+05:30",
         endDate: "2026-05-22T13:30:00+05:30",
         url: `${siteUrl}${routePath}`,
-        image: [`${siteUrl}/api/og?title=${encodeURIComponent(subEvent.name)}&route=${encodeURIComponent(routePath)}`],
+        image: [`${siteUrl}/images/og/custom-og.png`],
         location: {
             "@type": "Place",
             name: "Amity University Kolkata",

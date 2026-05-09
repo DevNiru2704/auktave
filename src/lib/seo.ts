@@ -28,11 +28,9 @@ export function getSocialProfiles() {
 }
 
 export function buildOgImageUrl(title: string, path: string) {
-    const params = new URLSearchParams({
-        title,
-        route: path
-    });
-    return `${SITE_URL}/api/og?${params.toString()}`;
+    // Use the static, user-supplied OG image and variants stored under /images/og
+    // For now return the canonical large PNG; callers can substitute WebP/smaller variants if needed.
+    return `${SITE_URL}/images/og/custom-og.png`;
 }
 
 export function buildPageMetadata({

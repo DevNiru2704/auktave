@@ -13,7 +13,7 @@ import { getSocialProfiles } from "@/lib/seo";
 
 const baseUrl = "https://auktave.co.in";
 const homeOgTitle = "Enter The Upside Down Of Innovation";
-const homeOgImage = `${baseUrl}/api/og?title=${encodeURIComponent(homeOgTitle)}&route=${encodeURIComponent("/")}`;
+const homeOgImage = `${baseUrl}/images/og/custom-og.png`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -211,6 +211,23 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             `}</Script>
           </>
         )}
+        <Script id="pwa-meta" strategy="afterInteractive">{`(function(){
+          try{
+            var m=document.createElement('meta');m.name='apple-mobile-web-app-capable';m.content='yes';document.head.appendChild(m);
+            var s=document.createElement('meta');s.name='apple-mobile-web-app-status-bar-style';s.content='black-translucent';document.head.appendChild(s);
+            var t=document.createElement('meta');t.name='mobile-web-app-capable';t.content='yes';document.head.appendChild(t);
+            var l=document.createElement('link');l.rel='apple-touch-icon';l.href='/apple-touch-icon.png';document.head.appendChild(l);
+          }catch(e){console.warn('pwa meta injection failed',e)}
+        })();`}</Script>
+        <Script id="sw-register" strategy="afterInteractive">{`(function(){
+          if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('/sw.js').then(function(reg){
+              // registration successful
+            }).catch(function(err){
+              console.warn('Service worker registration failed:', err);
+            });
+          }
+        })();`}</Script>
       </body>
     </html>
   );

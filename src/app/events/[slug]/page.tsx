@@ -37,7 +37,7 @@ export default function EventDetailPage() {
     startDate: event.startDate ?? undefined,
     endDate: event.endDate ?? undefined,
     url: `${siteUrl}/events/${event.slug}`,
-    image: Array.isArray(event.image) ? event.image : [event.image ?? `${siteUrl}/api/og?title=${encodeURIComponent(event.name)}&route=${encodeURIComponent(`/events/${event.slug}`)}`],
+    image: Array.isArray(event.image) ? event.image : [event.image ?? `${siteUrl}/images/og/custom-og.png`],
     location: {
       "@type": "Place",
       name: "Amity University Kolkata",

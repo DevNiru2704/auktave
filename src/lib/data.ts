@@ -6,7 +6,7 @@ export const events: EventType[] = [
   {
     slug: "hackathon",
     name: "24 Hour AI Hackathon",
-    image: `${site}/api/og?title=${encodeURIComponent("24 Hour AI Hackathon")}&route=${encodeURIComponent("/events/hackathon")}`,
+    image: `${site}/images/og/custom-og.png`,
     performer: { "@type": "Organization", name: "AUKTAVE Organizing Committee" },
     offers: { "@type": "Offer", price: "500", priceCurrency: "INR", availability: "https://schema.org/InStock", url: `${site}/register` },
     startDate: '2026-05-21T11:00:00+05:30',
@@ -234,7 +234,7 @@ export const events: EventType[] = [
   {
     slug: "robotics",
     name: "Robotics Competition",
-    image: `${site}/api/og?title=${encodeURIComponent("Robotics Competition")}&route=${encodeURIComponent("/events/robotics")}`,
+    image: `${site}/images/og/custom-og.png`,
     performer: { "@type": "Organization", name: "AUKTAVE Organizing Committee" },
     offers: { "@type": "Offer", price: "200", priceCurrency: "INR", availability: "https://schema.org/InStock", url: `${site}/register` },
     startDate: '2026-05-22T11:00:00+05:30',
@@ -545,7 +545,7 @@ export const events: EventType[] = [
   {
     slug: "research-expo",
     name: "Research and Project Expo",
-    image: `${site}/api/og?title=${encodeURIComponent("Research and Project Expo")}&route=${encodeURIComponent("/events/research-expo")}`,
+    image: `${site}/images/og/custom-og.png`,
     performer: { "@type": "Organization", name: "AUKTAVE Organizing Committee" },
     offers: { "@type": "Offer", price: "0", priceCurrency: "INR", availability: "https://schema.org/InStock", url: `${site}/register` },
     startDate: '2026-05-21T14:00:00+05:30',
@@ -570,7 +570,7 @@ export const events: EventType[] = [
   {
     slug: "tech-debate",
     name: "AUKTAVE Tech Debate",
-    image: `${site}/api/og?title=${encodeURIComponent("AUKTAVE Tech Debate")}&route=${encodeURIComponent("/events/tech-debate")}`,
+    image: `${site}/images/og/custom-og.png`,
     performer: { "@type": "Organization", name: "AUKTAVE Organizing Committee" },
     offers: { "@type": "Offer", price: "0", priceCurrency: "INR", availability: "https://schema.org/InStock", url: `${site}/register` },
     startDate: '2026-05-21T16:00:00+05:30',
@@ -721,7 +721,7 @@ export const events: EventType[] = [
   {
     slug: "ai-film",
     name: "AI Short Film Showcase",
-    image: `${site}/api/og?title=${encodeURIComponent("AI Short Film Showcase")}&route=${encodeURIComponent("/events/ai-film")}`,
+    image: `${site}/images/og/custom-og.png`,
     performer: { "@type": "Organization", name: "AUKTAVE Organizing Committee" },
     offers: { "@type": "Offer", price: "0", priceCurrency: "INR", availability: "https://schema.org/InStock", url: `${site}/register` },
     startDate: '2026-05-22T15:00:00+05:30',
@@ -796,7 +796,7 @@ export const events: EventType[] = [
   {
     slug: "btech-presentations",
     name: "B.Tech Final Year Presentations",
-    image: `${site}/api/og?title=${encodeURIComponent("B.Tech Final Year Presentations")}&route=${encodeURIComponent("/events/btech-presentations")}`,
+    image: `${site}/images/og/custom-og.png`,
     performer: { "@type": "Organization", name: "AUKTAVE Organizing Committee" },
     offers: { "@type": "Offer", price: "0", priceCurrency: "INR", availability: "https://schema.org/InStock", url: `${site}/register` },
     startDate: '2026-05-22T13:30:00+05:30',
