@@ -13,6 +13,7 @@ type StatProps = {
   label: string;
   value: string;
   accent?: boolean;
+  compact?: boolean;
 };
 
 type EventSection = {
@@ -94,6 +95,64 @@ export default function EventDetailPage() {
             ) : null}
             <p className="text-2xl text-bone/70 font-display max-w-2xl">{event.tagline}</p>
             <p className="mt-6 text-bone/70 leading-relaxed text-lg max-w-2xl">{event.summary}</p>
+            {/* Bento box: on large screens show stats/register to the right edge of the text column */}
+            {poster ? (
+              <div className="hidden lg:flex lg:justify-end lg:mt-6">
+                <div className="w-full max-w-200 space-y-4">
+                  <Stat compact icon={Clock} label="Duration" value={event.duration ?? ""} />
+                  {!isAmityExclusive && (
+                    <>
+                      <Stat compact icon={Users} label="Team Size" value={event.teamSize ?? ""} />
+                      <Stat compact icon={Trophy} label="Prize Pool Worth" value={event.prizePool ?? ""} accent />
+                    </>
+                  )}
+
+                  {isAmityExclusive ? (
+                    <div className="card-upside p-5 text-center border border-ember/20 bg-midnight/40" data-testid="event-exclusive-note">
+                      <p className="eyebrow mb-2">/ Registration</p>
+                      <p className="text-bone/80 leading-relaxed text-sm">
+                        This event is exclusive to Amity University students and is not open through the public registration form.
+                      </p>
+                    </div>
+                  ) : event.slug === "ieee-session" ? null : event.slug === "hackathon" ? (
+                    <a
+                      href="https://www.hackcatalyst.tech/"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="btn-signal w-full block text-center mt-4"
+                      data-testid="event-register-cta"
+                    >
+                      Register Now
+                    </a>
+                  ) : (
+                    <Link href="/register" className="btn-signal w-full block text-center mt-4" data-testid="event-register-cta">
+                      Register Now
+                    </Link>
+                  )}
+
+                  {event.slug === "ieee-session" ? null : (
+                    <a
+                      href={
+                        event.slug === "hackathon"
+                          ? "/brochures/ai_hackathon_rulebook.pdf"
+                          : event.slug === "ai-film"
+                            ? "/brochures/AI Short Film Rulebook _20260506_223233_0000.pdf"
+                            : event.slug === "tech-debate"
+                              ? "/brochures/Tech Debate Rulebook _20260508_120243_0000.pdf"
+                              : event.slug === "robotics"
+                                ? "/brochures/Robotics%20Rulebook%20_20260509_111618_0000.pdf"
+                                : "/brochures/event-rules.pdf"
+                      }
+                      download
+                      className="btn-ghost w-full flex items-center justify-center gap-2"
+                      data-testid="event-rules-download"
+                    >
+                      <FileDown size={16} /> Download Rulebook
+                    </a>
+                  )}
+                </div>
+              </div>
+            ) : null}
 
             {event.slug === "hackathon" && (
               <div className="mt-6 card-upside p-4">
@@ -113,71 +172,72 @@ export default function EventDetailPage() {
               </div>
             )}
           </div>
-
           {poster ? (
             <div className="lg:col-span-5">
-              <EventPoster
-                src={poster.src}
-                alt={poster.alt}
-                width={poster.width}
-                height={poster.height}
-                priority
-                className="max-w-md mx-auto lg:max-w-none lg:sticky lg:top-28"
-              />
-            </div>
-          ) : null}
-
-          <div className="lg:col-span-4 space-y-4">
-            <Stat icon={Clock} label="Duration" value={event.duration ?? ""} />
-            {!isAmityExclusive && (
-              <>
-                <Stat icon={Users} label="Team Size" value={event.teamSize ?? ""} />
-                <Stat icon={Trophy} label="Prize Pool Worth" value={event.prizePool ?? ""} accent />
-              </>
-            )}
-            {isAmityExclusive ? (
-              <div className="card-upside p-5 text-center border border-ember/20 bg-midnight/40" data-testid="event-exclusive-note">
-                <p className="eyebrow mb-2">/ Registration</p>
-                <p className="text-bone/80 leading-relaxed text-sm">
-                  This event is exclusive to Amity University students and is not open through the public registration form.
-                </p>
+              <div className="lg:sticky lg:top-28">
+                <EventPoster
+                  src={poster.src}
+                  alt={poster.alt}
+                  width={poster.width}
+                  height={poster.height}
+                  priority
+                  className="max-w-md mx-auto lg:max-w-none"
+                />
               </div>
-            ) : event.slug === "ieee-session" ? null : event.slug === "hackathon" ? (
-              <a
-                href="https://www.hackcatalyst.tech/"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="btn-signal w-full block text-center mt-4"
-                data-testid="event-register-cta"
-              >
-                Register Now
-              </a>
-            ) : (
-              <Link href="/register" className="btn-signal w-full block text-center mt-4" data-testid="event-register-cta">
-                Register Now
-              </Link>
-            )}
-            {event.slug === "ieee-session" ? null : (
-              <a
-                href={
-                  event.slug === "hackathon"
-                    ? "/brochures/ai_hackathon_rulebook.pdf"
-                    : event.slug === "ai-film"
-                      ? "/brochures/AI Short Film Rulebook _20260506_223233_0000.pdf"
-                      : event.slug === "tech-debate"
-                        ? "/brochures/Tech Debate Rulebook _20260508_120243_0000.pdf"
-                        : event.slug === "robotics"
-                          ? "/brochures/Robotics%20Rulebook%20_20260509_111618_0000.pdf"
-                          : "/brochures/event-rules.pdf"
-                }
-                download
-                className="btn-ghost w-full flex items-center justify-center gap-2"
-                data-testid="event-rules-download"
-              >
-                <FileDown size={16} /> Download Rulebook
-              </a>
-            )}
-          </div>
+            </div>
+          ) : (
+            <div className="lg:col-span-4 space-y-4">
+              <Stat icon={Clock} label="Duration" value={event.duration ?? ""} />
+              {!isAmityExclusive && (
+                <>
+                  <Stat icon={Users} label="Team Size" value={event.teamSize ?? ""} />
+                  <Stat icon={Trophy} label="Prize Pool Worth" value={event.prizePool ?? ""} accent />
+                </>
+              )}
+              {isAmityExclusive ? (
+                <div className="card-upside p-5 text-center border border-ember/20 bg-midnight/40" data-testid="event-exclusive-note">
+                  <p className="eyebrow mb-2">/ Registration</p>
+                  <p className="text-bone/80 leading-relaxed text-sm">
+                    This event is exclusive to Amity University students and is not open through the public registration form.
+                  </p>
+                </div>
+              ) : event.slug === "ieee-session" ? null : event.slug === "hackathon" ? (
+                <a
+                  href="https://www.hackcatalyst.tech/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="btn-signal w-full block text-center mt-4"
+                  data-testid="event-register-cta"
+                >
+                  Register Now
+                </a>
+              ) : (
+                <Link href="/register" className="btn-signal w-full block text-center mt-4" data-testid="event-register-cta">
+                  Register Now
+                </Link>
+              )}
+              {event.slug === "ieee-session" ? null : (
+                <a
+                  href={
+                    event.slug === "hackathon"
+                      ? "/brochures/ai_hackathon_rulebook.pdf"
+                      : event.slug === "ai-film"
+                        ? "/brochures/AI Short Film Rulebook _20260506_223233_0000.pdf"
+                        : event.slug === "tech-debate"
+                          ? "/brochures/Tech Debate Rulebook _20260508_120243_0000.pdf"
+                          : event.slug === "robotics"
+                            ? "/brochures/Robotics%20Rulebook%20_20260509_111618_0000.pdf"
+                            : "/brochures/event-rules.pdf"
+                  }
+                  download
+                  className="btn-ghost w-full flex items-center justify-center gap-2"
+                  data-testid="event-rules-download"
+                >
+                  <FileDown size={16} /> Download Rulebook
+                </a>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Rules */}
@@ -374,14 +434,14 @@ export default function EventDetailPage() {
   );
 }
 
-function Stat({ icon: Icon, label, value, accent = false }: StatProps) {
+function Stat({ icon: Icon, label, value, accent = false, compact = false }: StatProps) {
   return (
-    <div className="card-upside p-5">
-      <div className="flex items-start gap-3">
-        <Icon className={accent ? "text-signal" : "text-ember"} size={20} />
+    <div className={"card-upside " + (compact ? "p-3" : "p-5")}>
+      <div className={"flex items-start gap-3 " + (compact ? "text-sm" : "")}>
+        <Icon className={accent ? "text-signal" : "text-ember"} size={compact ? 18 : 20} />
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone/50">{label}</p>
-          <p className={`headline text-2xl mt-1 ${accent ? "text-signal" : "text-bone"}`}>{value}</p>
+          <p className={`headline ${compact ? "text-xl" : "text-2xl"} mt-1 ${accent ? "text-signal" : "text-bone"}`}>{value}</p>
         </div>
       </div>
     </div>
