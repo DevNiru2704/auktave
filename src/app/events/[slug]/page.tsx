@@ -97,7 +97,7 @@ export default function EventDetailPage() {
             <p className="mt-6 text-bone/70 leading-relaxed text-lg max-w-2xl">{event.summary}</p>
             {/* Bento box: on large screens show stats/register to the right edge of the text column */}
             {poster ? (
-              <div className="hidden lg:flex lg:justify-end lg:mt-6">
+              <div className="flex flex-col lg:flex-row lg:justify-end lg:mt-6 mt-6">
                 <div className="w-full max-w-200 space-y-4">
                   <Stat compact icon={Clock} label="Duration" value={event.duration ?? ""} />
                   {!isAmityExclusive && (
@@ -173,7 +173,7 @@ export default function EventDetailPage() {
             )}
           </div>
           {poster ? (
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 order-first lg:order-none">
               <div className="lg:sticky lg:top-28">
                 <EventPoster
                   src={poster.src}
