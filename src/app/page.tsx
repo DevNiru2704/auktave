@@ -151,7 +151,7 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative min-h-screen pt-24 pb-16 overflow-hidden vines-bg" data-testid="hero-section">
+      <section className="relative min-h-[100svh] min-h-screen pt-24 pb-16 overflow-hidden vines-bg" data-testid="hero-section">
         <div className="absolute inset-0 z-0 pointer-events-none">
           <video
             className="h-full w-full object-cover"

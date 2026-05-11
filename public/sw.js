@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v3';
+const CACHE_VERSION = 'v4';
 const CACHE_NAME = `auktave-static-${CACHE_VERSION}`;
 const ASSETS = [
     '/images/auktave_logo.png',
@@ -50,23 +50,9 @@ self.addEventListener('fetch', (event) => {
     // Only handle same-origin GET requests
     if (event.request.method !== 'GET' || url.origin !== location.origin) return;
 
-    const acceptHeader = event.request.headers.get('accept') || '';
-    const isHtmlRequest = event.request.mode === 'navigate' || acceptHeader.includes('text/html');
-    const isStaticAsset = event.request.destination === 'style'
-        || event.request.destination === 'script'
-        || event.request.destination === 'image'
-        || event.request.destination === 'font'
-        || url.pathname.startsWith('/_next/');
+    const isImageRequest = event.request.destination === 'image';
 
-    if (isHtmlRequest) {
-        // Always try network first for HTML to avoid stale deployments.
-        event.respondWith(
-            fetch(event.request, { cache: 'no-store' }).catch(() => caches.match(event.request))
-        );
-        return;
-    }
-
-    if (!isStaticAsset) return;
+    if (!isImageRequest) return;
 
     event.respondWith(
         caches.match(event.request).then((cached) => cached || fetch(event.request).then((res) => {
