@@ -1,6 +1,23 @@
-const CACHE_VERSION = 'v2';
+const CACHE_VERSION = 'v3';
 const CACHE_NAME = `auktave-static-${CACHE_VERSION}`;
 const ASSETS = [
+    '/images/auktave_logo.png',
+    '/images/auktave_main_poster.jpeg',
+    '/images/hackathon_poster.png',
+    '/images/robotics_competition_poster.jpeg',
+    '/images/ai_short_film_poster.jpeg',
+    '/images/teams_auktave/amisha_profile.jpeg',
+    '/images/teams_auktave/ankur_profile.jpeg',
+    '/images/teams_auktave/ariyan_profile.jpeg',
+    '/images/teams_auktave/atul_profile.jpeg',
+    '/images/teams_auktave/humza_profile.jpeg',
+    '/images/teams_auktave/jeya_profile.jpeg',
+    '/images/teams_auktave/khushi_profile.jpeg',
+    '/images/teams_auktave/mizan_profile.jpeg',
+    '/images/teams_auktave/nirmalya_profile.jpeg',
+    '/images/teams_auktave/sowhardya_profile.jpeg',
+    '/images/teams_auktave/sriparna_profile.jpeg',
+    '/images/teams_auktave/suhana_profile.jpeg',
     '/favicon.ico',
     '/favicon-32x32.png',
     '/images/og/custom-og.png',

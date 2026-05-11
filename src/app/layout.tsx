@@ -224,8 +224,30 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         })();`}</Script>
         <Script id="sw-register" strategy="afterInteractive">{`(function(){
           if('serviceWorker' in navigator){
+            var refreshing = false;
+            navigator.serviceWorker.addEventListener('controllerchange', function(){
+              if (refreshing) return;
+              refreshing = true;
+              window.location.reload();
+            });
             navigator.serviceWorker.register('/sw.js').then(function(reg){
-              // registration successful
+              function promptForUpdate(){
+                if (reg.waiting && window.confirm('A new version is available. Refresh now?')){
+                  reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+                }
+              }
+              if (reg.waiting){
+                promptForUpdate();
+              }
+              reg.addEventListener('updatefound', function(){
+                var newWorker = reg.installing;
+                if (!newWorker) return;
+                newWorker.addEventListener('statechange', function(){
+                  if (newWorker.state === 'installed' && navigator.serviceWorker.controller){
+                    promptForUpdate();
+                  }
+                });
+              });
             }).catch(function(err){
               console.warn('Service worker registration failed:', err);
             });
