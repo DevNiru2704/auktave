@@ -302,6 +302,16 @@ html.lenis { height: auto; }
 }
 .card-upside:hover::before { opacity: 1; }
 
+.hero-section {
+  min-height: 100vh;
+}
+
+@supports (height: 100svh) {
+  .hero-section {
+    min-height: 100svh;
+  }
+}
+
 /* Ticker */
 .marquee {
   position: relative;
