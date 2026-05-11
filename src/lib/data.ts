@@ -17,7 +17,7 @@ export const events: EventType[] = [
     teamSize: "2 - 5 Members",
     prizePool: "₹50,000+",
     highlight: true,
-    registrationFee: "₹200 per head",
+    registrationFee: "₹200 per team",
     coordinator: { name: "Sriparna Das", role: "Hackathon Lead", phone: "+91 8961086320", email: "info.auktave@gmail.com" },
     rules: [
       "Open to all students currently enrolled in a college or university; valid college ID required.",
@@ -220,7 +220,7 @@ export const events: EventType[] = [
         eyebrow: "/ FAQs",
         title: "Frequently asked questions",
         items: [
-          "Is there any registration fee? Yes, the registration fee is ₹200 per head.",
+          "Is there any registration fee? Yes, the registration fee is ₹200 per team.",
           "Can we change our track after selecting it? Yes, teams can change their track even on the day of the event.",
           "Will basic facilities like internet, power, and food be provided? Yes, internet access, charging points, and food will be provided throughout the event.",
           "Are participants required to stay at the venue for the full duration? Yes, participants must remain at the venue for the entire duration of the hackathon.",
