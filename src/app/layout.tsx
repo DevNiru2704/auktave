@@ -225,6 +225,46 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Script id="sw-register" strategy="afterInteractive">{`(function(){
           if('serviceWorker' in navigator){
             var refreshing = false;
+            var bannerEl = null;
+            function showUpdateBanner(){
+              if (bannerEl) return;
+              var banner = document.createElement('div');
+              banner.setAttribute('data-sw-update-banner', 'true');
+              banner.className = 'card-upside sw-update-banner';
+
+              var text = document.createElement('div');
+              text.className = 'sw-update-banner__text';
+              text.innerText = 'A new signal just landed. Update the site?';
+
+              var actions = document.createElement('div');
+              actions.className = 'sw-update-banner__actions';
+
+              var updateBtn = document.createElement('button');
+              updateBtn.type = 'button';
+              updateBtn.className = 'btn-signal sw-update-banner__btn';
+              updateBtn.innerText = 'Update';
+
+              var dismissBtn = document.createElement('button');
+              dismissBtn.type = 'button';
+              dismissBtn.className = 'btn-ghost sw-update-banner__btn sw-update-banner__btn--ghost';
+              dismissBtn.innerText = 'Later';
+
+              dismissBtn.addEventListener('click', function(){
+                if (bannerEl && bannerEl.parentNode){
+                  bannerEl.parentNode.removeChild(bannerEl);
+                  bannerEl = null;
+                }
+              });
+
+              actions.appendChild(updateBtn);
+              actions.appendChild(dismissBtn);
+              banner.appendChild(text);
+              banner.appendChild(actions);
+              document.body.appendChild(banner);
+              bannerEl = banner;
+              return updateBtn;
+            }
+
             navigator.serviceWorker.addEventListener('controllerchange', function(){
               if (refreshing) return;
               refreshing = true;
@@ -232,8 +272,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             });
             navigator.serviceWorker.register('/sw.js').then(function(reg){
               function promptForUpdate(){
-                if (reg.waiting && window.confirm('A new version is available. Refresh now?')){
-                  reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+                if (!reg.waiting) return;
+                var updateBtn = showUpdateBanner();
+                if (updateBtn){
+                  updateBtn.addEventListener('click', function(){
+                    reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+                  }, { once: true });
                 }
               }
               if (reg.waiting){
