@@ -142,7 +142,9 @@ export default function EventDetailPage() {
                               ? "/brochures/Tech Debate Rulebook _20260508_120243_0000.pdf"
                               : event.slug === "robotics"
                                 ? "/brochures/Robotics%20Rulebook%20_20260509_111618_0000.pdf"
-                                : "/brochures/event-rules.pdf"
+                                : event.slug === "btech-presentations"
+                                  ? "/brochures/Final%20Year%20Presentation%20Poster%20_20260511_151521_0000.pdf"
+                                  : "/brochures/event-rules.pdf"
                       }
                       download
                       className="btn-ghost w-full flex items-center justify-center gap-2"
@@ -229,7 +231,9 @@ export default function EventDetailPage() {
                           ? "/brochures/Tech Debate Rulebook _20260508_120243_0000.pdf"
                           : event.slug === "robotics"
                             ? "/brochures/Robotics%20Rulebook%20_20260509_111618_0000.pdf"
-                            : "/brochures/event-rules.pdf"
+                            : event.slug === "btech-presentations"
+                              ? "/brochures/Final%20Year%20Presentation%20Poster%20_20260511_151521_0000.pdf"
+                              : "/brochures/event-rules.pdf"
                   }
                   download
                   className="btn-ghost w-full flex items-center justify-center gap-2"
